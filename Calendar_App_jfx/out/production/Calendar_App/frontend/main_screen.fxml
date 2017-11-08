@@ -8,20 +8,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<Pane maxHeight="411.0" maxWidth="610.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="610.0" scaleShape="false" style="-fx-background-color: #66ffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="411.0" maxWidth="610.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="610.0" scaleShape="false" style="-fx-background-color: #66ffff;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.main_controller">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="610.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem fx:id="pref_BTN" mnemonicParsing="false" onAction="#open_pref" text="Preferences" />
               <MenuItem mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Events">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Add Event" />
-                  <MenuItem mnemonicParsing="false" text="Delete Event" />
+                  <MenuItem fx:id="add_BTN" mnemonicParsing="false" onAction="#open_create" text="Add Event" />
+                  <MenuItem fx:id="edit_BTN" mnemonicParsing="false" onAction="#open_edit" text="Edit Event" />
+                  <MenuItem mnemonicParsing="false" onAction="#delete_event" text="Delete Event" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="List">
