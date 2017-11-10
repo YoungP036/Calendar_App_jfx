@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="411.0" maxWidth="610.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="610.0" scaleShape="false" style="-fx-background-color: #66ffff;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.main_controller">
+<Pane maxHeight="411.0" maxWidth="610.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="610.0" scaleShape="false" style="-fx-background-color: #007700;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.main_controller">
    <children>
-      <MenuBar prefHeight="29.0" prefWidth="610.0">
+      <MenuBar prefHeight="29.0" prefWidth="610.0" style="-fx-background-color: #00FF00;">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -23,17 +23,17 @@
                   <MenuItem fx:id="add_BTN" mnemonicParsing="false" onAction="#open_create" text="Add Event" />
                   <MenuItem fx:id="edit_BTN" mnemonicParsing="false" onAction="#open_edit" text="Edit Event" />
                   <MenuItem mnemonicParsing="false" onAction="#delete_event" text="Delete Event" />
+                  <MenuItem mnemonicParsing="false" text="Search Opening" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="List">
+          <Menu mnemonicParsing="false" text="Export">
             <items>
-                  <MenuItem mnemonicParsing="false" text="List Openings" />
-                  <MenuItem mnemonicParsing="false" text="List Events" />
+                  <MenuItem mnemonicParsing="false" text="Export to Desktop" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <GridPane layoutX="-3.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="612.0" style="-fx-background-color: #66ffff; -fx-grid-lines-visible: true;">
+      <GridPane layoutX="-3.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="607.0" style="-fx-background-color: #00cc00; -fx-grid-lines-visible: true;">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -509,6 +509,20 @@
                </rowConstraints>
             </GridPane>
          </children>
+      </GridPane>
+      <GridPane layoutX="-1.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="612.0" style="-fx-background-color: #008800;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="0.0" prefWidth="95.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="105.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
       </GridPane>
    </children>
 </Pane>

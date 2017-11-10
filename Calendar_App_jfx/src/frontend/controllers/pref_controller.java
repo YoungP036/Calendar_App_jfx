@@ -1,4 +1,4 @@
-package frontend;
+package frontend.controllers;
 
 import static frontend.Main.set_pane;
 

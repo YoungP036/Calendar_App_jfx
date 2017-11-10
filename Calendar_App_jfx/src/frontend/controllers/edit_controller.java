@@ -1,4 +1,6 @@
-package frontend;
+package frontend.controllers;
+
+import frontend.Main;
 
 public class edit_controller {
     public void confirm_changes(){

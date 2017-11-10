@@ -18,10 +18,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         try{
-            root = FXMLLoader.load(getClass().getResource("anchor.fxml"));
-            grid.add(FXMLLoader.load(getClass().getResource("main_screen.fxml")));
-            grid.add(FXMLLoader.load(getClass().getResource("pref_screen.fxml")));
-            grid.add(FXMLLoader.load(getClass().getResource("edit_screen.fxml")));
+            root = FXMLLoader.load(getClass().getResource("screens/anchor.fxml"));
+            grid.add(FXMLLoader.load(getClass().getResource("screens/main_screen.fxml")));
+            grid.add(FXMLLoader.load(getClass().getResource("screens/pref_screen.fxml")));
+            grid.add(FXMLLoader.load(getClass().getResource("screens/edit_screen.fxml")));
 //            grid.add((GridPane)FXMLLoader.load(getClass().getResource("pref_screen.fxml")));
             //add more to grid here
 
