@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="351.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.pref_controller">
    <children>
-      <DatePicker layoutX="135.0" layoutY="28.0" />
-      <DatePicker layoutX="135.0" layoutY="76.0" />
-      <DatePicker layoutX="135.0" layoutY="118.0" />
-      <DatePicker layoutX="135.0" layoutY="159.0" />
-      <Button layoutX="263.0" layoutY="306.0" mnemonicParsing="false" onAction="#close_pref" text="Confirm" />
+      <Button layoutX="180.0" layoutY="306.0" mnemonicParsing="false" onAction="#confirm_pref" text="Confirm" />
+      <Button layoutX="263.0" layoutY="306.0" mnemonicParsing="false" onAction="#return_to_main" text="Cancel" />
+      <Group fx:id="workPref_GRP" layoutX="22.0" layoutY="115.0">
+         <children>
+            <Label text="Workdays" />
+            <CheckBox fx:id="sun_CHK" layoutY="30" mnemonicParsing="false" text="Sunday" />
+            <CheckBox fx:id="mon_CHK" layoutY="60" mnemonicParsing="false" text="Monday" />
+            <CheckBox fx:id="tues_CHK" layoutY="90" mnemonicParsing="false" text="Tuesday" />
+            <CheckBox fx:id="wed_CHK" layoutY="120" mnemonicParsing="false" text="Wednesday" />
+            <CheckBox fx:id="thurs_CHK" layoutY="150" mnemonicParsing="false" text="Thursday" />
+            <CheckBox fx:id="fri_CHK" layoutY="180" mnemonicParsing="false" text="Friday" />
+            <CheckBox fx:id="sat_CHK" layoutY="210" mnemonicParsing="false" text="Saturday" />
+         </children>
+      </Group>
+      <TextField id="workStart_TXT" fx:id="workStart_TXT" layoutX="155.0" layoutY="30.0" onAction="#validate_work_sTime" promptText="HH:MM" />
+      <TextField id="workEnd_TXT" fx:id="workEnd_TXT" layoutX="155.0" layoutY="70.0" onAction="#validate_work_eTime" promptText="HH:MM" />
+      <Label layoutX="34.0" layoutY="35.0" text="Work Start Time:" />
+      <Label layoutX="37.0" layoutY="75.0" text="Work End Time:" />
    </children>
 </AnchorPane>

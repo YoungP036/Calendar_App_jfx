@@ -2,7 +2,7 @@ package frontend.controllers;
 
 import frontend.Main;
 
-public class main_controller {
+public class main_controller extends universal_controller{
     public void open_pref(){
         Main.set_pane(1);
     }
@@ -14,7 +14,9 @@ public class main_controller {
         //TODO CREATE
         Main.set_pane(2);
     }
-
+    public void open_search(){
+        Main.set_pane(3);
+    }
     public void delete_event(){
 
         //TODO DELETE EVENT
@@ -23,6 +25,7 @@ public class main_controller {
 
     public void save_events(){
         //TODO get all events, output to text file on /home/desktop
-        System.out.println("placeholder export events to text");
+        System.out.println("TODO get all events and save to text");
     }
+
 }

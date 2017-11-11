@@ -20,6 +20,10 @@
       <TextField fx:id="loc_TXT" layoutX="110.0" layoutY="122.0" prefHeight="26.0" prefWidth="458.0" />
       <TextArea fx:id="desc_TXT" layoutX="109.0" layoutY="156.0" prefHeight="44.0" prefWidth="458.0" />
       <Button layoutX="466.0" layoutY="334.0" mnemonicParsing="false" onAction="#confirm_changes" text="Confirm" />
-      <Button layoutX="362.0" layoutY="334.0" mnemonicParsing="false" onAction="#cancel_changes" text="Cancel" />
+      <Button layoutX="362.0" layoutY="334.0" mnemonicParsing="false" onAction="#return_to_main" text="Cancel" />
+      <TextField fx:id="sTime_TXT" onAction="#validate_sTime" layoutX="416.0" layoutY="21.0" promptText="HH:MM" />
+      <TextField fx:id="eTime_TXT" onAction="#validate_eTime" layoutX="416.0" layoutY="53.0" text="HH:MM" />
+      <Label layoutX="339.0" layoutY="26.0" text="Start Time:" />
+      <Label layoutX="343.0" layoutY="58.0" text="End Time:" />
    </children>
 </AnchorPane>

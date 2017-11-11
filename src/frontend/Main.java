@@ -22,10 +22,8 @@ public class Main extends Application {
             grid.add(FXMLLoader.load(getClass().getResource("screens/main_screen.fxml")));
             grid.add(FXMLLoader.load(getClass().getResource("screens/pref_screen.fxml")));
             grid.add(FXMLLoader.load(getClass().getResource("screens/edit_screen.fxml")));
-//            grid.add((GridPane)FXMLLoader.load(getClass().getResource("pref_screen.fxml")));
-            //add more to grid here
+            grid.add(FXMLLoader.load(getClass().getResource("screens/search_screen.fxml")));
 
-//            root.getChildren().add(grid.get(0));
             set_pane(0);
             Scene scene = new Scene(root,610,411);
 //            scene.getStyleSheets().add(getClass().getResource("app.css").toExternalFOrm());
@@ -36,7 +34,7 @@ public class Main extends Application {
         }
 
 
-//        Parent root = FXMLLoader.load(getClass().getResource("main_screen.fxml"));
+//        Parent root  FXMLLoader.load(getClass().getResource("main_screen.fxml"));
 ////        primaryStage.setTitle("Hello World");
 //        primaryStage.setScene(new Scene(root, 610, 411));
 //        primaryStage.setResizable(false);
