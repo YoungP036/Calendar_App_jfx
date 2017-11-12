@@ -12,43 +12,35 @@ import java.util.List;
 
 public class Main extends Application {
 
-    static Pane root;
-    static List<AnchorPane> grid = new ArrayList<>();
+    static private Pane root;
+    static public List<AnchorPane> screenList = new ArrayList<>();
     private static int idx_cur=0;
     @Override
     public void start(Stage primaryStage) throws Exception{
         try{
             root = FXMLLoader.load(getClass().getResource("screens/anchor.fxml"));
-            grid.add(FXMLLoader.load(getClass().getResource("screens/main_screen.fxml")));
-            grid.add(FXMLLoader.load(getClass().getResource("screens/pref_screen.fxml")));
-            grid.add(FXMLLoader.load(getClass().getResource("screens/edit_screen.fxml")));
-            grid.add(FXMLLoader.load(getClass().getResource("screens/search_screen.fxml")));
+            screenList.add(FXMLLoader.load(getClass().getResource("screens/main_screen.fxml")));
+            screenList.add(FXMLLoader.load(getClass().getResource("screens/pref_screen.fxml")));
+            screenList.add(FXMLLoader.load(getClass().getResource("screens/edit_screen.fxml")));
+            screenList.add(FXMLLoader.load(getClass().getResource("screens/search_screen.fxml")));
 
             set_pane(0);
             Scene scene = new Scene(root,610,411);
 //            scene.getStyleSheets().add(getClass().getResource("app.css").toExternalFOrm());
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch(Exception e){
             e.printStackTrace();
         }
-
-
-//        Parent root  FXMLLoader.load(getClass().getResource("main_screen.fxml"));
-////        primaryStage.setTitle("Hello World");
-//        primaryStage.setScene(new Scene(root, 610, 411));
-//        primaryStage.setResizable(false);
-//        primaryStage.show();
     }
 
-    public static AnchorPane get_pane(int idx){
-        return grid.get(idx);
-    }
-    public static void set_pane(int idx){
-        root.getChildren().remove(grid.get(idx_cur));
-        root.getChildren().add(grid.get(idx));
+    private static void set_pane(int idx){
+        root.getChildren().remove(screenList.get(idx_cur));
+        root.getChildren().add(screenList.get(idx));
         idx_cur=idx;
     }
+
 
     public static void main(String[] args) {
         launch(args);

@@ -1,18 +1,28 @@
 package frontend.controllers;
 
 import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-
-import static frontend.Main.set_pane;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class universal_controller {
 
+    @FXML
+    private Button cancel_BTN;
     public void complete_shutdown(){
         Platform.exit();
     }
-    public void return_to_main(){
-        set_pane(0);
+
+    @FXML
+    private void return_to_main(){
+        Stage stage = (Stage)cancel_BTN.getScene().getWindow();
+        stage.close();
     }
+
     public boolean validate_time(String time){
         System.out.println("TODO validate time " + time);
         //TODO CREATE SOME REGEX
@@ -36,5 +46,30 @@ public class universal_controller {
         alert.setHeaderText("Input error");
         alert.setContentText("-Times should be HH:MM on a 24 hour clock\n-Lengths should be in minutes and greater then 0");
         alert.showAndWait();
+    }
+
+    public static void new_window(AnchorPane screen){
+        Stage newStage = new Stage();
+
+        if(screen.getScene()==null){
+            Scene scene = new Scene(screen);
+            newStage.setScene(scene);
+        }
+        else
+            newStage.setScene(screen.getScene());
+
+        newStage.show();
+    }
+    public static void new_window(Pane screen){
+        Stage newStage = new Stage();
+
+        if(screen.getScene()==null){
+            Scene scene = new Scene(screen);
+            newStage.setScene(scene);
+        }
+        else
+            newStage.setScene(screen.getScene());
+        newStage.setResizable(false);
+        newStage.show();
     }
 }

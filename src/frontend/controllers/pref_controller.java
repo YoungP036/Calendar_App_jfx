@@ -1,20 +1,24 @@
 package frontend.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import frontend.Main;
+import javafx.stage.Stage;
 
 public class pref_controller extends universal_controller{
     @FXML private TextField workStart_TXT,workEnd_TXT;
+    @FXML private Button confirm_BTN;
 
-    public void confirm_pref(){
+    @FXML
+    private void confirm_pref(){
         System.out.println("TODO SAVE PREF");
-        Main.set_pane(0);
+        Stage stage = (Stage)confirm_BTN.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
-    public void validate_work_sTime(){
+    private void validate_work_sTime(){
         String time = workStart_TXT.getText();
         if(validate_time(time)){
             System.out.println("Input VALID");
@@ -23,7 +27,7 @@ public class pref_controller extends universal_controller{
             invalid_input_dialogue();
     }
     @FXML
-    public void validate_work_eTime(){
+    private void validate_work_eTime(){
         String time = workEnd_TXT.getText();
 
         if(validate_time(time)){

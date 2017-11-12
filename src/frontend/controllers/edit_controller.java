@@ -1,12 +1,16 @@
 package frontend.controllers;
 
-import frontend.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class edit_controller extends universal_controller{
     @FXML private TextField sTime_TXT, eTime_TXT;
-    public void validate_sTime(){
+    @FXML private Button confirm_BTN,cancel_BTN;
+
+    @FXML
+    private void validate_sTime(){
         String time=sTime_TXT.getText();
         if(validate_time(time)) {
             System.out.println("Input VALID");
@@ -15,7 +19,8 @@ public class edit_controller extends universal_controller{
         else
             invalid_input_dialogue();
     }
-    public void validate_eTime(){
+    @FXML
+    private void validate_eTime(){
         String time=eTime_TXT.getText();
         if(validate_time(time)){
             System.out.println("Input VALID");
@@ -24,8 +29,10 @@ public class edit_controller extends universal_controller{
         else
             invalid_input_dialogue();
     }
-    public void confirm_changes(){
-        System.out.println("TODO SAVE CHANGES");
-        Main.set_pane(0);
+    @FXML
+    private void confirm_changes(){
+        System.out.println("TODO SAVE EVENT");
+        Stage stage=(Stage) confirm_BTN.getScene().getWindow();
+        stage.close();
     }
 }

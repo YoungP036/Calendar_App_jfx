@@ -9,8 +9,8 @@
 
 <AnchorPane prefHeight="351.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.pref_controller">
    <children>
-      <Button layoutX="180.0" layoutY="306.0" mnemonicParsing="false" onAction="#confirm_pref" text="Confirm" />
-      <Button layoutX="263.0" layoutY="306.0" mnemonicParsing="false" onAction="#return_to_main" text="Cancel" />
+      <Button fx:id="confirm_BTN" layoutX="266.0" layoutY="298.0" mnemonicParsing="false" onAction="#confirm_pref" prefHeight="39.0" prefWidth="70.0" text="Confirm" />
+      <Button fx:id="cancel_BTN" layoutX="186.0" layoutY="298.0" mnemonicParsing="false" onAction="#return_to_main" prefHeight="39.0" prefWidth="70.0" text="Cancel" />
       <Group fx:id="workPref_GRP" layoutX="22.0" layoutY="115.0">
          <children>
             <Label text="Workdays" />
@@ -26,6 +26,6 @@
       <TextField id="workStart_TXT" fx:id="workStart_TXT" layoutX="155.0" layoutY="30.0" onAction="#validate_work_sTime" promptText="HH:MM" />
       <TextField id="workEnd_TXT" fx:id="workEnd_TXT" layoutX="155.0" layoutY="70.0" onAction="#validate_work_eTime" promptText="HH:MM" />
       <Label layoutX="34.0" layoutY="35.0" text="Work Start Time:" />
-      <Label layoutX="37.0" layoutY="75.0" text="Work End Time:" />
+      <Label layoutX="41.0" layoutY="75.0" text="Work End Time:" />
    </children>
 </AnchorPane>
