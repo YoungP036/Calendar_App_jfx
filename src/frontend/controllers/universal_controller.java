@@ -60,16 +60,5 @@ public class universal_controller {
 
         newStage.show();
     }
-    public static void new_window(Pane screen){
-        Stage newStage = new Stage();
 
-        if(screen.getScene()==null){
-            Scene scene = new Scene(screen);
-            newStage.setScene(scene);
-        }
-        else
-            newStage.setScene(screen.getScene());
-        newStage.setResizable(false);
-        newStage.show();
-    }
 }
