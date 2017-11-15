@@ -1,8 +1,12 @@
 package frontend.controllers;
 
 import frontend.Main;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class main_controller extends universal_controller{
+
     public void open_pref(){
         new_window(Main.screenList.get(1));
     }
