@@ -18,6 +18,6 @@ public class search_controller extends universal_controller{
     @FXML
     private void search(){
         String length= length_TXT.getText();
-        System.out.println("TODO Search opening for " + length + " minute event");
+        System.out.println("TODO Search opening for " + length + " minute Event");
     }
 }
