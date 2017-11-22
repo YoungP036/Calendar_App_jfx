@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Testing/DataServerTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Calendar_App/Backend/DataServer.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar_App.iml" afterPath="$PROJECT_DIR$/Calendar_App.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/DataServer.java" afterPath="$PROJECT_DIR$/src/Backend/DataServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Testing/DataServerTest.java" afterPath="$PROJECT_DIR$/src/Testing/DataServerTest.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,28 +66,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DataServer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="101" column="19" lean-forward="true" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
+            <state relative-caret-position="187">
+              <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#check_and_make_table#0;class#DataServer#0" expanded="false" />
                 <element signature="method#check_and_make_DB#0;class#DataServer#0" expanded="false" />
                 <element signature="method#check_and_make_dir#0;class#DataServer#0" expanded="false" />
-                <marker date="1511390035815" expanded="true" signature="1072:1530" ph="CREATE TABLE... IF" />
+                <marker date="1511391741157" expanded="true" signature="1072:1533" ph="CREATE TABLE... IF" />
+                <marker date="1511391741157" expanded="true" signature="3893:3981" ph="INSERT INTO events... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataServerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataServerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="28" column="50" lean-forward="true" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-              <folding />
+            <state relative-caret-position="234">
+              <caret line="36" column="110" lean-forward="false" selection-start-line="36" selection-start-column="110" selection-end-line="36" selection-end-column="110" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eventBuilderTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Testing/eventBuilderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="34" column="35" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="34" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -205,7 +216,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="959" />
     <option name="height" value="1079" />
   </component>
@@ -382,7 +393,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="EventTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DataServerTest.testSaveEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="Testing.*" />
@@ -393,9 +404,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="Testing" />
-      <option name="MAIN_CLASS_NAME" value="Testing.EventTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Testing.DataServerTest" />
+      <option name="METHOD_NAME" value="testSaveEvent" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -586,19 +597,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.EventTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.eventBuilderTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.userPrefsAndFactoryTests" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.DataServerTest.testInit" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.eventBuilderTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.userPrefsAndFactoryTests" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest.testInit" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.DataServerTest.testSaveEvent" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DataServerTest.testInit" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.eventBuilderTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.userPrefsAndFactoryTests" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.EventTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DataServerTest.testSaveEvent" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DataServerTest.testInit" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.eventBuilderTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.userPrefsAndFactoryTests" />
       </list>
     </recent_temporary>
   </component>
@@ -639,7 +650,7 @@
       <workItem from="1510800357547" duration="6000" />
       <workItem from="1510800379555" duration="8213000" />
       <workItem from="1510818162936" duration="53000" />
-      <workItem from="1511385546806" duration="4486000" />
+      <workItem from="1511385546806" duration="6215000" />
     </task>
     <servers />
   </component>
@@ -650,17 +661,11 @@
     <history-entry file="DataServerTest - 2017.11.22 at 17h 34m 16s.xml">
       <configuration name="DataServerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataServerTest_testInit - 2017.11.22 at 17h 28m 50s.xml">
-      <configuration name="DataServerTest.testInit" configurationId="JUnit" />
+    <history-entry file="DataServerTest - 2017.11.22 at 17h 58m 41s.xml">
+      <configuration name="DataServerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataServerTest_testInit - 2017.11.22 at 17h 29m 21s.xml">
-      <configuration name="DataServerTest.testInit" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testInit - 2017.11.22 at 17h 30m 01s.xml">
-      <configuration name="DataServerTest.testInit" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testInit - 2017.11.22 at 17h 30m 13s.xml">
-      <configuration name="DataServerTest.testInit" configurationId="JUnit" />
+    <history-entry file="DataServerTest - 2017.11.22 at 18h 02m 29s.xml">
+      <configuration name="DataServerTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="DataServerTest_testInit - 2017.11.22 at 17h 30m 40s.xml">
       <configuration name="DataServerTest.testInit" configurationId="JUnit" />
@@ -674,12 +679,18 @@
     <history-entry file="DataServerTest_testInit - 2017.11.22 at 17h 32m 41s.xml">
       <configuration name="DataServerTest.testInit" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DataServerTest_testInit - 2017.11.22 at 17h 59m 27s.xml">
+      <configuration name="DataServerTest.testInit" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DataServerTest_testSaveEvent - 2017.11.22 at 18h 01m 06s.xml">
+      <configuration name="DataServerTest.testSaveEvent" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45010000" />
+    <option name="totallyTimeSpent" value="46739000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="959" height="1079" extended-state="4" />
+    <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -690,12 +701,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26100308" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4785276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2877998" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0421875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -772,8 +783,14 @@
           <line>11</line>
           <properties />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Backend/DataServer.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1143,16 +1160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/eventBuilderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="46" lean-forward="false" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/userPrefsAndFactoryTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -1181,24 +1188,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Testing/eventBuilderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="50" lean-forward="true" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
+        <state relative-caret-position="441">
+          <caret line="34" column="35" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="34" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="101" column="19" lean-forward="true" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
+        <state relative-caret-position="187">
+          <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#check_and_make_table#0;class#DataServer#0" expanded="false" />
             <element signature="method#check_and_make_DB#0;class#DataServer#0" expanded="false" />
             <element signature="method#check_and_make_dir#0;class#DataServer#0" expanded="false" />
-            <marker date="1511390035815" expanded="true" signature="1072:1530" ph="CREATE TABLE... IF" />
+            <marker date="1511391741157" expanded="true" signature="1072:1533" ph="CREATE TABLE... IF" />
+            <marker date="1511391741157" expanded="true" signature="3893:3981" ph="INSERT INTO events... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="36" column="110" lean-forward="false" selection-start-line="36" selection-start-column="110" selection-end-line="36" selection-end-column="110" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

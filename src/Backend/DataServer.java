@@ -35,14 +35,14 @@ public class DataServer {
         String sql = "CREATE TABLE IF NOT EXISTS events (\n"
                 + "id integer PRIMARY KEY,\n"
                 + "name text NOT NULL,\n"
-                + "desc text \n"
-                + "capacity real\n"
-                + "loc text \n"
-                + "workType integer\n"
+                + "desc text, \n"
+                + "loc text, \n"
+                + "workType integer, \n"
                 + "sDay text NOT NULL,\n"
                 + "eDay text NOT NULL,\n"
-                + " sTime text NOT NULL,\n"
-                + " eTime text NOT NULL\n"
+                + "sTime text NOT NULL,\n"
+                + "eTime text NOT NULL,\n"
+                + "capacity real\n"
                 + ");";
 
         try(Connection conn = DriverManager.getConnection(url);
@@ -109,11 +109,50 @@ public class DataServer {
 //
 //    }
 
-    public int saveEvent(Event ev){
+    public static int saveEvent(Event ev){
+        String name = ev.getName();
+        String desc = ev.getDesc();
+        String loc = ev.getLoc();
+        String sTime = ev.getsTime().toString();
+        String eTime=ev.geteTime().toString();
+        String sDay=ev.getsDay().toString();
+        String eDay=ev.geteDay().toString();
+        int eType;
+        if(ev.isWorkType())
+            eType=1;
+        else
+            eType=0;
 
+        String sql = "INSERT INTO events(name,desc,loc,sTime,eTime,sDay,eDay,workType) VALUES(?,?,?,?,?,?,?,?)";
+        try(Connection conn = connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setString(1,name);
+            pstmt.setString(2,desc);
+            pstmt.setString(3,loc);
+            pstmt.setString(4,sTime);
+            pstmt.setString(5,eTime);
+            pstmt.setString(6,sDay);
+            pstmt.setString(7,eDay);
+            pstmt.setInt(8,eType);
+            pstmt.executeUpdate();
+        } catch(SQLException e){
+                System.out.println("Save event error: " + e.getMessage());
+                return -1;
+        }
         return 0;
     }
 
+    private static Connection connect(){
+        String home = System.getProperty("user.home");
+        String url = "jdbc:sqlite:" + home + "/cal_app/calDB.db";
+        Connection conn = null;
+        try{
+            conn = DriverManager.getConnection(url);
+        } catch(SQLException e){
+            System.out.println("Connection Fail: " + e.getMessage());
+        }
+        return conn;
+    }
     private static boolean dbExists(){
 
         return false;
