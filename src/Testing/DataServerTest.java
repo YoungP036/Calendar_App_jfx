@@ -16,11 +16,14 @@ import static org.junit.Assert.*;
 public class DataServerTest {
     private eventBuilder eb;
     private Event testEvent;
+    private Event eventIn;
+    private Event eventArr[];
+    private LocalTime time;
+    private LocalDate date;
+
     @Before
     public void setUp() throws Exception {
         eb = new eventBuilder();
-        LocalTime time;
-        LocalDate date;
         time=LocalTime.of(5,15);
         eb.setsTime(time);
         eb.seteTime(time);
@@ -41,6 +44,20 @@ public class DataServerTest {
         DataServer.init();
         assertEquals(DataServer.saveEvent(testEvent),0);
     }
+
+    @Test
+    public void testSaveAndReadEvent(){
+        destroyDB();
+        DataServer.init();
+        DataServer.saveEvent(testEvent);
+        DataServer.saveEvent(testEvent);
+        eventArr=DataServer.getAllEvent();
+        assertEquals(eventArr[1].getName(),"testName");
+        assertEquals(eventArr[0].getName(),"testName");
+        assertEquals(eventArr[0].getsTime().toString(),"05:15");
+        assertEquals(eventArr[0].getsDay().toString(),"2000-03-05");
+        assertEquals(eventArr[0].isWorkType(), true);
+    }
     @Test
     public void testInit(){
 //test both for when DB exists and when it does not
@@ -54,7 +71,7 @@ public class DataServerTest {
         String target_DB=home+"/cal_app/calDB.db";
         File f = new File(target_DB);
         boolean flag =f.delete();
-        System.out.println("DB deleted: " + flag);
+//        System.out.println("DB deleted: " + flag);
     }
 
 

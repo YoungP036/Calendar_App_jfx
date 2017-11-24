@@ -2,6 +2,8 @@ package Backend;
 
 import java.io.File;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 //talks to mySQL DB
 //getAllEvents returns Event arraylist
@@ -12,7 +14,6 @@ import java.sql.*;
 public class DataServer {
 
     public static int init(){
-
         //check for and create DB if needed
         check_and_make_dir();
         if(check_and_make_DB()!=0){
@@ -29,9 +30,6 @@ public class DataServer {
     }
 
     private static int check_and_make_table() {
-        String home = System.getProperty("user.home");
-        String url = "jdbc:sqlite:" + home + "/cal_app/calDB.db";
-
         String sql = "CREATE TABLE IF NOT EXISTS events (\n"
                 + "id integer PRIMARY KEY,\n"
                 + "name text NOT NULL,\n"
@@ -41,12 +39,10 @@ public class DataServer {
                 + "sDay text NOT NULL,\n"
                 + "eDay text NOT NULL,\n"
                 + "sTime text NOT NULL,\n"
-                + "eTime text NOT NULL,\n"
-                + "capacity real\n"
+                + "eTime text NOT NULL\n"
                 + ");";
 
-        try(Connection conn = DriverManager.getConnection(url);
-                Statement stmt = conn.createStatement()) {
+        try(Connection conn = connect(); Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         } catch(SQLException e){
             System.out.println(e.getMessage());
@@ -59,14 +55,11 @@ public class DataServer {
         File target_db = new File(home+"/cal_app/calDB.db");
 
         if(!target_db.exists()){
-            String url = "jdbc:sqlite:"+home+"/cal_app/calDB.db";
-
-            try(Connection conn = DriverManager.getConnection(url)){
-
+            try(Connection conn = connect()){
                 if(conn !=null) {
                     DatabaseMetaData meta = conn.getMetaData();
-                    System.out.println("The driver name is " + meta.getDriverName());
-                    System.out.println("A new database was created");
+//                    System.out.println("The driver name is " + meta.getDriverName());
+//                    System.out.println("A new database was created");
                 }
                 else
                     return -1;
@@ -92,8 +85,8 @@ public class DataServer {
             catch(SecurityException se){
                 System.out.println("Insufficient privs to create database directory");
             }
-            if(flag)
-                System.out.println("DB directory created");
+//            if(flag)
+//                System.out.println("DB directory created");
         }
 
 
@@ -105,9 +98,72 @@ public class DataServer {
 //
 //    }
 
-//    public Event[] getAllEvent(){
-//
-//    }
+//                    + "id integer PRIMARY KEY,\n"
+//                            + "workType integer, \n"
+//                            + "sDay text NOT NULL,\n"
+//                            + "eDay text NOT NULL,\n"
+//                            + "sTime text NOT NULL,\n"
+//                            + "eTime text NOT NULL,\n"
+//                            + ");";
+
+
+    public static Event[] getAllEvent(){
+        eventBuilder eb = new eventBuilder();
+
+        //TODO problem with query
+        String sql = "SELECT id, name, desc, loc, workType, sDay, eDay, sTime, eTime FROM events";
+        String sqlcount="SELECT COUNT(*) FROM events";
+        LocalDate date;
+        LocalTime time;
+        int count=0;
+
+        Event[] events;
+        try(Connection conn = connect();
+            Statement stmt = conn.createStatement();
+            ResultSet countRS = stmt.executeQuery(sqlcount)){
+
+            while(countRS.next())
+                count=countRS.getInt(1);
+//            System.out.println("DBG num rows: " + count);
+
+        }catch(SQLException e) {
+            System.out.println("Row Count error: " + e.getMessage());
+        }
+        events = new Event[count];
+
+        try (Connection conn = connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+//            System.out.println("rs col count:"+rs.getMetaData().getColumnCount());
+
+            count=0;
+
+            // loop through the result set
+            while (rs.next()) {
+//                System.out.println("DBG COUNT: " + count);
+                eb.setName(rs.getString("name"));
+//                System.out.println("DBG name: " + rs.getString("name"));
+                eb.setDesc(rs.getString("desc"));
+                eb.setLoc(rs.getString("loc"));
+                if(rs.getInt("workType")==1)
+                    eb.setType(true);
+                else
+                    eb.setType(false);
+                eb.setsTime(LocalTime.parse(rs.getString("sTime")));
+                eb.seteTime(LocalTime.parse(rs.getString("eTime")));
+                eb.setsDay(LocalDate.parse(rs.getString("sDay")));
+                eb.seteDay(LocalDate.parse(rs.getString("eDay")));
+                events[count]=eb.createEvent();
+                count++;
+            }
+        } catch (SQLException e) {
+            System.out.println("error getting all events: " + e.getMessage());
+        }
+//        System.out.println("event 1 name: " + events[0].getName());
+//        System.out.println("event 2 name: " + events[1].getName());
+        return events;
+    }
 
     public static int saveEvent(Event ev){
         String name = ev.getName();
@@ -134,6 +190,7 @@ public class DataServer {
             pstmt.setString(6,sDay);
             pstmt.setString(7,eDay);
             pstmt.setInt(8,eType);
+//            System.out.println("DBG saving event\n");
             pstmt.executeUpdate();
         } catch(SQLException e){
                 System.out.println("Save event error: " + e.getMessage());
