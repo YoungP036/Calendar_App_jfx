@@ -113,8 +113,6 @@ public class DataServer {
         //TODO problem with query
         String sql = "SELECT id, name, desc, loc, workType, sDay, eDay, sTime, eTime FROM events";
         String sqlcount="SELECT COUNT(*) FROM events";
-        LocalDate date;
-        LocalTime time;
         int count=0;
 
         Event[] events;
