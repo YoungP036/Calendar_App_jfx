@@ -1,5 +1,7 @@
 package frontend.controllers;
 
+import Backend.DataServer;
+import Backend.Event;
 import frontend.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,11 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 import javax.annotation.Resources;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
 import java.util.Calendar;
 import java.util.Date;
@@ -29,53 +33,53 @@ public class main_controller extends universal_controller{
     @FXML private Label dlabel_035, dlabel_036, dlabel_037, dlabel_038, dlabel_039, dlabel_040, dlabel_041;
     //6 indicators per calendar cell
 //row 1
-    @FXML private Pane indicator_00, indicator_10, indicator_20, indicator_30, indicator_40, indicator_50;
-    @FXML private Pane indicator_01, indicator_11, indicator_21, indicator_31, indicator_41, indicator_51;
-    @FXML private Pane indicator_02, indicator_12, indicator_22, indicator_32, indicator_42, indicator_52;
-    @FXML private Pane indicator_03, indicator_13, indicator_23, indicator_33, indicator_43, indicator_53;
-    @FXML private Pane indicator_04, indicator_14, indicator_24, indicator_34, indicator_44, indicator_54;
-    @FXML private Pane indicator_05, indicator_15, indicator_25, indicator_35, indicator_45, indicator_55;
-    @FXML private Pane indicator_06, indicator_16, indicator_26, indicator_36, indicator_46, indicator_56;
+    @FXML private Pane  indicator_10, indicator_20, indicator_30, indicator_40;
+    @FXML private Pane  indicator_11, indicator_21, indicator_31, indicator_41;
+    @FXML private Pane  indicator_12, indicator_22, indicator_32, indicator_42;
+    @FXML private Pane  indicator_13, indicator_23, indicator_33, indicator_43;
+    @FXML private Pane  indicator_14, indicator_24, indicator_34, indicator_44;
+    @FXML private Pane  indicator_15, indicator_25, indicator_35, indicator_45;
+    @FXML private Pane  indicator_16, indicator_26, indicator_36, indicator_46;
 //row 2
-    @FXML private Pane indicator_07, indicator_17, indicator_27, indicator_37, indicator_47, indicator_57;
-    @FXML private Pane indicator_08, indicator_18, indicator_28, indicator_38, indicator_48, indicator_58;
-    @FXML private Pane indicator_09, indicator_19, indicator_29, indicator_39, indicator_49, indicator_59;
-    @FXML private Pane indicator_010, indicator_110, indicator_210, indicator_310, indicator_410, indicator_510;
-    @FXML private Pane indicator_011, indicator_111, indicator_211, indicator_311, indicator_411, indicator_511;
-    @FXML private Pane indicator_012, indicator_112, indicator_212, indicator_312, indicator_412, indicator_512;
-    @FXML private Pane indicator_013, indicator_113, indicator_213, indicator_313, indicator_413, indicator_513;
+    @FXML private Pane indicator_27, indicator_37, indicator_47, indicator_57;
+    @FXML private Pane  indicator_18, indicator_28, indicator_38, indicator_48;
+    @FXML private Pane  indicator_19, indicator_29, indicator_39, indicator_49;
+    @FXML private Pane  indicator_110, indicator_210, indicator_310, indicator_410;
+    @FXML private Pane  indicator_111, indicator_211, indicator_311, indicator_411;
+    @FXML private Pane  indicator_112, indicator_212, indicator_312, indicator_412;
+    @FXML private Pane  indicator_113, indicator_213, indicator_313, indicator_413;
 //row 3
-    @FXML private Pane indicator_014, indicator_114, indicator_214, indicator_314, indicator_414, indicator_514;
-    @FXML private Pane indicator_015, indicator_115, indicator_215, indicator_315, indicator_415, indicator_515;
-    @FXML private Pane indicator_016, indicator_116, indicator_216, indicator_316, indicator_416, indicator_516;
-    @FXML private Pane indicator_017, indicator_117, indicator_217, indicator_317, indicator_417, indicator_517;
-    @FXML private Pane indicator_018, indicator_118, indicator_218, indicator_318, indicator_418, indicator_518;
-    @FXML private Pane indicator_019, indicator_119, indicator_219, indicator_319, indicator_419, indicator_519;
-    @FXML private Pane indicator_020, indicator_120, indicator_220, indicator_320, indicator_420, indicator_520;
+    @FXML private Pane  indicator_114, indicator_214, indicator_314, indicator_414;
+    @FXML private Pane  indicator_115, indicator_215, indicator_315, indicator_415;
+    @FXML private Pane  indicator_116, indicator_216, indicator_316, indicator_416;
+    @FXML private Pane  indicator_117, indicator_217, indicator_317, indicator_417;
+    @FXML private Pane  indicator_118, indicator_218, indicator_318, indicator_418;
+    @FXML private Pane  indicator_119, indicator_219, indicator_319, indicator_419;
+    @FXML private Pane  indicator_120, indicator_220, indicator_320, indicator_420;
 //row 4
-    @FXML private Pane indicator_021, indicator_121, indicator_221, indicator_321, indicator_421, indicator_521;
-    @FXML private Pane indicator_022, indicator_122, indicator_222, indicator_322, indicator_422, indicator_522;
-    @FXML private Pane indicator_023, indicator_123, indicator_223, indicator_323, indicator_423, indicator_523;
-    @FXML private Pane indicator_024, indicator_124, indicator_224, indicator_324, indicator_424, indicator_524;
-    @FXML private Pane indicator_025, indicator_125, indicator_225, indicator_325, indicator_425, indicator_525;
-    @FXML private Pane indicator_026, indicator_126, indicator_226, indicator_326, indicator_426, indicator_526;
-    @FXML private Pane indicator_027, indicator_127, indicator_227, indicator_327, indicator_427, indicator_527;
+    @FXML private Pane  indicator_121, indicator_221, indicator_321, indicator_421;
+    @FXML private Pane  indicator_122, indicator_222, indicator_322, indicator_422;
+    @FXML private Pane  indicator_123, indicator_223, indicator_323, indicator_423;
+    @FXML private Pane  indicator_124, indicator_224, indicator_324, indicator_424;
+    @FXML private Pane  indicator_125, indicator_225, indicator_325, indicator_425;
+    @FXML private Pane  indicator_126, indicator_226, indicator_326, indicator_426;
+    @FXML private Pane  indicator_127, indicator_227, indicator_327, indicator_427;
 //row 5
-    @FXML private Pane indicator_028, indicator_128, indicator_228, indicator_328, indicator_428, indicator_528;
-    @FXML private Pane indicator_029, indicator_129, indicator_229, indicator_329, indicator_429, indicator_529;
-    @FXML private Pane indicator_030, indicator_130, indicator_230, indicator_330, indicator_430, indicator_530;
-    @FXML private Pane indicator_031, indicator_131, indicator_231, indicator_331, indicator_431, indicator_531;
-    @FXML private Pane indicator_032, indicator_132, indicator_232, indicator_332, indicator_432, indicator_532;
-    @FXML private Pane indicator_033, indicator_133, indicator_233, indicator_333, indicator_433, indicator_533;
-    @FXML private Pane indicator_034, indicator_134, indicator_234, indicator_334, indicator_434, indicator_534;
+    @FXML private Pane  indicator_128, indicator_228, indicator_328, indicator_428;
+    @FXML private Pane  indicator_129, indicator_229, indicator_329, indicator_429;
+    @FXML private Pane  indicator_130, indicator_230, indicator_330, indicator_430;
+    @FXML private Pane  indicator_131, indicator_231, indicator_331, indicator_431;
+    @FXML private Pane  indicator_132, indicator_232, indicator_332, indicator_432;
+    @FXML private Pane  indicator_133, indicator_233, indicator_333, indicator_433;
+    @FXML private Pane  indicator_134, indicator_234, indicator_334, indicator_434;
 //row 6
-    @FXML private Pane indicator_035, indicator_135, indicator_235, indicator_335, indicator_435, indicator_535;
-    @FXML private Pane indicator_036, indicator_136, indicator_236, indicator_336, indicator_436, indicator_536;
-    @FXML private Pane indicator_037, indicator_137, indicator_237, indicator_337, indicator_437, indicator_537;
-    @FXML private Pane indicator_038, indicator_138, indicator_238, indicator_338, indicator_438, indicator_538;
-    @FXML private Pane indicator_039, indicator_139, indicator_239, indicator_339, indicator_439, indicator_539;
-    @FXML private Pane indicator_040, indicator_140, indicator_240, indicator_340, indicator_440, indicator_540;
-    @FXML private Pane indicator_041, indicator_141, indicator_241, indicator_341, indicator_441, indicator_541;
+    @FXML private Pane  indicator_135, indicator_235, indicator_335, indicator_435;
+    @FXML private Pane  indicator_136, indicator_236, indicator_336, indicator_436;
+    @FXML private Pane  indicator_137, indicator_237, indicator_337, indicator_437;
+    @FXML private Pane  indicator_138, indicator_238, indicator_338, indicator_438;
+    @FXML private Pane  indicator_139, indicator_239, indicator_339, indicator_439;
+    @FXML private Pane  indicator_140, indicator_240, indicator_340, indicator_440;
+    @FXML private Pane  indicator_141, indicator_241, indicator_341, indicator_441;
 
 //    @FXML private Button prev_month_BTN, next_month_BTN;
     private static Pane[][][] indicators;
@@ -124,7 +128,7 @@ public class main_controller extends universal_controller{
         indicators[3][0][0]=indicator_121; indicators[3][0][1]=indicator_221; indicators[3][0][2]=indicator_321; indicators[3][0][3]=indicator_421;
         indicators[3][1][0]=indicator_122; indicators[3][1][1]=indicator_222; indicators[3][1][2]=indicator_322; indicators[3][1][3]=indicator_422;
         indicators[3][2][0]=indicator_123; indicators[3][2][1]=indicator_223; indicators[3][2][2]=indicator_323; indicators[3][2][3]=indicator_423;
-        indicators[3][3][0]=indicator_124; indicators[3][3][1]=indicator_224; indicators[3][3][2]=indicator_324; indicators[3][3][3]=indicator_324;
+        indicators[3][3][0]=indicator_124; indicators[3][3][1]=indicator_224; indicators[3][3][2]=indicator_324; indicators[3][3][3]=indicator_424;
         indicators[3][4][0]=indicator_125; indicators[3][4][1]=indicator_225; indicators[3][4][2]=indicator_325; indicators[3][4][3]=indicator_425;
         indicators[3][5][0]=indicator_126; indicators[3][5][1]=indicator_226; indicators[3][5][2]=indicator_326; indicators[3][5][3]=indicator_426;
         indicators[3][6][0]=indicator_127; indicators[3][6][1]=indicator_227; indicators[3][6][2]=indicator_327; indicators[3][6][3]=indicator_427;
@@ -147,6 +151,7 @@ public class main_controller extends universal_controller{
         indicators[5][6][0]=indicator_141; indicators[5][6][1]=indicator_241; indicators[5][6][2]=indicator_341; indicators[5][6][3]=indicator_441;
 
        //get and set current date to set  month, year, and day labels
+        DataServer.init();
         LocalDate now = LocalDate.now();
         String year = Integer.toString(now.getYear());
         currYear=now.getYear();
@@ -155,6 +160,76 @@ public class main_controller extends universal_controller{
         month_LBL.setText(monthStr);
         year_LBL.setText(year);
         setCalendarCellLabels(now.getMonth().getValue()-1,now.getYear());
+        updateIndicators();
+    }
+    @FXML private static void reset_indicators(){
+        for(int i=0;i<6;i++)
+            for(int j=0;j<7;j++)
+                for(int k=0;k<4;k++)
+                    indicators[i][j][k].setStyle("-fx-background-color: #00cc00");
+    }
+    @FXML public static void updateIndicators(){
+        reset_indicators();
+        Event[] events = DataServer.getAllEvent();
+        int indicator=-1;
+        int cell;
+        int numEvents= Array.getLength(events);
+        String firstDayStr = getFirstDay(currMonth,currYear);
+        int firstDay=-1;
+        switch(firstDayStr) {
+            case "Sunday":
+                firstDay = 0;
+                break;
+            case "Monday":
+                firstDay = 1;
+                break;
+            case "Tuesday":
+                firstDay = 2;
+                break;
+            case "Wednesday":
+                firstDay = 3;
+                break;
+            case "Thursday":
+                firstDay = 4;
+                break;
+            case "Friday":
+                firstDay = 5;
+                break;
+            case "Saturday":
+                firstDay = 6;
+                break;
+        }
+
+        for(int i=0;i<numEvents;i++){
+            LocalTime sTime=events[i].getsTime();
+            LocalDate sDay=events[i].getsDay();
+            int year =sDay.getYear();
+            int month =sDay.getMonth().getValue()-1;
+            int day = sDay.getDayOfMonth();
+            int hour=sTime.getHour();
+
+
+            if(year!=currYear || month!=currMonth)
+                continue;
+
+
+            //convert to 'relative day'
+            day=day+firstDay-1;
+            int row=0;
+            while(day>6){
+                day-=7;
+                row++;
+            }
+            if(hour>=0 && hour <=6)
+                indicator=0;
+            else if(hour>6 && hour <=12)
+                indicator=1;
+            else if(hour>12 && hour <=18)
+                indicator=2;
+            else if(hour>18 && hour<24)
+                indicator=3;
+            indicators[row][day][indicator].setStyle("-fx-background-color: #000000");
+        }
     }
     @FXML
     private void monthBackBTN(){
@@ -166,16 +241,11 @@ public class main_controller extends universal_controller{
             currMonth--;
        setCalendarCellLabels(currMonth,currYear);
        setMonthYearLabels(month_LBL,year_LBL);
-
+       updateIndicators();
     }
-
 
     @FXML
     private void monthForwardBTN(){
-        DateFormatSymbols dfs = new DateFormatSymbols();
-        String[] months=dfs.getMonths();
-        String month;
-
         if(currMonth==11){
             currMonth=0;
             currYear++;
@@ -185,6 +255,7 @@ public class main_controller extends universal_controller{
 
         setCalendarCellLabels(currMonth,currYear);
         setMonthYearLabels(month_LBL, year_LBL);
+        updateIndicators();
     }
 
     @FXML

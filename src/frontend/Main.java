@@ -21,7 +21,7 @@ public class Main extends Application {
             root = FXMLLoader.load(getClass().getResource("screens/anchor.fxml"));
             screenList.add(FXMLLoader.load(getClass().getResource("screens/main_screen.fxml")));
             screenList.add(FXMLLoader.load(getClass().getResource("screens/pref_screen.fxml")));
-            screenList.add(FXMLLoader.load(getClass().getResource("screens/edit_screen.fxml")));
+            screenList.add(FXMLLoader.load(getClass().getResource("screens/add_screen.fxml")));
             screenList.add(FXMLLoader.load(getClass().getResource("screens/search_screen.fxml")));
 
             set_pane(0);

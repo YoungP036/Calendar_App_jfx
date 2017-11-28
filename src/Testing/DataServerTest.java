@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 public class DataServerTest {
     private eventBuilder eb;
-    private Event testEvent;
+    private Event testEvent,testEvent2;
     private Event eventIn;
     private Event eventArr[];
     private LocalTime time;
@@ -27,17 +27,55 @@ public class DataServerTest {
         time=LocalTime.of(5,15);
         eb.setsTime(time);
         eb.seteTime(time);
-        date=LocalDate.of(2000, Month.MARCH,5);
-        eb.setsDay(date);
-        eb.seteDay(date);
-        eb.setDesc("testDesc");
-        eb.setLoc("testLoc");
-        eb.setName("testName");
+        eb.setsDay(LocalDate.parse("2000-03-05"));
+        eb.seteDay(LocalDate.parse("2000-03-05"));
+        eb.setDesc("eventDesc1");
+        eb.setLoc("eventLoc1");
+        eb.setName("eventName1");
         eb.setType(true);
         testEvent=eb.createEvent();
+
+        eb.setsDay(LocalDate.parse("2005-01-01"));
+        eb.seteDay(LocalDate.parse("2005-01-01"));
+        time=LocalTime.of(10,10);
+        eb.setsTime(time);
+        eb.seteTime(time);
+        eb.setDesc("eventDesc2");
+        eb.setLoc("eventLoc2");
+        eb.setName("eventName2");
+        eb.setType(false);
+        testEvent2=eb.createEvent();
     }
 
-    //furthur verified by running cat on the database file, no get event method to verify programmatically ATM
+    @Test public void testDeleteEvent(){
+        destroyDB();
+        DataServer.init();
+        DataServer.saveEvent(testEvent);
+        DataServer.saveEvent(testEvent2);
+        String sTime="05:15";
+        String eTime="05:15";
+        String sDay="2000-03-05";
+        String eDay="2000-03-05";
+
+        DataServer.deleteEvent( sTime,  eTime,  sDay,  eDay);
+        Event[] events = DataServer.getAllEvent();
+        assertNotEquals(events[0].getName(),"eventName1");
+        assertEquals(events[0].getName(),"eventName2");
+    }
+    /*
+            currently useless, probably abandoning the method this tests
+     */
+//    @Test
+//    public void testGetOneEvent(){
+//        destroyDB();
+//        LocalDate date = LocalDate.parse("2000-03-05");
+//        DataServer.init();
+//        DataServer.saveEvent(testEvent);
+//        DataServer.saveEvent(testEvent2);
+//        Event outputEvent = DataServer.getEvent(date);
+//        assertEquals(outputEvent.getsDay().toString(), date.toString());
+//        assertEquals(outputEvent.getName(), "eventName1");
+//    }
     @Test
     public void testSaveEvent(){
         destroyDB();
@@ -46,17 +84,23 @@ public class DataServerTest {
     }
 
     @Test
-    public void testSaveAndReadEvent(){
+    public void testSaveAndgetAllEvent(){
         destroyDB();
         DataServer.init();
         DataServer.saveEvent(testEvent);
-        DataServer.saveEvent(testEvent);
+        DataServer.saveEvent(testEvent2);
         eventArr=DataServer.getAllEvent();
-        assertEquals(eventArr[1].getName(),"testName");
-        assertEquals(eventArr[0].getName(),"testName");
+        System.out.println("index 0 name : " + eventArr[0].getName());
+        System.out.println("index 1 name: " + eventArr[1].getName());
+        assertEquals(eventArr[0].getName(),"eventName1");
         assertEquals(eventArr[0].getsTime().toString(),"05:15");
         assertEquals(eventArr[0].getsDay().toString(),"2000-03-05");
         assertEquals(eventArr[0].isWorkType(), true);
+
+        assertEquals(eventArr[1].getName(),"eventName2");
+        assertEquals(eventArr[1].getsTime().toString(),"10:10");
+        assertEquals(eventArr[1].getsDay().toString(),"2005-01-01");
+        assertEquals(eventArr[1].isWorkType(), false);
     }
     @Test
     public void testInit(){

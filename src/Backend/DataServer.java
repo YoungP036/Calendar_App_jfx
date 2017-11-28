@@ -92,74 +92,101 @@ public class DataServer {
 
         System.out.println("Home dir: " + System.getProperty("user.home"));
     }
-//    public Event getEvent(){
+
+/*
+        I just realized this method is useless, all I need is getAllEvents into array, and manipulate array when needed
+ */
+//    public static Event getEvent(LocalDate date){
+//        System.out.print(date.toString());
+//        String sql="SELECT id, name, desc, loc, workType, sDay, eDay, sTime, eTime "
+//                    + "FROM events WHERE sDay="+date.toString()+";"; // WHERE sDay=" + date.toString();
+////        String sql = "SELECT id, name, desc, loc, workType, sDay, eDay, sTime, eTime FROM events";
 //
+//        Event event;
+//        eventBuilder eb = new eventBuilder();
 //
+//        try(Connection conn = connect();
+//            Statement stmt = conn.createStatement();
+//            ResultSet rs = stmt.executeQuery(sql)){
+//            eb.setName(rs.getString("name"));
+//            System.out.println("DBG name: " + rs.getString("name"));
+//            eb.setDesc(rs.getString("desc"));
+//            eb.setLoc(rs.getString("loc"));
+//            if(rs.getInt("workType")==1)
+//                eb.setType(true);
+//            else
+//                eb.setType(false);
+//            eb.setsTime(LocalTime.parse(rs.getString("sTime")));
+//            eb.seteTime(LocalTime.parse(rs.getString("eTime")));
+//            eb.setsDay(LocalDate.parse(rs.getString("sDay")));
+//            eb.seteDay(LocalDate.parse(rs.getString("eDay")));
+//            event=eb.createEvent();
+//            return event;
+//        } catch(SQLException e){
+//            System.out.println("Get single event error: " + e.getMessage());
+//            return null;
+//        }
 //
 //    }
 
-//                    + "id integer PRIMARY KEY,\n"
-//                            + "workType integer, \n"
-//                            + "sDay text NOT NULL,\n"
-//                            + "eDay text NOT NULL,\n"
-//                            + "sTime text NOT NULL,\n"
-//                            + "eTime text NOT NULL,\n"
-//                            + ");";
-
+    public static void deleteEvent(String sTime, String eTime, String sDay, String eDay){
+        String sql = "DELETE FROM events WHERE sTime = ? AND eTime = ? AND sDay = ? AND eDay = ?";
+        try(Connection conn = connect();
+            PreparedStatement stmt=conn.prepareStatement(sql)){
+                stmt.setString(1, sTime);
+                stmt.setString(2, eTime);
+                stmt.setString(3, sDay);
+                stmt.setString(4, eDay);
+                stmt.executeUpdate();
+                System.out.println("Event deleted");
+        }catch(SQLException e){
+                System.out.println("Delete event error:"+e.getMessage());
+        }
+    }
 
     public static Event[] getAllEvent(){
         eventBuilder eb = new eventBuilder();
 
-        //TODO problem with query
         String sql = "SELECT id, name, desc, loc, workType, sDay, eDay, sTime, eTime FROM events";
         String sqlcount="SELECT COUNT(*) FROM events";
         int count=0;
 
+        //Get number of events
         Event[] events;
         try(Connection conn = connect();
             Statement stmt = conn.createStatement();
             ResultSet countRS = stmt.executeQuery(sqlcount)){
-
             while(countRS.next())
                 count=countRS.getInt(1);
-//            System.out.println("DBG num rows: " + count);
-
         }catch(SQLException e) {
             System.out.println("Row Count error: " + e.getMessage());
         }
         events = new Event[count];
 
+        //get events actual
         try (Connection conn = connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
-
-//            System.out.println("rs col count:"+rs.getMetaData().getColumnCount());
-
             count=0;
-
             // loop through the result set
             while (rs.next()) {
-//                System.out.println("DBG COUNT: " + count);
                 eb.setName(rs.getString("name"));
-//                System.out.println("DBG name: " + rs.getString("name"));
                 eb.setDesc(rs.getString("desc"));
                 eb.setLoc(rs.getString("loc"));
-                if(rs.getInt("workType")==1)
-                    eb.setType(true);
-                else
-                    eb.setType(false);
                 eb.setsTime(LocalTime.parse(rs.getString("sTime")));
                 eb.seteTime(LocalTime.parse(rs.getString("eTime")));
                 eb.setsDay(LocalDate.parse(rs.getString("sDay")));
                 eb.seteDay(LocalDate.parse(rs.getString("eDay")));
+                if(rs.getInt("workType")==1)
+                    eb.setType(true);
+                else
+                    eb.setType(false);
                 events[count]=eb.createEvent();
                 count++;
             }
         } catch (SQLException e) {
             System.out.println("error getting all events: " + e.getMessage());
         }
-//        System.out.println("event 1 name: " + events[0].getName());
-//        System.out.println("event 2 name: " + events[1].getName());
         return events;
     }
 
@@ -208,8 +235,5 @@ public class DataServer {
         }
         return conn;
     }
-    private static boolean dbExists(){
 
-        return false;
-    }
 }
