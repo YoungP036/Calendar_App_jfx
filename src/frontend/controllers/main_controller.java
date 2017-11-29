@@ -9,6 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 import javax.annotation.Resources;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.text.DateFormat;
@@ -231,6 +235,42 @@ public class main_controller extends universal_controller{
             indicators[row][day][indicator].setStyle("-fx-background-color: #000000");
         }
     }
+    @FXML
+    private void exportEvents(){
+        String name,desc,loc,sTime,eTime,sDay,eDay,type;
+        Event[] events = DataServer.getAllEvent();
+        String home = System.getProperty("user.home");
+        String str="";
+//        File fp_out = new File(home+"/cal_app/events.txt");
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(home+"/cal_app/events.txt"));
+            for (int i = 0; i < Array.getLength(events); i++) {
+                str="";
+                System.out.println("iter " + Integer.toString(i));
+                str = str+events[i].getName();
+                desc = events[i].getDesc();
+                if(desc.compareTo("")!=0)
+                    str=str+","+desc;
+                loc = events[i].getLoc();
+                if(loc.compareTo("")!=0)
+                    str=str+","+loc;
+
+                str=str+","+events[i].getsTime().toString()+","+events[i].geteTime().toString()+","+events[i].getsDay().toString()+","+events[i].geteDay().toString();
+
+                if (events[i].isWorkType())
+                    str= str+",work";
+                else
+                    str = str+",personal";
+                str="("+str+")\n";
+                writer.write(str);
+            }
+            writer.close();
+        }
+            catch(IOException e){
+                System.out.println("Export Events error: "+e.getMessage());
+            }
+    }
+
     @FXML
     private void monthBackBTN(){
         if(currMonth==0){

@@ -32,7 +32,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Export">
             <items>
-                  <MenuItem fx:id="mExport_BTN" mnemonicParsing="false" onAction="#save_events" text="Export to Desktop" />
+                  <MenuItem fx:id="export_BTN" mnemonicParsing="false" onAction="#exportEvents" text="Export as text" />
             </items>
           </Menu>
         </menus>
