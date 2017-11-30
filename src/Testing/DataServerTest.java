@@ -1,8 +1,6 @@
 package Testing;
 
-import Backend.DataServer;
-import Backend.Event;
-import Backend.eventBuilder;
+import Backend.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -47,6 +45,36 @@ public class DataServerTest {
         testEvent2=eb.createEvent();
     }
 
+    @Test public void testSaveReadPrefs(){
+        userPrefs prefs,prefs_out;
+        boolean[] days=new boolean[7];
+        prefsBuilder pb = new prefsBuilder();
+        pb.setStart(LocalTime.parse("08:00"));
+        pb.setEnd(LocalTime.parse("04:00"));
+        for(int i=0;i<7;i++){
+            if(i%2==0)
+                days[i]=true;
+            else
+                days[i]=false;
+        }
+
+        pb.setDays(days);
+        prefs=pb.createPrefs();
+        destroyDB();
+        DataServer.init();
+        DataServer.savePrefs(prefs);
+        DataServer.savePrefs(prefs);
+        DataServer.savePrefs(prefs);
+        prefs_out=DataServer.getPrefs();
+        assertEquals(prefs_out.getwStart_time(),prefs.getwStart_time());
+        assertEquals(prefs_out.getwEnd_time(),prefs.getwEnd_time());
+        for(int i=0;i<7;i++){
+            if(i%2==0)
+                assertEquals(prefs_out.getWorkdays()[i],true);
+            else
+                assertEquals(prefs_out.getWorkdays()[i],false);
+        }
+    }
     @Test public void testDeleteEvent(){
         destroyDB();
         DataServer.init();

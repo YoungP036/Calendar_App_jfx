@@ -4,6 +4,7 @@ import java.io.File;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.lang.reflect.Array;
 
 //talks to mySQL DB
 //getAllEvents returns Event arraylist
@@ -45,7 +46,27 @@ public class DataServer {
         try(Connection conn = connect(); Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         } catch(SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("events table create error : " + e.getMessage());
+            return -1;
+        }
+
+        sql = "CREATE TABLE IF NOT EXISTS prefs (\n"
+                + "id integer PRIMARY KEY,\n"
+                + "wsTime text NOT NULL,\n"
+                + "weTime text NOT NULL,\n"
+                + "sunday boolean NOT NULL,\n"
+                + "monday boolean NOT NULL,\n"
+                + "tuesday boolean NOT NULL,\n"
+                + "wednesday boolean NOT NULL,\n"
+                + "thursday boolean NOT NULL,\n"
+                + "friday boolean NOT NULL,\n"
+                + "saturday boolean NOT NULL\n"
+                + ");";
+
+        try(Connection conn = connect(); Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch(SQLException e){
+            System.out.println("prefs table create error " +e.getMessage());
             return -1;
         }
         return 0;
@@ -188,6 +209,93 @@ public class DataServer {
             System.out.println("error getting all events: " + e.getMessage());
         }
         return events;
+    }
+//
+//    String sql = "CREATE TABLE IF NOT EXISTS prefs (\n"
+//            + "id integer PRIMARY KEY,\n"
+//            + "wsTime text NOT NULL,\n"
+//            + "weTime text NOT NULL,\n"
+//            + "sunday boolean NOT NULL,\n"
+//            + "monday boolean NOT NULL,\n"
+//            + "tuesday boolean NOT NULL,\n"
+//            + "wednesday boolean NOT NULL,\n"
+//            + "thursday boolean NOT NULL,\n"
+//            + "friday boolean NOT NULL,\n"
+//            + "saturday boolean NOT NULL,\n"
+//            + ");";
+    public static int savePrefs(userPrefs prefs){
+        String sTime = prefs.getwStart_time().toString();
+        String eTime = prefs.getwEnd_time().toString();
+        boolean[] workdays= prefs.getWorkdays();
+//        for(int i=0;i<Array.getLength(prefs.getWorkdays();i++){
+//            if(prefs.getWorkdays()[i]==true)
+//                workdays[i]="true";
+//            else
+//                workdays[i]="false";
+//        }
+
+        String sql = "INSERT INTO prefs(wsTime, weTime, sunday, monday, tuesday, wednesday, thursday, friday, saturday) VALUES(?,?,?,?,?,?,?,?,?)";
+        try(Connection conn = connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setString(1,sTime);
+            pstmt.setString(2,eTime);
+            for(int i=0;i<7;i++)
+                System.out.println(i+": " + workdays[i]);
+            pstmt.setBoolean(3,workdays[0]);
+            pstmt.setBoolean(4,workdays[1]);
+            pstmt.setBoolean(5,workdays[2]);
+            pstmt.setBoolean(6,workdays[3]);
+            pstmt.setBoolean(7,workdays[4]);
+            pstmt.setBoolean(8,workdays[5]);
+            pstmt.setBoolean(9,workdays[6]);
+            pstmt.executeUpdate();
+
+        }catch(SQLException e){
+            System.out.println("add prefs error " + e.getMessage());
+            return -1;
+        }//end catch
+        return 0;
+    }//end method
+
+    public static userPrefs getPrefs(){
+        userPrefs prefs=null;
+        boolean[] wdays = new boolean[7];
+        prefsBuilder pb = new prefsBuilder();
+        String sql = "SELECT id, wsTime, weTime, sunday, monday, tuesday, wednesday, thursday, friday, saturday FROM prefs WHERE id = ?";
+//        String sql = "DELETE FROM events WHERE sTime = ? AND eTime = ? AND sDay = ? AND eDay = ?";
+        try(Connection conn = connect();
+            PreparedStatement stmt=conn.prepareStatement(sql)){
+            stmt.setInt(1, 1);
+            ResultSet rs = stmt.executeQuery();
+
+            //the last row will be the most recent set of prefs
+            while(rs.next()){
+                pb.setStart(LocalTime.parse(rs.getString("wsTime")));
+                pb.setEnd(LocalTime.parse(rs.getString("weTime")));
+                wdays[0]=rs.getBoolean("sunday");
+                wdays[1]=rs.getBoolean("monday");
+                wdays[2]=rs.getBoolean("tuesday");
+                wdays[3]=rs.getBoolean("wednesday");
+                wdays[4]=rs.getBoolean("thursday");
+                wdays[5]=rs.getBoolean("friday");
+                wdays[6]=rs.getBoolean("saturday");
+                for(int i=0; i<7;i++)
+                    System.out.println(i+": "+ wdays[i]);
+                pb.setDays(wdays);
+            }
+            return pb.createPrefs();
+        }catch(SQLException e){
+            System.out.println("get prefs error:"+e.getMessage());
+        }
+        return prefs;
+
+    }
+
+    private static boolean getBoolState(String str){
+        if(str.compareTo("true")==0)
+            return true;
+        else
+            return false;
     }
 
     public static int saveEvent(Event ev){
