@@ -3,9 +3,13 @@ package frontend.controllers;
 import Backend.DataServer;
 import Backend.Event;
 import frontend.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import javax.annotation.Resources;
@@ -28,6 +32,7 @@ public class main_controller extends universal_controller{
 
     private static int currMonth,currYear;
     @FXML private Label month_LBL, year_LBL;
+    @FXML private GridPane days_pane;
     //one day label per calendar cell
     @FXML private Label dlabel_00, dlabel_01, dlabel_02, dlabel_03, dlabel_04, dlabel_05, dlabel_06;
     @FXML private Label dlabel_07, dlabel_08, dlabel_09, dlabel_010, dlabel_011, dlabel_012, dlabel_013;
@@ -88,6 +93,9 @@ public class main_controller extends universal_controller{
 //    @FXML private Button prev_month_BTN, next_month_BTN;
     private static Pane[][][] indicators;
     private static Label[] day_labels;
+    private int selected_day_row;
+    private int selected_day_col;
+    private int selected_indicator;
 
 
     @FXML
@@ -166,12 +174,54 @@ public class main_controller extends universal_controller{
         setCalendarCellLabels(now.getMonth().getValue()-1,now.getYear());
         updateIndicators();
     }
+
+    @FXML private void selected_event(MouseEvent e){
+        Node source  = (Node)e.getSource();
+        Node parent= source.getParent().getParent();
+        Integer child_row = days_pane.getRowIndex(source);
+        Integer parent_row = days_pane.getRowIndex(parent);
+        Integer parent_col = days_pane.getColumnIndex(parent);
+
+        if(parent_row==null)
+            parent_row=0;
+        if(parent_col==null)
+            parent_col=0;
+        if(child_row==null)
+            child_row=0;
+        System.out.printf("Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
+        selected_indicator=child_row;
+        selected_day_col=parent_col;
+        selected_day_col=parent_col;
+        selected_day_row=parent_row-1;//for some reason rows are starting at 1, everything else is starting at 0
+
+        //deselect
+        if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#000000")){
+            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-width:0");
+            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#00cc00");
+            selected_day_row=-1;
+            selected_day_col=-1;
+            selected_indicator=-1;
+        }
+        //select
+        else{
+            for(int i=0;i<6;i++)
+                for(int j=0;j<7;j++)
+                    for(int k=0;k<4;k++)
+                        indicators[i][j][k].setStyle("-fx-border-color: #00cc00");
+
+            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-width:10");
+            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#000000");
+        }
+
+    }
     @FXML private static void reset_indicators(){
         for(int i=0;i<6;i++)
             for(int j=0;j<7;j++)
                 for(int k=0;k<4;k++)
                     indicators[i][j][k].setStyle("-fx-background-color: #00cc00");
+
     }
+
     @FXML public static void updateIndicators(){
         reset_indicators();
         Event[] events = DataServer.getAllEvent();

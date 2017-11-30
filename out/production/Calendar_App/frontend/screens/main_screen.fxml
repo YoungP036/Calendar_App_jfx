@@ -25,7 +25,6 @@
           <Menu mnemonicParsing="false" text="Events">
             <items>
                   <MenuItem fx:id="mAdd_BTN" mnemonicParsing="false" onAction="#open_create" text="Add Event" />
-                  <MenuItem fx:id="mEdit_BTN" mnemonicParsing="false" onAction="#open_edit" text="Edit Event" />
                   <MenuItem fx:id="mDelete_BTN" mnemonicParsing="false" onAction="#delete_event" text="Delete Event" />
                   <MenuItem fx:id="mSearch_BTN" mnemonicParsing="false" onAction="#open_search" text="Search Opening" />
             </items>
@@ -77,7 +76,7 @@
                      <GridPane.margin>
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin></Label>
-                  <GridPane fx:id="egrid_00" scaleY="0.9" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_00" prefHeight="82.0" prefWidth="29.0" scaleY="0.9" GridPane.columnIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -88,10 +87,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_40" maxHeight="19.0" minHeight="10.0" prefHeight="19.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_20" maxHeight="15.0" minHeight="7.0" prefHeight="7.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_30" maxHeight="16.0" minHeight="10.0" prefHeight="16.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_10" maxHeight="19.0" minHeight="10.0" prefHeight="19.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_40" maxHeight="31.0" minHeight="10.0" prefHeight="31.0" prefWidth="29.0" onMouseClicked="#selected_event" style="-fx-background-color: #000000;" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_20" maxHeight="15.0" minHeight="7.0" prefHeight="7.0" onMouseClicked="#selected_event" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_30" maxHeight="27.0" minHeight="10.0" onMouseClicked="#selected_event" prefHeight="16.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_10" maxHeight="29.0" minHeight="10.0" onMouseClicked="#selected_event" prefHeight="29.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
                      </children>
                   </GridPane>
                </children>
@@ -121,10 +120,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_41" prefHeight="200.0" prefWidth="0.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_21" prefHeight="200.0" prefWidth="0.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_31" prefHeight="200.0" prefWidth="0.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_11" prefWidth="0.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_41" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="0.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_21" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="0.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_31" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="0.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_11" onMouseClicked="#selected_event" prefWidth="0.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -154,10 +153,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_42" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_22" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_32" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_12" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_42" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_22" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_32" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_12" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -187,10 +186,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_43" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_23" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_33" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_13" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_43" onMouseClicked="#selected_event"  prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_23" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_33" prefHeight="200.0" prefWidth="200.0" onMouseClicked="#selected_event" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_13" prefHeight="200.0" prefWidth="200.0" onMouseClicked="#selected_event" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -220,10 +219,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_44" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_24" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_34" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_14" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_44" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_24" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_34" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_14" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -253,10 +252,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_45" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_25" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_35" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_15" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_45" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_25" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_35" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_15" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -286,10 +285,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_16" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
-                        <Pane fx:id="indicator_36" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_46" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_26" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_16" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_36" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_46" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_26" onMouseClicked="#selected_event"  prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
@@ -319,10 +318,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_47" maxHeight="15.0" minHeight="15.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_57" maxHeight="15.0" minHeight="15.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_27" maxHeight="15.0" minHeight="15.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_37" maxHeight="15.0" minHeight="15.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_47" onMouseClicked="#selected_event" maxHeight="15.0" minHeight="15.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_57" onMouseClicked="#selected_event" maxHeight="15.0" minHeight="15.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_27" onMouseClicked="#selected_event" maxHeight="15.0" minHeight="15.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_37" onMouseClicked="#selected_event" maxHeight="15.0" minHeight="15.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
                      </children>
                   </GridPane>
                </children>
@@ -352,10 +351,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_48" minHeight="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Pane fx:id="indicator_28" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Pane fx:id="indicator_38" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Pane fx:id="indicator_18" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" />
+                        <Pane fx:id="indicator_48" onMouseClicked="#selected_event" minHeight="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <Pane fx:id="indicator_28" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Pane fx:id="indicator_38" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                        <Pane fx:id="indicator_18" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                </children>
@@ -385,10 +384,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_49" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_29" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_39" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_19" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_49" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_29" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_39" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_19" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -418,10 +417,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_410" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_210" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_310" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_110" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_410" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_210" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_310" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_110" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -451,10 +450,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_411" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_211" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_311" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_111" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_411" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_211" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_311" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_111" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -484,10 +483,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_412" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_212" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_312" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_112" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_412" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_212" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_312" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_112" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -517,10 +516,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_413" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_213" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_313" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_113" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_413" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_213" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_313" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_113" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -550,10 +549,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_414" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_214" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_314" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_114" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_414" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_214" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_314" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_114" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -583,10 +582,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_415" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_215" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_315" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_115" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_415" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_215" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_315" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_115" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -616,10 +615,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_416" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_216" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_316" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_116" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_416" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_216" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_316" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_116" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -649,10 +648,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_417" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_217" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_317" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_117" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_417" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_217" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_317" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_117" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -682,10 +681,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_418" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_218" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_318" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_118" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_418" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_218" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_318" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_118" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -715,10 +714,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_419" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_219" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_319" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_119" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_419" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_219" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_319" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_119" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -748,10 +747,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_420" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_220" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_320" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_120" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_420" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_220" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_320" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_120" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -781,10 +780,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_421" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_221" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_321" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_121" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_421" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_221" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_321" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_121" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -814,10 +813,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_422" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_222" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_322" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_122" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_422" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_222" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_322" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_122" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -847,10 +846,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_423" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_223" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_323" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_123" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_423" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_223" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_323" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_123" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -880,10 +879,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_424" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_224" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_324" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_124" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_424" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_224" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_324" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_124" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -913,10 +912,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_425" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_125" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
-                        <Pane fx:id="indicator_225" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_325" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_425" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_125" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_225" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_325" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -946,10 +945,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_426" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_226" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_326" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_126" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_426" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_226" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_326" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_126" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -979,10 +978,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_427" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_227" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_327" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_127" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_427" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_227" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_327" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_127" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1012,10 +1011,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_428" maxHeight="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_228" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_328" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_128" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_428" onMouseClicked="#selected_event" maxHeight="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_228" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_328" onMouseClicked="#selected_event" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_128" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1045,10 +1044,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_429" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_229" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_329" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_129" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_429" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_229" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_329" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_129" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1078,10 +1077,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_430" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_230" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_330" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_130" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_430" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_230" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_330" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_130" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1111,10 +1110,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_431" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_231" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_331" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_131" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_431" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_231" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_331" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_131" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1144,10 +1143,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_432" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_232" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_332" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_132" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_432" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_232" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_332" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_132" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1177,10 +1176,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_433" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_233" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_333" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_133" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_433" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_233" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_333" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_133" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1210,10 +1209,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_434" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_234" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_334" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_134" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_434" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_234" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_334" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_134" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1243,10 +1242,10 @@
                         <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_435" maxHeight="14.0" minHeight="10.0" minWidth="10.0" prefHeight="14.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_235" maxHeight="17.0" maxWidth="-Infinity" minHeight="8.0" minWidth="10.0" prefHeight="8.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_335" maxHeight="16.0" minHeight="10.0" minWidth="10.0" prefHeight="16.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_135" maxHeight="18.0" minHeight="10.0" minWidth="10.0" prefHeight="18.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_435" onMouseClicked="#selected_event" maxHeight="14.0" minHeight="10.0" minWidth="10.0" prefHeight="14.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_235" onMouseClicked="#selected_event" maxHeight="17.0" maxWidth="-Infinity" minHeight="8.0" minWidth="10.0" prefHeight="8.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_335" onMouseClicked="#selected_event" maxHeight="16.0" minHeight="10.0" minWidth="10.0" prefHeight="16.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_135" onMouseClicked="#selected_event" maxHeight="18.0" minHeight="10.0" minWidth="10.0" prefHeight="18.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.vgrow="NEVER" />
                      </children>
                   </GridPane>
                </children>
@@ -1276,10 +1275,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_436" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_236" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_336" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_136" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_436" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_236" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_336" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_136" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1309,10 +1308,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_437" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_237" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_337" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_137" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_437" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_237" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_337" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_137" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1342,10 +1341,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_438" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_238" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_338" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_138" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_438" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_238" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_338" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_138" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1375,10 +1374,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_439" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_239" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_339" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_139" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_439" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_239" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_339" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_139" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1408,10 +1407,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_440" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_240" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_340" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_140" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_440" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_240" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_340" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_140" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
@@ -1441,10 +1440,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_441" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
-                        <Pane fx:id="indicator_241" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
-                        <Pane fx:id="indicator_341" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
-                        <Pane fx:id="indicator_141" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="indicator_441" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" />
+                        <Pane fx:id="indicator_241" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" />
+                        <Pane fx:id="indicator_341" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" />
+                        <Pane fx:id="indicator_141" onMouseClicked="#selected_event" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
                      </children>
                   </GridPane>
                </children>
