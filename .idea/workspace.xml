@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/DataServer.java" afterPath="$PROJECT_DIR$/src/Backend/DataServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Testing/DataServerTest.java" afterPath="$PROJECT_DIR$/src/Testing/DataServerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frontend/controllers/pref_controller.java" afterPath="$PROJECT_DIR$/src/frontend/controllers/pref_controller.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,8 +69,8 @@
       <file leaf-file-name="prefsBuilder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Backend/prefsBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#389#390#0" expanded="true" />
                 <element signature="e#419#420#0" expanded="true" />
@@ -79,22 +79,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="281" column="0" lean-forward="false" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="113" column="120" lean-forward="false" selection-start-line="113" selection-start-column="120" selection-end-line="113" selection-end-column="120" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1512012687618" expanded="true" signature="1037:1461" ph="CREATE TABLE... IF" />
-                <marker date="1512012687618" expanded="true" signature="1744:2272" ph="CREATE TABLE... IF" />
-                <marker date="1512012687618" expanded="true" signature="5687:5761" ph="DELETE FROM " />
-                <marker date="1512012687618" expanded="true" signature="6359:6433" ph="SELECT id, n... " />
-                <marker date="1512012687618" expanded="true" signature="6461:6488" ph="SELECT COUNT... events" />
-                <marker date="1512012687618" expanded="true" signature="9019:9142" ph="INSERT INTO prefs... " />
-                <marker date="1512012687618" expanded="true" signature="10133:10246" ph="SELECT id, w... prefs" />
-                <marker date="1512012687618" expanded="true" signature="10273:10347" ph="DELETE FROM " />
-                <marker date="1512012687618" expanded="true" signature="12067:12155" ph="INSERT INTO events... " />
+                <marker date="1512014036741" expanded="true" signature="1037:1461" ph="CREATE TABLE... IF" />
+                <marker date="1512014036741" expanded="true" signature="1744:2272" ph="CREATE TABLE... IF" />
+                <marker date="1512014036741" expanded="true" signature="5455:5529" ph="DELETE FROM " />
+                <marker date="1512014036741" expanded="true" signature="6127:6201" ph="SELECT id, n... " />
+                <marker date="1512014036741" expanded="true" signature="6229:6256" ph="SELECT COUNT... events" />
+                <marker date="1512014036741" expanded="true" signature="8787:8910" ph="INSERT INTO prefs... " />
+                <marker date="1512014036741" expanded="true" signature="9901:10014" ph="SELECT id, w... prefs" />
+                <marker date="1512014036741" expanded="true" signature="10041:10115" ph="DELETE FROM " />
+                <marker date="1512014036741" expanded="true" signature="11739:11827" ph="INSERT INTO events... " />
               </folding>
             </state>
           </provider>
@@ -103,23 +103,35 @@
       <file leaf-file-name="pref_controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frontend/controllers/pref_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="193">
+              <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataServerTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
+      <file leaf-file-name="universal_controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+            <state relative-caret-position="281">
+              <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
               <folding>
-                <element signature="method#testInit#0;class#DataServerTest#0" expanded="false" />
-                <element signature="method#destroyDB#0;class#DataServerTest#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pref_screen.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/screens/pref_screen.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="113" lean-forward="false" selection-start-line="11" selection-start-column="101" selection-end-line="11" selection-end-column="113" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -137,7 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>open_pref</find>
       <find>close</find>
       <find>exit</find>
       <find>frontend</find>
@@ -167,6 +178,7 @@
       <find>array</find>
       <find>Array</find>
       <find>create erro</find>
+      <find>System.out.</find>
     </findStrings>
     <replaceStrings>
       <replace>eventBuilder</replace>
@@ -207,7 +219,6 @@
         <option value="$PROJECT_DIR$/src/frontend/main_screen.fxml" />
         <option value="$PROJECT_DIR$/src/frontend/controllers/anchor_controller.java" />
         <option value="$PROJECT_DIR$/src/frontend/controllers/search_controller.java" />
-        <option value="$PROJECT_DIR$/src/frontend/controllers/pref_controller.java" />
         <option value="$PROJECT_DIR$/src/frontend/screens/pref_screen.fxml" />
         <option value="$PROJECT_DIR$/src/frontend/screens/search_screen.fxml" />
         <option value="$PROJECT_DIR$/src/frontend/screens/anchor.fxml" />
@@ -238,6 +249,7 @@
         <option value="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
         <option value="$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/requests/FilterRequest.class" />
         <option value="$PROJECT_DIR$/src/Testing/DataServerTest.java" />
+        <option value="$PROJECT_DIR$/src/frontend/controllers/pref_controller.java" />
         <option value="$PROJECT_DIR$/src/Backend/DataServer.java" />
       </list>
     </option>
@@ -824,7 +836,7 @@
       <workItem from="1511553410877" duration="16023000" />
       <workItem from="1511896833843" duration="14435000" />
       <workItem from="1511924528032" duration="2228000" />
-      <workItem from="1511978467461" duration="5531000" />
+      <workItem from="1511978467461" duration="6854000" />
     </task>
     <servers />
   </component>
@@ -861,11 +873,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92973000" />
+    <option name="totallyTimeSpent" value="94296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -875,12 +886,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3358396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3358396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19125" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19125" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1240,16 +1251,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/add_screen.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1316,17 +1317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/screens/pref_screen.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="113" lean-forward="false" selection-start-line="11" selection-start-column="101" selection-end-line="11" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Backend/userPrefs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1346,44 +1336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Backend/prefsBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/pref_controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="281" column="0" lean-forward="false" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512012687618" expanded="true" signature="1037:1461" ph="CREATE TABLE... IF" />
-            <marker date="1512012687618" expanded="true" signature="1744:2272" ph="CREATE TABLE... IF" />
-            <marker date="1512012687618" expanded="true" signature="5687:5761" ph="DELETE FROM " />
-            <marker date="1512012687618" expanded="true" signature="6359:6433" ph="SELECT id, n... " />
-            <marker date="1512012687618" expanded="true" signature="6461:6488" ph="SELECT COUNT... events" />
-            <marker date="1512012687618" expanded="true" signature="9019:9142" ph="INSERT INTO prefs... " />
-            <marker date="1512012687618" expanded="true" signature="10133:10246" ph="SELECT id, w... prefs" />
-            <marker date="1512012687618" expanded="true" signature="10273:10347" ph="DELETE FROM " />
-            <marker date="1512012687618" expanded="true" signature="12067:12155" ph="INSERT INTO events... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1391,6 +1343,65 @@
           <folding>
             <element signature="method#testInit#0;class#DataServerTest#0" expanded="false" />
             <element signature="method#destroyDB#0;class#DataServerTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Backend/prefsBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/screens/pref_screen.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="113" lean-forward="false" selection-start-line="11" selection-start-column="101" selection-end-line="11" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/pref_controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="113" column="120" lean-forward="false" selection-start-line="113" selection-start-column="120" selection-end-line="113" selection-end-column="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1512014036741" expanded="true" signature="1037:1461" ph="CREATE TABLE... IF" />
+            <marker date="1512014036741" expanded="true" signature="1744:2272" ph="CREATE TABLE... IF" />
+            <marker date="1512014036741" expanded="true" signature="5455:5529" ph="DELETE FROM " />
+            <marker date="1512014036741" expanded="true" signature="6127:6201" ph="SELECT id, n... " />
+            <marker date="1512014036741" expanded="true" signature="6229:6256" ph="SELECT COUNT... events" />
+            <marker date="1512014036741" expanded="true" signature="8787:8910" ph="INSERT INTO prefs... " />
+            <marker date="1512014036741" expanded="true" signature="9901:10014" ph="SELECT id, w... prefs" />
+            <marker date="1512014036741" expanded="true" signature="10041:10115" ph="DELETE FROM " />
+            <marker date="1512014036741" expanded="true" signature="11739:11827" ph="INSERT INTO events... " />
           </folding>
         </state>
       </provider>

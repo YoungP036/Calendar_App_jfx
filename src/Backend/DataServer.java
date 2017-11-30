@@ -79,8 +79,6 @@ public class DataServer {
             try(Connection conn = connect()){
                 if(conn !=null) {
                     DatabaseMetaData meta = conn.getMetaData();
-//                    System.out.println("The driver name is " + meta.getDriverName());
-//                    System.out.println("A new database was created");
                 }
                 else
                     return -1;
@@ -106,8 +104,6 @@ public class DataServer {
             catch(SecurityException se){
                 System.out.println("Insufficient privs to create database directory");
             }
-//            if(flag)
-//                System.out.println("DB directory created");
         }
 
 
@@ -115,7 +111,7 @@ public class DataServer {
     }
 
 /*
-        I just realized this method is useless, all I need is getAllEvents into array, and manipulate array when needed
+        I just realized this method is useless, all I need is getAllEvents into array, and manipulate array occasionally when needed
  */
 //    public static Event getEvent(LocalDate date){
 //        System.out.print(date.toString());
@@ -279,8 +275,6 @@ public class DataServer {
                 wdays[4]=rs.getBoolean("thursday");
                 wdays[5]=rs.getBoolean("friday");
                 wdays[6]=rs.getBoolean("saturday");
-                for(int i=0; i<7;i++)
-                    System.out.println(i+": "+ wdays[i]);
                 pb.setDays(wdays);
             }
             return pb.createPrefs();
@@ -323,7 +317,6 @@ public class DataServer {
             pstmt.setString(6,sDay);
             pstmt.setString(7,eDay);
             pstmt.setInt(8,eType);
-//            System.out.println("DBG saving event\n");
             pstmt.executeUpdate();
         } catch(SQLException e){
                 System.out.println("Save event error: " + e.getMessage());
