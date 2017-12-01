@@ -13,6 +13,10 @@ import static org.junit.Assert.*;
 public class main_controllerTest {
 
     @Test
+    public void testGridCordsToActualDay(){
+        //TODO consult calendar and set up some asserts for due date week
+    }
+    @Test
     public void testGetFirstDay(){
         assertEquals(getFirstDay(0,2018),"Monday");
         assertEquals(getFirstDay(1,2018),"Thursday");

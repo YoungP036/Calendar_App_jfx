@@ -90,6 +90,50 @@ public class DataServerTest {
         assertNotEquals(events[0].getName(),"eventName1");
         assertEquals(events[0].getName(),"eventName2");
     }
+
+    @Test public void testDeleteEventRange(){
+        destroyDB();
+        DataServer.init();
+
+        Event testEvent3, testEvent4, testEvent5, testEvent6;
+
+        eb.setName("testEvent3");
+        eb.setsDay(LocalDate.parse("2005-01-01"));
+        eb.setsDay(LocalDate.parse("2005-01-01"));
+        eb.setsTime(LocalTime.parse("01:00"));
+        eb.setsTime(LocalTime.parse("02:00"));
+        testEvent3=eb.createEvent();
+
+        eb.setsTime(LocalTime.parse("03:00"));
+        eb.seteTime(LocalTime.parse("04:00"));
+        eb.setName("testEvent4");
+        testEvent4=eb.createEvent();
+
+        eb.setsTime(LocalTime.parse("06:00"));
+        eb.seteTime(LocalTime.parse("07:00"));
+        eb.setName("testEvent5");
+        testEvent5=eb.createEvent();
+
+        eb.setsDay(LocalDate.parse("2005-01-02"));
+        eb.seteDay(LocalDate.parse("2005-01-02"));
+        eb.setsTime(LocalTime.parse("01:00"));
+        eb.seteTime(LocalTime.parse("02:00"));
+        testEvent6=eb.createEvent();
+
+        DataServer.saveEvent(testEvent3);//should get deleted
+        DataServer.saveEvent(testEvent5);
+        DataServer.saveEvent(testEvent4);//should get deleted
+        DataServer.saveEvent(testEvent6);
+        DataServer.deleteEventRange("2005-01-01", "00:00", "05:59");
+        Event[] remaining_events = DataServer.getAllEvent();
+        assertNotEquals(remaining_events[0].getsTime().toString(),"01:00");
+        assertNotEquals(remaining_events[0].getsTime().toString(),"03:00");
+        assertNotEquals(remaining_events[0].getName().toString(),"testEvent3");
+        assertNotEquals(remaining_events[1].getsTime().toString(),"01:00");
+        assertNotEquals(remaining_events[1].getsTime().toString(),"03:00");
+        assertNotEquals(remaining_events[1].getName().toString(),"testEvent4");
+
+    }
     /*
             currently useless, probably abandoning the method this tests
      */

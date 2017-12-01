@@ -146,6 +146,9 @@ public class DataServer {
 //
 //    }
 
+    public static void deleteEventRange(String sDay, String time_range_start, String time_range_end){
+
+    }
     public static void deleteEvent(String sTime, String eTime, String sDay, String eDay){
         String sql = "DELETE FROM events WHERE sTime = ? AND eTime = ? AND sDay = ? AND eDay = ?";
         try(Connection conn = connect();
@@ -206,29 +209,10 @@ public class DataServer {
         }
         return events;
     }
-//
-//    String sql = "CREATE TABLE IF NOT EXISTS prefs (\n"
-//            + "id integer PRIMARY KEY,\n"
-//            + "wsTime text NOT NULL,\n"
-//            + "weTime text NOT NULL,\n"
-//            + "sunday boolean NOT NULL,\n"
-//            + "monday boolean NOT NULL,\n"
-//            + "tuesday boolean NOT NULL,\n"
-//            + "wednesday boolean NOT NULL,\n"
-//            + "thursday boolean NOT NULL,\n"
-//            + "friday boolean NOT NULL,\n"
-//            + "saturday boolean NOT NULL,\n"
-//            + ");";
     public static int savePrefs(userPrefs prefs){
         String sTime = prefs.getwStart_time().toString();
         String eTime = prefs.getwEnd_time().toString();
         boolean[] workdays= prefs.getWorkdays();
-//        for(int i=0;i<Array.getLength(prefs.getWorkdays();i++){
-//            if(prefs.getWorkdays()[i]==true)
-//                workdays[i]="true";
-//            else
-//                workdays[i]="false";
-//        }
 
         String sql = "INSERT INTO prefs(wsTime, weTime, sunday, monday, tuesday, wednesday, thursday, friday, saturday) VALUES(?,?,?,?,?,?,?,?,?)";
         try(Connection conn = connect();
