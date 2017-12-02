@@ -258,7 +258,8 @@ public class main_controller extends universal_controller{
             parent_col=0;
         if(child_row==null)
             child_row=0;
-        System.out.printf("Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
+        System.out.printf("DBG Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
+        System.out.printf("DBG currMonth=%d, currYear=%d\n",currMonth,currYear);
         selected_indicator=child_row;
         selected_day_col=parent_col;
         selected_day_col=parent_col;
@@ -463,5 +464,11 @@ public class main_controller extends universal_controller{
                 System.out.println("GUI delete event error: " + e.getMessage());
             }
         }
+    }
+
+    //given a row/col cordinate, use currMonth/currYear to compute actual day of month
+    private int gridCordsToDayActual(int currMonth, int currYear, int row, int col){
+
+        return 0;
     }
 }
