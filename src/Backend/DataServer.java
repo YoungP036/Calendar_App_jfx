@@ -146,15 +146,27 @@ public class DataServer {
 
     public static void deleteEventRange(LocalDate sDay, LocalTime time_range_start, LocalTime time_range_end){
         Event[] events = getAllEvent();
-
+        int count=0;
         for(int i = 0; i < Array.getLength(events); i++){
             //if correct day and start time is within range to be deleted, delete from DB
             if(events[i].getsDay().compareTo(sDay)==0)
-                if(events[i].getsTime().compareTo(time_range_start)>0 && events[i].getsTime().compareTo(time_range_end)<0) {
-                    System.out.println("DBG deleting event: " + events[i].getName());
-                    deleteEvent(events[i].getsTime().toString(), events[i].geteTime().toString(), events[i].getsDay().toString(), events[i].geteDay().toString());
+                //00:00-06:00 must be inclusive on both ends, special case
+                if(time_range_start.compareTo(LocalTime.parse("00:00"))==0){
+                    if (events[i].getsTime().compareTo(time_range_start) >= 0 && events[i].getsTime().compareTo(time_range_end) <= 0) {
+                        System.out.println("DBG deleting event: " + events[i].getName());
+                        count++;
+                        deleteEvent(events[i].getsTime().toString(), events[i].geteTime().toString(), events[i].getsDay().toString(), events[i].geteDay().toString());
+                    }
+                }
+                else {
+                    if (events[i].getsTime().compareTo(time_range_start) > 0 && events[i].getsTime().compareTo(time_range_end) <= 0) {
+                        System.out.println("DBG deleting event: " + events[i].getName());
+                        count++;
+                        deleteEvent(events[i].getsTime().toString(), events[i].geteTime().toString(), events[i].getsDay().toString(), events[i].geteDay().toString());
+                    }
                 }
         }
+        System.out.println("DBG Deleted event count: " + count);
     }
 
 
@@ -190,6 +202,7 @@ public class DataServer {
         }catch(SQLException e) {
             System.out.println("Row Count error: " + e.getMessage());
         }
+        System.out.println("DBG currentEventCount="+count);
         events = new Event[count];
 
         //get events actual

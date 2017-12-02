@@ -15,11 +15,12 @@ public class controllerTests {
 
     @Test
     public void testGridCordsToActualDay(){
-        assertEquals(gridCordsToDayActual(11, 2017, 1,5),1);
-        assertEquals(gridCordsToDayActual(11, 2017, 2,0),3);
-        assertEquals(gridCordsToDayActual(11, 2017, 6,0),31);
-        assertEquals(gridCordsToDayActual(11, 2017, 5,6),30);
-        assertEquals(gridCordsToDayActual(11, 2017, 4,3),20);
+        assertEquals(gridCordsToDayActual(11, 2017, 0,5),1);
+        assertEquals(gridCordsToDayActual(11, 2017, 1,0),3);
+        assertEquals(gridCordsToDayActual(11, 2017, 5,0),31);
+        assertEquals(gridCordsToDayActual(11, 2017, 4,6),30);
+        assertEquals(gridCordsToDayActual(11, 2017, 3,3),20);
+        assertEquals(gridCordsToDayActual(11,2017,0,6),2);
     }
     @Test
     public void testGetFirstDay(){
@@ -81,7 +82,7 @@ public class controllerTests {
         int numDays=getNumDays(month, year);
         String firstDay=getFirstDay(month,year);
         int offset=day_to_offset(firstDay);
-        dayActual=(row-1)*7;//row indexes start at 1 for some reason, normalize it then multiply by 7 for 7 days per row/week
+        dayActual=(row)*7; //multiply by 7 for 7 days per row/week
         dayActual+=col;//add day/col of week
         dayActual-=offset-1; //compensate for blank spaces in row 1 assosciated with where 1st week of month starts
         return dayActual;

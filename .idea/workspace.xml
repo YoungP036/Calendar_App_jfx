@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Backend/DataServer.java" afterPath="$PROJECT_DIR$/src/Backend/DataServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Testing/controllerTests.java" afterPath="$PROJECT_DIR$/src/Testing/controllerTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" afterPath="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
     </list>
@@ -69,7 +70,7 @@
       <file leaf-file-name="main_screen.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="15">
               <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
               <folding>
                 <marker date="1512016594320" expanded="true" signature="109472:109511" ph="..." />
@@ -84,8 +85,8 @@
       <file leaf-file-name="main_controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="491" column="25" lean-forward="true" selection-start-line="491" selection-start-column="25" selection-end-line="491" selection-end-column="25" />
+            <state relative-caret-position="92">
+              <caret line="247" column="9" lean-forward="true" selection-start-line="247" selection-start-column="9" selection-end-line="247" selection-end-column="9" />
               <folding>
                 <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
                 <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
@@ -97,24 +98,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllerTests.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Testing/controllerTests.java">
+      <file leaf-file-name="universal_controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="87" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataServerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+            <state relative-caret-position="900">
+              <caret line="64" column="58" lean-forward="true" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
               <folding>
-                <element signature="method#testInit#0;class#DataServerTest#0" expanded="false" />
-                <element signature="method#destroyDB#0;class#DataServerTest#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,35 +113,24 @@
       <file leaf-file-name="DataServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="153" column="85" lean-forward="false" selection-start-line="153" selection-start-column="85" selection-end-line="153" selection-end-column="85" />
+            <state relative-caret-position="322">
+              <caret line="157" column="50" lean-forward="true" selection-start-line="157" selection-start-column="50" selection-end-line="157" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#init#0;class#DataServer#0" expanded="false" />
                 <element signature="method#check_and_make_table#0;class#DataServer#0" expanded="false" />
                 <element signature="method#check_and_make_DB#0;class#DataServer#0" expanded="false" />
                 <element signature="method#savePrefs#0;class#DataServer#0" expanded="false" />
                 <element signature="method#getPrefs#0;class#DataServer#0" expanded="false" />
                 <element signature="method#connect#0;class#DataServer#0" expanded="false" />
-                <marker date="1512188304656" expanded="true" signature="877:1301" ph="CREATE TABLE... IF" />
-                <marker date="1512188304656" expanded="true" signature="1584:2112" ph="CREATE TABLE... IF" />
-                <marker date="1512188304656" expanded="true" signature="6060:6134" ph="DELETE FROM " />
-                <marker date="1512188304656" expanded="true" signature="6732:6806" ph="SELECT id, n... " />
-                <marker date="1512188304656" expanded="true" signature="6834:6861" ph="SELECT COUNT... events" />
-                <marker date="1512188304656" expanded="true" signature="8637:8760" ph="INSERT INTO prefs... " />
-                <marker date="1512188304656" expanded="true" signature="9751:9864" ph="SELECT id, w... prefs" />
-                <marker date="1512188304656" expanded="true" signature="11500:11588" ph="INSERT INTO events... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="universal_controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="86" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1512195773726" expanded="true" signature="877:1301" ph="CREATE TABLE... IF" />
+                <marker date="1512195773726" expanded="true" signature="1584:2112" ph="CREATE TABLE... IF" />
+                <marker date="1512195773726" expanded="true" signature="6859:6933" ph="DELETE FROM " />
+                <marker date="1512195773726" expanded="true" signature="7531:7605" ph="SELECT id, n... " />
+                <marker date="1512195773726" expanded="true" signature="7633:7660" ph="SELECT COUNT... events" />
+                <marker date="1512195773726" expanded="true" signature="9496:9619" ph="INSERT INTO prefs... " />
+                <marker date="1512195773726" expanded="true" signature="10610:10723" ph="SELECT id, w... prefs" />
+                <marker date="1512195773726" expanded="true" signature="12359:12447" ph="INSERT INTO events... " />
               </folding>
             </state>
           </provider>
@@ -171,9 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>root</find>
-      <find>days_pane</find>
-      <find>month</find>
       <find>grid</find>
       <find>test_</find>
       <find>month_LBL</find>
@@ -200,7 +176,10 @@
       <find>selected_event</find>
       <find>public</find>
       <find>NOT NULL</find>
+      <find>reset_indicators</find>
+      <find>destroy</find>
       <find>gridCordsToActual</find>
+      <find>updateIndicators</find>
     </findStrings>
     <replaceStrings>
       <replace>eventBuilder</replace>
@@ -269,10 +248,10 @@
         <option value="$PROJECT_DIR$/src/frontend/screens/main_screen.fxml" />
         <option value="$PROJECT_DIR$/src/Testing/universal_controllerTest.java" />
         <option value="$PROJECT_DIR$/src/frontend/controllers/universal_controller.java" />
-        <option value="$PROJECT_DIR$/src/Backend/DataServer.java" />
         <option value="$PROJECT_DIR$/src/Testing/DataServerTest.java" />
         <option value="$PROJECT_DIR$/src/Testing/main_controllerTest.java" />
         <option value="$PROJECT_DIR$/src/Testing/controllerTests.java" />
+        <option value="$PROJECT_DIR$/src/Backend/DataServer.java" />
         <option value="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
       </list>
     </option>
@@ -543,7 +522,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.Testing in Calendar_App">
     <configuration name="DataServerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -806,16 +785,19 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.controllerTests.testGridCordsToActualDay" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Testing in Calendar_App" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DataServerTest.testDeleteEventRange" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.DataServerTest.testSaveReadPrefs" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Testing in Calendar_App" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.controllerTests.testGridCordsToActualDay" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DataServerTest.testDeleteEventRange" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest.testSaveReadPrefs" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -861,34 +843,22 @@
       <workItem from="1511924528032" duration="2228000" />
       <workItem from="1511978467461" duration="10868000" />
       <workItem from="1512106936343" duration="3995000" />
-      <workItem from="1512186879593" duration="3850000" />
+      <workItem from="1512186879593" duration="12078000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DataServerTest_testDeleteEventRange - 2017.12.01 at 23h 24m 50s.xml">
-      <configuration name="DataServerTest.testDeleteEventRange" configurationId="JUnit" />
+    <history-entry file="DataServerTest - 2017.12.02 at 00h 49m 14s.xml">
+      <configuration name="DataServerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Testing_in_Calendar_App - 2017.12.01 at 23h 25m 16s.xml">
+    <history-entry file="Testing_in_Calendar_App - 2017.12.02 at 02h 10m 05s.xml">
       <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 54m 09s.xml">
-      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    <history-entry file="Testing_in_Calendar_App - 2017.12.02 at 02h 11m 52s.xml">
+      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 54m 42s.xml">
-      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 55m 18s.xml">
-      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 56m 21s.xml">
-      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 56m 38s.xml">
-      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 57m 03s.xml">
-      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    <history-entry file="Testing_in_Calendar_App - 2017.12.02 at 02h 15m 59s.xml">
+      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
     <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 57m 21s.xml">
       <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
@@ -896,9 +866,21 @@
     <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 57m 27s.xml">
       <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.02 at 00h 35m 34s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.02 at 00h 36m 45s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.02 at 00h 38m 53s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.02 at 00h 40m 47s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106155000" />
+    <option name="totallyTimeSpent" value="114383000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1600" height="900" extended-state="6" />
@@ -913,7 +895,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33458647" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3358396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -962,7 +944,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Backend/DataServer.java</url>
-          <line>320</line>
+          <line>333</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -1337,9 +1319,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/controllerTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="88" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="190" column="21" lean-forward="false" selection-start-line="190" selection-start-column="21" selection-end-line="190" selection-end-column="21" />
+          <folding>
+            <element signature="method#destroyDB#0;class#DataServerTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="64" column="58" lean-forward="true" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="157" column="50" lean-forward="true" selection-start-line="157" selection-start-column="50" selection-end-line="157" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#init#0;class#DataServer#0" expanded="false" />
+            <element signature="method#check_and_make_table#0;class#DataServer#0" expanded="false" />
+            <element signature="method#check_and_make_DB#0;class#DataServer#0" expanded="false" />
+            <element signature="method#savePrefs#0;class#DataServer#0" expanded="false" />
+            <element signature="method#getPrefs#0;class#DataServer#0" expanded="false" />
+            <element signature="method#connect#0;class#DataServer#0" expanded="false" />
+            <marker date="1512195773726" expanded="true" signature="877:1301" ph="CREATE TABLE... IF" />
+            <marker date="1512195773726" expanded="true" signature="1584:2112" ph="CREATE TABLE... IF" />
+            <marker date="1512195773726" expanded="true" signature="6859:6933" ph="DELETE FROM " />
+            <marker date="1512195773726" expanded="true" signature="7531:7605" ph="SELECT id, n... " />
+            <marker date="1512195773726" expanded="true" signature="7633:7660" ph="SELECT COUNT... events" />
+            <marker date="1512195773726" expanded="true" signature="9496:9619" ph="INSERT INTO prefs... " />
+            <marker date="1512195773726" expanded="true" signature="10610:10723" ph="SELECT id, w... prefs" />
+            <marker date="1512195773726" expanded="true" signature="12359:12447" ph="INSERT INTO events... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="15">
           <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
           <folding>
             <marker date="1512016594320" expanded="true" signature="109472:109511" ph="..." />
@@ -1350,62 +1384,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="153" column="85" lean-forward="false" selection-start-line="153" selection-start-column="85" selection-end-line="153" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#check_and_make_table#0;class#DataServer#0" expanded="false" />
-            <element signature="method#check_and_make_DB#0;class#DataServer#0" expanded="false" />
-            <element signature="method#savePrefs#0;class#DataServer#0" expanded="false" />
-            <element signature="method#getPrefs#0;class#DataServer#0" expanded="false" />
-            <element signature="method#connect#0;class#DataServer#0" expanded="false" />
-            <marker date="1512188304656" expanded="true" signature="877:1301" ph="CREATE TABLE... IF" />
-            <marker date="1512188304656" expanded="true" signature="1584:2112" ph="CREATE TABLE... IF" />
-            <marker date="1512188304656" expanded="true" signature="6060:6134" ph="DELETE FROM " />
-            <marker date="1512188304656" expanded="true" signature="6732:6806" ph="SELECT id, n... " />
-            <marker date="1512188304656" expanded="true" signature="6834:6861" ph="SELECT COUNT... events" />
-            <marker date="1512188304656" expanded="true" signature="8637:8760" ph="INSERT INTO prefs... " />
-            <marker date="1512188304656" expanded="true" signature="9751:9864" ph="SELECT id, w... prefs" />
-            <marker date="1512188304656" expanded="true" signature="11500:11588" ph="INSERT INTO events... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-          <folding>
-            <element signature="method#testInit#0;class#DataServerTest#0" expanded="false" />
-            <element signature="method#destroyDB#0;class#DataServerTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="86" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/controllerTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="87" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="491" column="25" lean-forward="true" selection-start-line="491" selection-start-column="25" selection-end-line="491" selection-end-column="25" />
+        <state relative-caret-position="92">
+          <caret line="247" column="9" lean-forward="true" selection-start-line="247" selection-start-column="9" selection-end-line="247" selection-end-column="9" />
           <folding>
             <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
             <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />

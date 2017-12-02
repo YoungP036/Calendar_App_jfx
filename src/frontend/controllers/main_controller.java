@@ -172,6 +172,7 @@ public class main_controller extends universal_controller{
         month_LBL.setText(monthStr);
         year_LBL.setText(year);
         setCalendarCellLabels(now.getMonth().getValue()-1,now.getYear());
+        reset_indicators();
         updateIndicators();
     }
     @FXML private static void reset_indicators(){
@@ -182,11 +183,12 @@ public class main_controller extends universal_controller{
 
     }
 
+
+
     @FXML protected static void updateIndicators(){
-        reset_indicators();
+//        reset_indicators();
         Event[] events = DataServer.getAllEvent();
         int indicator=-1;
-        int cell;
         int numEvents= Array.getLength(events);
         String firstDayStr = getFirstDay(currMonth,currYear);
         int firstDay=-1;
@@ -240,10 +242,11 @@ public class main_controller extends universal_controller{
                 indicator=1;
             else if(hour>12 && hour <=18)
                 indicator=2;
-            else if(hour>18 && hour<24)
+            else if(hour>18 && hour<=24)
                 indicator=3;
             indicators[row][day][indicator].setStyle("-fx-background-color: #000000");
         }
+        System.out.println("DBG indicators updated");
     }
     @FXML private void selected_event(MouseEvent e){
         Node source  = (Node)e.getSource();
@@ -265,9 +268,12 @@ public class main_controller extends universal_controller{
         selected_day_col=parent_col;
         selected_day_row=parent_row-1;//for some reason rows are starting at 1, everything else is starting at 0
 
-        //deselect
-        if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#000000")){
-            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-width:0");
+        //direct deselect click target
+        if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#6600ff"))
+//                ||indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#000000")
+//                ||indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#FFFFFF"))
+        {
+
             indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#00cc00");
             selected_day_row=-1;
             selected_day_col=-1;
@@ -275,15 +281,26 @@ public class main_controller extends universal_controller{
         }
         //select
         else{
+            //handle indirect deselect from user clicking new target
             for(int i=0;i<6;i++)
                 for(int j=0;j<7;j++)
                     for(int k=0;k<4;k++)
                         indicators[i][j][k].setStyle("-fx-border-color: #00cc00");
+            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff");
 
-            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-width:10");
-            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#000000");
+
+            //select new target, if its black because of event, select with white border, else select with black border
+            //TODO THIS NEVER RESOLVES AS TRUE, FIND OUT WHY
+//            if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-background-color: #000000")) {
+//                System.out.println("DBG selected backround black due to existing event");
+//                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff");
+//            }
+//            else{
+//                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff");
+//            }
+
         }
-
+        updateIndicators();
     }
 
     @FXML
@@ -411,37 +428,17 @@ public class main_controller extends universal_controller{
 
 
 
-    @FXML private void delete_event() {
+    @FXML private void delete_event() throws InterruptedException {
         if (selected_day_col != -1 && selected_day_row != -1 && selected_indicator != -1) {
-            int count = 0;
-            int days_in_month = getNumDays(currMonth, currYear);
-            String first_day = getFirstDay(currMonth, currYear);
             LocalTime min_time=null;
             LocalTime max_time=null;
-
-            int target_day=(selected_day_row*7)+selected_day_col-1;
-
-            //compensate for blank cells due to month start day
-            if(first_day.compareTo("Monday")==0)
-                target_day-=1;
-            else if(first_day.compareTo("Tuesday")==0)
-                target_day-=2;
-            else if(first_day.compareTo("Wednesday")==0)
-                target_day-=3;
-            else if(first_day.compareTo("Thursday")==0)
-                target_day-=4;
-            else if(first_day.compareTo("Friday")==0)
-                target_day-=5;
-            else if(first_day.compareTo("Saturday")==0)
-                target_day-=6;
-                LocalDate target_date= LocalDate.parse(Integer.toString(currYear)+"-"+Integer.toString(currMonth)+"-"+Integer.toString(target_day));
             switch (selected_indicator) {
                 case 0:
                     min_time = LocalTime.parse("00:00");
-                    max_time = LocalTime.parse("05:59");
+                    max_time = LocalTime.parse("06:00");
                     break;
                 case 1:
-                    min_time=LocalTime.parse("6:01");
+                    min_time=LocalTime.parse("06:01");
                     max_time=LocalTime.parse("12:00");
                     break;
                 case 2:
@@ -453,16 +450,31 @@ public class main_controller extends universal_controller{
                     max_time=LocalTime.parse("23:59");
                     break;
             }
-
-            //DataServer.deleteEventRange(target_date, min_time, max_time);
-            //TODO DELETE EVENT
-            try{
-                System.out.println("TODO delete event from range ["+min_time+"]["+max_time+"] on \n");
-                System.out.println(count + " event(s) deleted");
-            }
-            catch(Exception e){
-                System.out.println("GUI delete event error: " + e.getMessage());
-            }
+//            System.out.printf("currMonth=%d, currYear=%d, selected_day_row=%d, selected_day_col=%d\n",currMonth,currYear, selected_day_row, selected_day_col);
+            int target_day=gridCordsToDayActual(currMonth,currYear, selected_day_row, selected_day_col);
+            String monthString, dayString;
+            LocalDate target_date;
+            //if day or month is single digit, must prepend a 0 to match LocalDate/LocalTime formats
+            if(currMonth<10)
+                monthString="0"+Integer.toString(currMonth+1);
+            else
+                monthString=Integer.toString(currMonth+1);
+            if(target_day<10)
+                dayString="0"+Integer.toString(target_day);
+            else
+                dayString=Integer.toString(target_day);
+//            System.out.println("DBG target_day="+Integer.toString(target_day));
+//            System.out.println("DBG dayString="+dayString);
+//            System.out.println("DBG monthString="+monthString);
+//            System.out.printf("DBG deleting events on %d-%S-%S in range %S-%S\n",currYear,monthString,dayString,min_time.toString(),max_time.toString());
+            target_date=LocalDate.parse(Integer.toString(currYear)+"-"+monthString+"-"+dayString);
+            System.out.println("target_date="+target_date.toString());
+            DataServer.deleteEventRange(target_date, min_time, max_time);
+            Thread.sleep(100);
+            updateIndicators();
+//            Event[] events = DataServer.getAllEvent();
+//            for(int i=0; i<Array.getLength(events);i++)
+//                System.out.println("event " + i + "=" + events[i].getName());
         }
     }
 
@@ -493,7 +505,7 @@ public class main_controller extends universal_controller{
         int numDays=getNumDays(month, year);
         String firstDay=getFirstDay(month,year);
         int offset=day_to_offset(firstDay);
-        dayActual=(row-1)*7;//row indexes start at 1 for some reason, normalize it then multiply by 7 for 7 days per row/week
+        dayActual=(row)*7; //multiply by 7 for 7 days per row/week
         dayActual+=col;//add day/col of week
         dayActual-=offset-1; //compensate for blank spaces in row 1 assosciated with where 1st week of month starts
         return dayActual;
