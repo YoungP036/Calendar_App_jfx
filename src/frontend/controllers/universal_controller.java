@@ -7,6 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,7 +18,7 @@ public class universal_controller {
 
     @FXML
     private Button cancel_BTN;
-    public void complete_shutdown(){
+    @FXML protected void complete_shutdown(){
         Platform.exit();
     }
 
@@ -24,16 +28,19 @@ public class universal_controller {
         stage.close();
     }
 
-    public static boolean validate_time(String time){
+    @FXML
+    protected static boolean validate_time(String time){
         boolean flag=false;
         Pattern time_pattern = Pattern.compile("([01]?[0-9]|2[0-3]):[0-5][0-9]");
         Matcher m = time_pattern.matcher(time);
         return m.matches();
     }
-    public static boolean validate_minutes(String minutes) {
+
+    @FXML protected static boolean validate_minutes(String minutes) {
         return Integer.parseInt(minutes)>0;
     }
-    public void invalid_input_dialogue(){
+    @FXML
+    protected void invalid_input_dialogue(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Invalid Input");
         alert.setHeaderText("Input error");
@@ -41,7 +48,8 @@ public class universal_controller {
         alert.showAndWait();
     }
 
-    public static void new_window(AnchorPane screen){
+    @FXML
+    protected static void new_window(AnchorPane screen){
         Stage newStage = new Stage();
 
         if(screen.getScene()==null){
@@ -54,4 +62,27 @@ public class universal_controller {
         newStage.show();
     }
 
+    //get number of days in a given month for a given year
+    @FXML
+    protected static int getNumDays(int month, int year){
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.DATE, 1);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.DAY_OF_MONTH,1);
+        return cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+    }
+    @FXML
+    protected static String getFirstDay(int month, int year){
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.DATE, 1);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        Date firstDayofMonth=cal.getTime();
+        DateFormat sdf = new SimpleDateFormat("EEEEEEEE");
+
+        return sdf.format(firstDayofMonth);
+    }
 }

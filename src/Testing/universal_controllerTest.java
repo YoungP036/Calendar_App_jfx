@@ -1,12 +1,13 @@
 package Testing;
 
+import frontend.controllers.universal_controller;
 import org.junit.Test;
 
-import static frontend.controllers.universal_controller.validate_minutes;
-import static frontend.controllers.universal_controller.validate_time;
+//import static frontend.controllers.universal_controller.validate_minutes;
+//import static frontend.controllers.universal_controller.validate_time;
 import static org.junit.Assert.*;
 
-public class universal_controllerTest {
+public class universal_controllerTest extends universal_controller {
 
     @Test
     public void testTimeValidator(){

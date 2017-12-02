@@ -118,20 +118,26 @@ public class DataServerTest {
         eb.seteDay(LocalDate.parse("2005-01-02"));
         eb.setsTime(LocalTime.parse("01:00"));
         eb.seteTime(LocalTime.parse("02:00"));
+        eb.setName("testEvent6");
         testEvent6=eb.createEvent();
 
         DataServer.saveEvent(testEvent3);//should get deleted
         DataServer.saveEvent(testEvent5);
         DataServer.saveEvent(testEvent4);//should get deleted
         DataServer.saveEvent(testEvent6);
-        DataServer.deleteEventRange("2005-01-01", "00:00", "05:59");
+        DataServer.deleteEventRange(LocalDate.parse("2005-01-01"), LocalTime.parse("00:00"), LocalTime.parse("05:59"));
         Event[] remaining_events = DataServer.getAllEvent();
-        assertNotEquals(remaining_events[0].getsTime().toString(),"01:00");
-        assertNotEquals(remaining_events[0].getsTime().toString(),"03:00");
+
+        //should be deleted -> e3: 2005/1/1, 1-2
+        //should be deleted -> e4: 2005/1/1, 3-4
+        //should exist -> e5: 2005/1/1, 6-7
+        //should exist -> e6: 2005/1/2, 1-2
         assertNotEquals(remaining_events[0].getName().toString(),"testEvent3");
-        assertNotEquals(remaining_events[1].getsTime().toString(),"01:00");
-        assertNotEquals(remaining_events[1].getsTime().toString(),"03:00");
+        assertNotEquals(remaining_events[0].getName().toString(),"testEvent4");
+        assertNotEquals(remaining_events[1].getName().toString(),"testEvent3");
         assertNotEquals(remaining_events[1].getName().toString(),"testEvent4");
+        assertEquals(remaining_events[0].getName().toString(), "testEvent5");
+        assertEquals(remaining_events[1].getName().toString(), "testEvent6");
 
     }
     /*

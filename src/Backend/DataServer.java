@@ -6,14 +6,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.lang.reflect.Array;
 
-//talks to mySQL DB
-//getAllEvents returns Event arraylist
-//getOneEvent- primary key needs to be a hash of the easily repeatable Event fields, sDay,eDay,sTime,eTime etc
-//             if pk is autoincrement client would have to pull all events to find the one it wants
-//saveEvent(Event e)
-//searchOpening(Event e) - fill Event with numerics, the strings can be blank
-public class DataServer {
+/*REFACTOR TODOS FOR IF ALL USER STORIES COMPLETE
+    1. review all method parameters that are strings, chances are they should be LocalDate, or LocalTime
+        - lots of pointless toString()ing going on
 
+*/
+public class DataServer {
     public static int init(){
         //check for and create DB if needed
         check_and_make_dir();
@@ -146,9 +144,20 @@ public class DataServer {
 //
 //    }
 
-    public static void deleteEventRange(String sDay, String time_range_start, String time_range_end){
+    public static void deleteEventRange(LocalDate sDay, LocalTime time_range_start, LocalTime time_range_end){
+        Event[] events = getAllEvent();
 
+        for(int i = 0; i < Array.getLength(events); i++){
+            //if correct day and start time is within range to be deleted, delete from DB
+            if(events[i].getsDay().compareTo(sDay)==0)
+                if(events[i].getsTime().compareTo(time_range_start)>0 && events[i].getsTime().compareTo(time_range_end)<0) {
+                    System.out.println("DBG deleting event: " + events[i].getName());
+                    deleteEvent(events[i].getsTime().toString(), events[i].geteTime().toString(), events[i].getsDay().toString(), events[i].geteDay().toString());
+                }
+        }
     }
+
+
     public static void deleteEvent(String sTime, String eTime, String sDay, String eDay){
         String sql = "DELETE FROM events WHERE sTime = ? AND eTime = ? AND sDay = ? AND eDay = ?";
         try(Connection conn = connect();
@@ -242,7 +251,6 @@ public class DataServer {
         boolean[] wdays = new boolean[7];
         prefsBuilder pb = new prefsBuilder();
         String sql = "SELECT id, wsTime, weTime, sunday, monday, tuesday, wednesday, thursday, friday, saturday FROM prefs WHERE id = ?";
-//        String sql = "DELETE FROM events WHERE sTime = ? AND eTime = ? AND sDay = ? AND eDay = ?";
         try(Connection conn = connect();
             PreparedStatement stmt=conn.prepareStatement(sql)){
             stmt.setInt(1, 1);
@@ -269,12 +277,12 @@ public class DataServer {
 
     }
 
-    private static boolean getBoolState(String str){
-        if(str.compareTo("true")==0)
-            return true;
-        else
-            return false;
-    }
+//    private static boolean getBoolState(String str){
+//        if(str.compareTo("true")==0)
+//            return true;
+//        else
+//            return false;
+//    }
 
     public static int saveEvent(Event ev){
         String name = ev.getName();
