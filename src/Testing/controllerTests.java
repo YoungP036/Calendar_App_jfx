@@ -55,9 +55,35 @@ public class controllerTests {
 
         return sdf.format(firstDayofMonth);
     }
-
+    private int day_to_offset(String day){
+        switch(day){
+            case "Sunday":
+                return 0;
+            case "Monday":
+                return 1;
+            case "Tuesday":
+                return 2;
+            case "Wednesday":
+                return 3;
+            case "Thursday":
+                return 4;
+            case "Friday":
+                return 5;
+            case "Saturday":
+                return 6;
+            default:
+                System.out.println("Day to offset returned -1");
+                return -1;
+        }
+    }
     private int gridCordsToDayActual(int month, int year, int row, int col){
-
-        return 0;
+        int dayActual=-1;
+        int numDays=getNumDays(month, year);
+        String firstDay=getFirstDay(month,year);
+        int offset=day_to_offset(firstDay);
+        dayActual=(row-1)*7;//row indexes start at 1 for some reason, normalize it then multiply by 7 for 7 days per row/week
+        dayActual+=col;//add day/col of week
+        dayActual-=offset-1; //compensate for blank spaces in row 1 assosciated with where 1st week of month starts
+        return dayActual;
     }
 }

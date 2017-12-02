@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Calendar_App/Testing/main_controllerTest.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing/main_controllerTest.java" afterPath="$PROJECT_DIR$/src/Testing/controllerTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Calendar_App/frontend/controllers/main_controller.class" afterPath="$PROJECT_DIR$/out/production/Calendar_App/frontend/controllers/main_controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Testing/controllerTests.java" afterPath="$PROJECT_DIR$/src/Testing/controllerTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" afterPath="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -84,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main_controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3168">
-              <caret line="469" column="0" lean-forward="false" selection-start-line="469" selection-start-column="0" selection-end-line="472" selection-end-column="5" />
+            <state relative-caret-position="694">
+              <caret line="491" column="25" lean-forward="true" selection-start-line="491" selection-start-column="25" selection-end-line="491" selection-end-column="25" />
               <folding>
                 <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
                 <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
@@ -100,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllerTests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controllerTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Testing/controllerTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+            <state relative-caret-position="196">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="87" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -274,9 +271,9 @@
         <option value="$PROJECT_DIR$/src/frontend/controllers/universal_controller.java" />
         <option value="$PROJECT_DIR$/src/Backend/DataServer.java" />
         <option value="$PROJECT_DIR$/src/Testing/DataServerTest.java" />
-        <option value="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
         <option value="$PROJECT_DIR$/src/Testing/main_controllerTest.java" />
         <option value="$PROJECT_DIR$/src/Testing/controllerTests.java" />
+        <option value="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
       </list>
     </option>
   </component>
@@ -597,31 +594,6 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="DataServerTest.testGetOneEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Calendar_App" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Testing" />
-      <option name="MAIN_CLASS_NAME" value="Testing.DataServerTest" />
-      <option name="METHOD_NAME" value="testGetOneEvent" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration name="DataServerTest.testSaveReadPrefs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -799,21 +771,46 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
+    <configuration name="controllerTests.testGridCordsToActualDay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Calendar_App" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Testing" />
+      <option name="MAIN_CLASS_NAME" value="Testing.controllerTests" />
+      <option name="METHOD_NAME" value="testGridCordsToActualDay" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DataServerTest.testGetOneEvent" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.Testing in Calendar_App" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest.testSaveReadPrefs" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.DataServerTest.testDeleteEventRange" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.Testing in Calendar_App" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DataServerTest.testSaveReadPrefs" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest.testDeleteEventRange" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.controllerTests.testGridCordsToActualDay" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Testing in Calendar_App" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DataServerTest.testDeleteEventRange" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DataServerTest.testSaveReadPrefs" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest.testGetOneEvent" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.controllerTests.testGridCordsToActualDay" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Testing in Calendar_App" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DataServerTest.testDeleteEventRange" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DataServerTest.testSaveReadPrefs" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -864,44 +861,44 @@
       <workItem from="1511924528032" duration="2228000" />
       <workItem from="1511978467461" duration="10868000" />
       <workItem from="1512106936343" duration="3995000" />
-      <workItem from="1512186879593" duration="2974000" />
+      <workItem from="1512186879593" duration="3850000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DataServerTest_testDeleteEventRange - 2017.12.01 at 23h 17m 21s.xml">
-      <configuration name="DataServerTest.testDeleteEventRange" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testDeleteEventRange - 2017.12.01 at 23h 18m 28s.xml">
-      <configuration name="DataServerTest.testDeleteEventRange" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testDeleteEventRange - 2017.12.01 at 23h 19m 07s.xml">
-      <configuration name="DataServerTest.testDeleteEventRange" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testDeleteEventRange - 2017.12.01 at 23h 21m 14s.xml">
-      <configuration name="DataServerTest.testDeleteEventRange" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testDeleteEventRange - 2017.12.01 at 23h 22m 41s.xml">
-      <configuration name="DataServerTest.testDeleteEventRange" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testDeleteEventRange - 2017.12.01 at 23h 23m 10s.xml">
-      <configuration name="DataServerTest.testDeleteEventRange" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DataServerTest_testDeleteEventRange - 2017.12.01 at 23h 24m 50s.xml">
       <configuration name="DataServerTest.testDeleteEventRange" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testSaveReadPrefs - 2017.11.29 at 22h 30m 34s.xml">
-      <configuration name="DataServerTest.testSaveReadPrefs" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Testing_in_Calendar_App - 2017.12.01 at 01h 47m 27s.xml">
-      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
     <history-entry file="Testing_in_Calendar_App - 2017.12.01 at 23h 25m 16s.xml">
       <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 54m 09s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 54m 42s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 55m 18s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 56m 21s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 56m 38s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 57m 03s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 57m 21s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 57m 27s.xml">
+      <configuration name="controllerTests.testGridCordsToActualDay" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105279000" />
+    <option name="totallyTimeSpent" value="106155000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1600" height="900" extended-state="6" />
@@ -1387,20 +1384,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3168">
-          <caret line="469" column="0" lean-forward="false" selection-start-line="469" selection-start-column="0" selection-end-line="472" selection-end-column="5" />
-          <folding>
-            <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
-            <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
-            <element signature="method#monthForwardBTN#0;class#main_controller#0" expanded="false" />
-            <element signature="method#setMonthYearLabels#0;class#main_controller#0" expanded="false" />
-            <element signature="method#setCalendarCellLabels#0;class#main_controller#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -1413,9 +1396,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/controllerTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+        <state relative-caret-position="196">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="87" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="491" column="25" lean-forward="true" selection-start-line="491" selection-start-column="25" selection-end-line="491" selection-end-column="25" />
+          <folding>
+            <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
+            <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
+            <element signature="method#monthForwardBTN#0;class#main_controller#0" expanded="false" />
+            <element signature="method#setMonthYearLabels#0;class#main_controller#0" expanded="false" />
+            <element signature="method#setCalendarCellLabels#0;class#main_controller#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
