@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Calendar_App/frontend/controllers/main_controller.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" afterPath="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frontend/screens/main_screen.fxml" afterPath="$PROJECT_DIR$/src/frontend/screens/main_screen.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,8 +85,8 @@
       <file leaf-file-name="main_controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-30">
-              <caret line="289" column="18" lean-forward="false" selection-start-line="289" selection-start-column="18" selection-end-line="289" selection-end-column="18" />
+            <state relative-caret-position="15">
+              <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
               <folding>
                 <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
                 <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
@@ -831,21 +832,21 @@
       <workItem from="1511978467461" duration="10868000" />
       <workItem from="1512106936343" duration="3995000" />
       <workItem from="1512186879593" duration="12078000" />
-      <workItem from="1512362411826" duration="2960000" />
+      <workItem from="1512362411826" duration="4677000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DataServerTest - 2017.12.02 at 00h 49m 14s.xml">
-      <configuration name="DataServerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Testing_in_Calendar_App - 2017.12.02 at 02h 10m 05s.xml">
-      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Testing_in_Calendar_App - 2017.12.02 at 02h 11m 52s.xml">
       <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
     <history-entry file="Testing_in_Calendar_App - 2017.12.02 at 02h 15m 59s.xml">
+      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Testing_in_Calendar_App - 2017.12.04 at 00h 30m 00s.xml">
+      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Testing_in_Calendar_App - 2017.12.04 at 00h 38m 57s.xml">
       <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
     <history-entry file="controllerTests_testGridCordsToActualDay - 2017.12.01 at 23h 57m 21s.xml">
@@ -868,7 +869,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117343000" />
+    <option name="totallyTimeSpent" value="119060000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1600" height="900" extended-state="6" />
@@ -882,12 +883,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3358396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3358396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3767209" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37625" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1374,8 +1375,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="289" column="18" lean-forward="false" selection-start-line="289" selection-start-column="18" selection-end-line="289" selection-end-column="18" />
+        <state relative-caret-position="15">
+          <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding>
             <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
             <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />

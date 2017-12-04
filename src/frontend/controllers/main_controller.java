@@ -179,14 +179,14 @@ public class main_controller extends universal_controller{
         for(int i=0;i<6;i++)
             for(int j=0;j<7;j++)
                 for(int k=0;k<4;k++)
-                    indicators[i][j][k].setStyle("-fx-background-color: #00cc00");
+                    indicators[i][j][k].setStyle("-fx-background-color: #00cc00; -fx-border-color: #00cc00");
 
     }
 
 
 
     @FXML protected static void updateIndicators(){
-//        reset_indicators();
+        reset_indicators();
         Event[] events = DataServer.getAllEvent();
         int indicator=-1;
         int numEvents= Array.getLength(events);
@@ -228,7 +228,6 @@ public class main_controller extends universal_controller{
             if(year!=currYear || month!=currMonth)
                 continue;
 
-
             //convert to 'relative day'
             day=day+firstDay-1;
             int row=0;
@@ -244,75 +243,58 @@ public class main_controller extends universal_controller{
                 indicator=2;
             else if(hour>18 && hour<=24)
                 indicator=3;
-            if(events[i].isWorkType())
-                indicators[row][day][indicator].setStyle("-fx-background-color: #ccff00");
-            else
-                indicators[row][day][indicator].setStyle("-fx-background-color: #000000");
+            String style=indicators[row][day][indicator].getStyle().toString();
+            if(events[i].isWorkType()){
+                style=style.replaceAll("-fx-background-color: #[0-9a-f]+", "-fx-background-color: #ccff00");
+                indicators[row][day][indicator].setStyle(style);
+            }
+            else {
+                style=style.replaceAll("-fx-background-color: #[0-9a-f]+", "-fx-background-color: #000000");
+                indicators[row][day][indicator].setStyle(style);
+            }
         }
         System.out.println("DBG indicators updated");
     }
     @FXML private void selected_event(MouseEvent e){
         Node source  = (Node)e.getSource();
         Node parent= source.getParent().getParent();
+        int prev_day_col, prev_day_row, prev_ind;
         Integer child_row = days_pane.getRowIndex(source);
         Integer parent_row = days_pane.getRowIndex(parent);
         Integer parent_col = days_pane.getColumnIndex(parent);
-        int prev_day_col, prev_day_row, prev_ind;
         if(parent_row==null)
             parent_row=0;
         if(parent_col==null)
             parent_col=0;
         if(child_row==null)
             child_row=0;
-        System.out.printf("DBG Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
-        System.out.printf("DBG currMonth=%d, currYear=%d\n",currMonth,currYear);
         prev_day_col=selected_day_col;
         prev_day_row=selected_day_row;
         prev_ind=selected_indicator;
-        String prev_style=indicators[prev_day_row][prev_day_col][prev_ind].getStyle().toString();
-        prev_style.replaceAll("-fx-border-color: #6600ff","-fx-border-color: #00cc00");
-//        indicators[prev_day_row][prev_day_col][prev_ind].setStyle(prev_style);
         selected_indicator=child_row;
         selected_day_col=parent_col;
         selected_day_row=parent_row-1;//for some reason rows are starting at 1, everything else is starting at 0
 
-//        if(selected_day_row==prev_day_row&&selected_day_col==prev_day_row&&selected_indicator==prev_ind)
-//            return;
-        //direct deselect click target
-        if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#6600ff"))
-//                ||indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#000000")
-//                ||indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#FFFFFF"))
-        {
-            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#00cc00");
-        }
-        //select
+        System.out.printf("DBG Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
+
+        //deselect anything that was previously selected
+        String prev_style=indicators[prev_day_row][prev_day_col][prev_ind].getStyle().toString();
+        prev_style=prev_style.replaceAll("-fx-border-color: #[0-9a-f]+","-fx-border-color: #00cc00");
+        indicators[prev_day_row][prev_day_col][prev_ind].setStyle(prev_style);
+
+        //handle case where cell clicked is identical to last cell clicked, 2 sub cases, even number clicks and odd number clicks
+        if(prev_day_row==selected_day_row&& prev_day_col==selected_day_col&&prev_ind==selected_indicator)
+            //TODO if border is green its a select, leave globals
+            //else its a deselect, set globals to OOB
+            return;
+        //normal case where clicked cell is different from last clicked cell
         else{
-            //handle indirect deselect from user clicking new target
-            for(int i=0;i<6;i++)
-                for(int j=0;j<7;j++)
-                    for(int k=0;k<4;k++)
-                        if(i==selected_day_row && j==selected_day_col && k==selected_indicator)
-                            continue;
-                        else
-                            indicators[i][j][k].setStyle("-fx-border-color: #00cc00");
-
-            //then redraw border
-            if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-background-color: #000000")) {
-                System.out.println("personal event selected");
-                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff; -fx-background-color: #000000");
-            }
-            else if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-background-color: #ccff00")){
-                System.out.println("work event selected");
-                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff; -fx-background-color: #ccff00");
-            }
-            else {
-                System.out.println("empty cell selected");
-                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff; -fx-background-color: #00cc00");
-            }
-
-            System.out.println(indicators[selected_day_row][selected_day_row][selected_indicator].toString()+" style: " + indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().toString());
+            prev_style=indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().toString();
+            System.out.println("prev style: " + prev_style);
+            prev_style=prev_style.replaceAll("-fx-border-color: #[0-9a-f]+", "-fx-border-color: #6600ff");
+            System.out.println("new style: " + prev_style);
+            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle(prev_style);
         }
-        updateIndicators();
     }
 
     @FXML
