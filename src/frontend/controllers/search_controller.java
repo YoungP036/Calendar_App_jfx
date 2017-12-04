@@ -42,7 +42,49 @@ public class search_controller extends universal_controller{
     }
 
     private boolean[][] eliminate_by_eType(boolean[][] results, int type){
+        userPrefs prefs= DataServer.getPrefs();
+        if(prefs==null || type==3 || type==0)
+            return results;
+        else{
+            boolean[] work_days=prefs.getWorkdays();
+            int wStart=prefs.getwStart_time().getHour();
+            int wEnd=prefs.getwEnd_time().getHour();
 
+            //modify results for a work event type search
+            if(type==1){
+                for(int i = 0; i< Array.getLength(work_days); i++){
+                    //if its not a work day, eliminate that whole day
+                    if(work_days[i]==false)
+                        for(int j=0;j<24;j++)
+                            results[i][j]=false;
+                    else{
+                        for(int j=0;j<wStart;j++)
+                            results[i][j]=false;
+                        for(int j=wStart;j<wEnd;j++)
+                            results[i][j]=true;
+                        for(int j=wEnd;j<24;j++)
+                            results[i][j]=false;
+                    }
+                }
+            }
+            //modify results for a personal event type search
+            else if(type==2){
+                for(int i = 0; i< Array.getLength(work_days); i++){
+                    //if its not a work day, eliminate that whole day
+                    if(work_days[i]==true)
+                        for(int j=0;j<24;j++)
+                            results[i][j]=false;
+                    else{
+                        for(int j=0;j<wStart;j++)
+                            results[i][j]=true;
+                        for(int j=wStart;j<wEnd;j++)
+                            results[i][j]=false;
+                        for(int j=wEnd;j<24;j++)
+                            results[i][j]=true;
+                    }
+                }
+            }
+        }
         return results;
     }
 

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Testing/search_controllerTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Calendar_App/Testing/userPrefsAndFactoryTests.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing/userPrefsAndFactoryTests.java" afterPath="$PROJECT_DIR$/src/Testing/userPrefsAndBuilderTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Calendar_App/Testing/search_controllerTest.class" afterPath="$PROJECT_DIR$/out/production/Calendar_App/Testing/search_controllerTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Calendar_App/frontend/controllers/search_controller.class" afterPath="$PROJECT_DIR$/out/production/Calendar_App/frontend/controllers/search_controller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Testing/search_controllerTest.java" afterPath="$PROJECT_DIR$/src/Testing/search_controllerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frontend/controllers/search_controller.java" afterPath="$PROJECT_DIR$/src/frontend/controllers/search_controller.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -72,36 +71,38 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="main_screen.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="585">
               <caret line="39" column="223" lean-forward="false" selection-start-line="39" selection-start-column="217" selection-end-line="39" selection-end-column="223" />
               <folding>
                 <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
               </folding>
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_controller.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="search_controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frontend/controllers/search_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="553">
+              <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_controllerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="search_controllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Testing/search_controllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-125">
-              <caret line="36" column="46" lean-forward="true" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+            <state relative-caret-position="390">
+              <caret line="189" column="1" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#eliminate_by_eType#0;class#search_controllerTest#0" expanded="false" />
+                <element signature="method#destroyDB#0;class#search_controllerTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -110,8 +111,8 @@
       <file leaf-file-name="DataServerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="258" selection-end-column="5" />
+            <state relative-caret-position="2745">
+              <caret line="193" column="36" lean-forward="true" selection-start-line="193" selection-start-column="36" selection-end-line="193" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -121,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/src/Backend/Event.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+              <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -130,8 +131,8 @@
       <file leaf-file-name="DataServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1965">
-              <caret line="171" column="68" lean-forward="true" selection-start-line="171" selection-start-column="68" selection-end-line="171" selection-end-column="68" />
+            <state relative-caret-position="1153">
+              <caret line="171" column="68" lean-forward="false" selection-start-line="171" selection-start-column="68" selection-end-line="171" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#init#0;class#DataServer#0" expanded="false" />
@@ -157,7 +158,7 @@
         <entry file="file://$PROJECT_DIR$/src/Testing/eventBuilderTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+              <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -176,8 +177,8 @@
       <file leaf-file-name="main_controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="218" column="37" lean-forward="true" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
+            <state relative-caret-position="2880">
+              <caret line="218" column="37" lean-forward="false" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
               <folding>
                 <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
                 <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
@@ -305,8 +306,8 @@
         <option value="$PROJECT_DIR$/src/Testing/DataServerTest.java" />
         <option value="$PROJECT_DIR$/src/Backend/DataServer.java" />
         <option value="$PROJECT_DIR$/src/Testing/userPrefsAndBuilderTests.java" />
-        <option value="$PROJECT_DIR$/src/Testing/search_controllerTest.java" />
         <option value="$PROJECT_DIR$/src/frontend/controllers/search_controller.java" />
+        <option value="$PROJECT_DIR$/src/Testing/search_controllerTest.java" />
       </list>
     </option>
   </component>
@@ -476,6 +477,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -525,9 +529,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -902,20 +903,13 @@
       <workItem from="1512362411826" duration="4677000" />
       <workItem from="1512394129962" duration="925000" />
       <workItem from="1512395096420" duration="2521000" />
-      <workItem from="1512402984635" duration="2610000" />
+      <workItem from="1512402984635" duration="2705000" />
+      <workItem from="1512405723871" duration="110000" />
+      <workItem from="1512415696795" duration="1980000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DataServerTest_testSaveDuplicateEvents - 2017.12.04 at 09h 50m 47s.xml">
-      <configuration name="DataServerTest.testSaveDuplicateEvents" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testSaveDuplicateEvents - 2017.12.04 at 09h 52m 12s.xml">
-      <configuration name="DataServerTest.testSaveDuplicateEvents" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataServerTest_testSaveDuplicateEvents - 2017.12.04 at 09h 52m 26s.xml">
-      <configuration name="DataServerTest.testSaveDuplicateEvents" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Testing_in_Calendar_App - 2017.12.04 at 09h 52m 45s.xml">
       <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
@@ -937,9 +931,18 @@
     <history-entry file="search_controllerTest - 2017.12.04 at 11h 39m 52s.xml">
       <configuration name="search_controllerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="search_controllerTest - 2017.12.04 at 11h 42m 44s.xml">
+      <configuration name="search_controllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="search_controllerTest - 2017.12.04 at 14h 55m 06s.xml">
+      <configuration name="search_controllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="search_controllerTest - 2017.12.04 at 14h 56m 58s.xml">
+      <configuration name="search_controllerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125116000" />
+    <option name="totallyTimeSpent" value="127301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1600" height="900" extended-state="6" />
@@ -953,7 +956,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3358396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3358396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1018,6 +1021,9 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
@@ -1025,9 +1031,6 @@
             <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
           </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Calendar_App.iml">
@@ -1052,6 +1055,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
@@ -1059,9 +1065,6 @@
             <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
           </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/Main.java">
@@ -1079,6 +1082,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
@@ -1086,9 +1092,6 @@
             <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
           </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/Main.java">
@@ -1106,6 +1109,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1113,9 +1119,6 @@
             <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
           </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/Main.java">
@@ -1126,6 +1129,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
@@ -1133,9 +1139,6 @@
             <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
@@ -1146,6 +1149,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1153,9 +1159,6 @@
             <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
           </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/.name">
@@ -1194,14 +1197,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/anchor.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -1239,14 +1242,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/add_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="88" lean-forward="false" selection-start-line="25" selection-start-column="88" selection-end-line="25" selection-end-column="88" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/delete_screen.fxml" />
@@ -1279,14 +1282,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/pref_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="113" lean-forward="false" selection-start-line="11" selection-start-column="101" selection-end-line="11" selection-end-column="113" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/Main.java">
@@ -1325,27 +1328,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="585">
           <caret line="39" column="223" lean-forward="false" selection-start-line="39" selection-start-column="217" selection-end-line="39" selection-end-column="223" />
           <folding>
             <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
           </folding>
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="218" column="37" lean-forward="true" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
+        <state relative-caret-position="2880">
+          <caret line="218" column="37" lean-forward="false" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
           <folding>
             <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
             <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
@@ -1359,26 +1361,42 @@
     <entry file="file://$PROJECT_DIR$/src/Backend/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frontend/screens/search_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/eventBuilderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/userPrefsAndBuilderTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
-          <caret line="171" column="68" lean-forward="true" selection-start-line="171" selection-start-column="68" selection-end-line="171" selection-end-column="68" />
+        <state relative-caret-position="1153">
+          <caret line="171" column="68" lean-forward="false" selection-start-line="171" selection-start-column="68" selection-end-line="171" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#init#0;class#DataServer#0" expanded="false" />
@@ -1399,45 +1417,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/eventBuilderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/search_controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/userPrefsAndBuilderTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        <state relative-caret-position="553">
+          <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="258" selection-end-column="5" />
+        <state relative-caret-position="2745">
+          <caret line="193" column="36" lean-forward="true" selection-start-line="193" selection-start-column="36" selection-end-line="193" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/search_controllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="36" column="46" lean-forward="true" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+        <state relative-caret-position="390">
+          <caret line="189" column="1" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#eliminate_by_eType#0;class#search_controllerTest#0" expanded="false" />
+            <element signature="method#destroyDB#0;class#search_controllerTest#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/search_controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
