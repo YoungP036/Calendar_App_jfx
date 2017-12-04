@@ -100,9 +100,9 @@ public class DataServerTest {
 
         eb.setName("testEvent3");
         eb.setsDay(LocalDate.parse("2005-01-01"));
-        eb.setsDay(LocalDate.parse("2005-01-01"));
+        eb.seteDay(LocalDate.parse("2005-01-01"));
         eb.setsTime(LocalTime.parse("01:00"));
-        eb.setsTime(LocalTime.parse("02:00"));
+        eb.seteTime(LocalTime.parse("02:00"));
         testEvent3=eb.createEvent();
 
         eb.setsTime(LocalTime.parse("03:00"));
@@ -133,6 +133,7 @@ public class DataServerTest {
         //should be deleted -> e4: 2005/1/1, 3-4
         //should exist -> e5: 2005/1/1, 6-7
         //should exist -> e6: 2005/1/2, 1-2
+        assertEquals(Array.getLength(remaining_events), 2);
         assertNotEquals(remaining_events[0].getName().toString(),"testEvent3");
         assertNotEquals(remaining_events[0].getName().toString(),"testEvent4");
         assertNotEquals(remaining_events[1].getName().toString(),"testEvent3");
@@ -141,26 +142,14 @@ public class DataServerTest {
         assertEquals(remaining_events[1].getName().toString(), "testEvent6");
 
     }
-    /*
-            currently useless, probably abandoning the method this tests
-     */
-//    @Test
-//    public void testGetOneEvent(){
-//        destroyDB();
-//        LocalDate date = LocalDate.parse("2000-03-05");
-//        DataServer.init();
-//        DataServer.saveEvent(testEvent);
-//        DataServer.saveEvent(testEvent2);
-//        Event outputEvent = DataServer.getEvent(date);
-//        assertEquals(outputEvent.getsDay().toString(), date.toString());
-//        assertEquals(outputEvent.getName(), "eventName1");
-//    }
+
 
     @Test
     public void testSaveDuplicateEvents(){
         destroyDB();
         DataServer.init();
         eventBuilder eb = new eventBuilder();
+
         eb.setName("event1");
         eb.setsDay(LocalDate.parse("2017-12-04"));
         eb.seteDay(LocalDate.parse("2017-12-04"));
@@ -180,8 +169,52 @@ public class DataServerTest {
         eb.setsTime(LocalTime.parse("01:30"));
         eb.seteTime(LocalTime.parse("03:00"));
         DataServer.saveEvent(eb.createEvent());
-        
-        assertEquals(Array.getLength(DataServer.getAllEvent()), 1);
+
+        eb.setName("event5");
+        eb.setsTime(LocalTime.parse("12:00"));
+        eb.seteTime(LocalTime.parse("14:00"));
+        DataServer.saveEvent(eb.createEvent());
+
+        assertEquals(Array.getLength(DataServer.getAllEvent()), 2);
+
+        destroyDB();
+        DataServer.init();
+        Event testEvent3, testEvent4, testEvent5, testEvent6;
+
+        eb.setName("testEvent3");
+        eb.setsDay(LocalDate.parse("2005-01-01"));
+        eb.setsDay(LocalDate.parse("2005-01-01"));
+        eb.setsTime(LocalTime.parse("01:00"));
+        eb.seteTime(LocalTime.parse("02:00"));
+        testEvent3=eb.createEvent();
+
+        eb.setsTime(LocalTime.parse("03:00"));
+        eb.seteTime(LocalTime.parse("04:00"));
+        eb.setName("testEvent4");
+        testEvent4=eb.createEvent();
+
+        eb.setsTime(LocalTime.parse("06:00"));
+        eb.seteTime(LocalTime.parse("07:00"));
+        eb.setName("testEvent5");
+        testEvent5=eb.createEvent();
+
+        eb.setsDay(LocalDate.parse("2005-01-02"));
+        eb.seteDay(LocalDate.parse("2005-01-02"));
+        eb.setsTime(LocalTime.parse("01:00"));
+        eb.seteTime(LocalTime.parse("02:00"));
+        eb.setName("testEvent6");
+        testEvent6=eb.createEvent();
+
+        DataServer.saveEvent(testEvent3);
+        DataServer.saveEvent(testEvent4);
+        DataServer.saveEvent(testEvent5);
+        DataServer.saveEvent(testEvent6);
+
+        Event[] events = DataServer.getAllEvent();
+        for(int i=0; i< Array.getLength(events);i++)
+            System.out.println(events[i].getName());
+//
+        assertEquals(Array.getLength(DataServer.getAllEvent()), 4);
     }
     @Test
     public void testSaveEvent(){
