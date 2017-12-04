@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
@@ -154,6 +155,34 @@ public class DataServerTest {
 //        assertEquals(outputEvent.getsDay().toString(), date.toString());
 //        assertEquals(outputEvent.getName(), "eventName1");
 //    }
+
+    @Test
+    public void testSaveDuplicateEvents(){
+        destroyDB();
+        DataServer.init();
+        eventBuilder eb = new eventBuilder();
+        eb.setName("event1");
+        eb.setsDay(LocalDate.parse("2017-12-04"));
+        eb.seteDay(LocalDate.parse("2017-12-04"));
+        eb.setsTime(LocalTime.parse("01:00"));
+        eb.seteTime(LocalTime.parse("02:00"));
+        DataServer.saveEvent(eb.createEvent());
+
+        eb.setName("event2");
+        DataServer.saveEvent(eb.createEvent());
+
+        eb.setName("event3");
+        eb.setsTime(LocalTime.parse("00:00"));
+        eb.setsTime(LocalTime.parse("01:30"));
+        DataServer.saveEvent(eb.createEvent());
+
+        eb.setName("event4");
+        eb.setsTime(LocalTime.parse("01:30"));
+        eb.seteTime(LocalTime.parse("03:00"));
+        DataServer.saveEvent(eb.createEvent());
+        
+        assertEquals(Array.getLength(DataServer.getAllEvent()), 1);
+    }
     @Test
     public void testSaveEvent(){
         destroyDB();

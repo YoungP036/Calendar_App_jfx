@@ -1,11 +1,13 @@
 package frontend.controllers;
 
+import Backend.DataServer;
 import Backend.Event;
 import Backend.eventBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
