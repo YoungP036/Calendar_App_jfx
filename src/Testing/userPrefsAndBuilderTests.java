@@ -8,7 +8,7 @@ import java.time.LocalTime;
 
 import static org.junit.Assert.*;
 
-public class userPrefsAndFactoryTests {
+public class userPrefsAndBuilderTests {
     private userPrefs testPrefs1, testPrefs2,testPrefs3;
     private prefsBuilder pb=new prefsBuilder();
     LocalTime time;
