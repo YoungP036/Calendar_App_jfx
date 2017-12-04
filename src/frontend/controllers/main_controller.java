@@ -244,7 +244,10 @@ public class main_controller extends universal_controller{
                 indicator=2;
             else if(hour>18 && hour<=24)
                 indicator=3;
-            indicators[row][day][indicator].setStyle("-fx-background-color: #000000");
+            if(events[i].isWorkType())
+                indicators[row][day][indicator].setStyle("-fx-background-color: #ccff00");
+            else
+                indicators[row][day][indicator].setStyle("-fx-background-color: #000000");
         }
         System.out.println("DBG indicators updated");
     }
@@ -254,7 +257,7 @@ public class main_controller extends universal_controller{
         Integer child_row = days_pane.getRowIndex(source);
         Integer parent_row = days_pane.getRowIndex(parent);
         Integer parent_col = days_pane.getColumnIndex(parent);
-
+        int prev_day_col, prev_day_row, prev_ind;
         if(parent_row==null)
             parent_row=0;
         if(parent_col==null)
@@ -263,21 +266,24 @@ public class main_controller extends universal_controller{
             child_row=0;
         System.out.printf("DBG Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
         System.out.printf("DBG currMonth=%d, currYear=%d\n",currMonth,currYear);
+        prev_day_col=selected_day_col;
+        prev_day_row=selected_day_row;
+        prev_ind=selected_indicator;
+        String prev_style=indicators[prev_day_row][prev_day_col][prev_ind].getStyle().toString();
+        prev_style.replaceAll("-fx-border-color: #6600ff","-fx-border-color: #00cc00");
+//        indicators[prev_day_row][prev_day_col][prev_ind].setStyle(prev_style);
         selected_indicator=child_row;
-        selected_day_col=parent_col;
         selected_day_col=parent_col;
         selected_day_row=parent_row-1;//for some reason rows are starting at 1, everything else is starting at 0
 
+//        if(selected_day_row==prev_day_row&&selected_day_col==prev_day_row&&selected_indicator==prev_ind)
+//            return;
         //direct deselect click target
         if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#6600ff"))
 //                ||indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#000000")
 //                ||indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-border-color:#FFFFFF"))
         {
-
             indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#00cc00");
-            selected_day_row=-1;
-            selected_day_col=-1;
-            selected_indicator=-1;
         }
         //select
         else{
@@ -285,20 +291,26 @@ public class main_controller extends universal_controller{
             for(int i=0;i<6;i++)
                 for(int j=0;j<7;j++)
                     for(int k=0;k<4;k++)
-                        indicators[i][j][k].setStyle("-fx-border-color: #00cc00");
-            indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff");
+                        if(i==selected_day_row && j==selected_day_col && k==selected_indicator)
+                            continue;
+                        else
+                            indicators[i][j][k].setStyle("-fx-border-color: #00cc00");
 
+            //then redraw border
+            if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-background-color: #000000")) {
+                System.out.println("personal event selected");
+                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff; -fx-background-color: #000000");
+            }
+            else if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-background-color: #ccff00")){
+                System.out.println("work event selected");
+                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff; -fx-background-color: #ccff00");
+            }
+            else {
+                System.out.println("empty cell selected");
+                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff; -fx-background-color: #00cc00");
+            }
 
-            //select new target, if its black because of event, select with white border, else select with black border
-            //TODO THIS NEVER RESOLVES AS TRUE, FIND OUT WHY
-//            if(indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().contains("-fx-background-color: #000000")) {
-//                System.out.println("DBG selected backround black due to existing event");
-//                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff");
-//            }
-//            else{
-//                indicators[selected_day_row][selected_day_col][selected_indicator].setStyle("-fx-border-color:#6600ff");
-//            }
-
+            System.out.println(indicators[selected_day_row][selected_day_row][selected_indicator].toString()+" style: " + indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().toString());
         }
         updateIndicators();
     }
@@ -509,5 +521,18 @@ public class main_controller extends universal_controller{
         dayActual+=col;//add day/col of week
         dayActual-=offset-1; //compensate for blank spaces in row 1 assosciated with where 1st week of month starts
         return dayActual;
+    }
+
+    @FXML
+    private void delete_all_events(){
+        Event[] events=DataServer.getAllEvent();
+        String sDay, eDay, sTime, eTime;
+        for(int i=0;i<Array.getLength(events);i++) {
+            sDay=events[i].getsDay().toString();
+            eDay=events[i].geteDay().toString();
+            sTime=events[i].getsTime().toString();
+            eTime=events[i].geteTime().toString();
+            DataServer.deleteEvent(sTime,eTime,sDay,eDay);
+        }
     }
 }
