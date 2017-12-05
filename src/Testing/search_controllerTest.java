@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 
 public class search_controllerTest {
     private boolean[][] results, results2;
+
     @Before
     public void setup(){
         results=new boolean[7][24];
@@ -20,7 +21,7 @@ public class search_controllerTest {
         for(int i=0; i<7;i++)
             for(int j=0;j<24;j++) {
                 results[i][j] = true;
-                results[i][j]=true;
+                results[i][j] = true;
             }
     }
     @Test
@@ -79,68 +80,331 @@ public class search_controllerTest {
     @Test
     public void test_eliminate_by_conflict(){
         results=new boolean[7][24];
+        results2=new boolean[7][24];
         for(int i=0; i<7;i++)
-            for(int j=0;j<24;j++)
-                results[i][j]=true;
+            for(int j=0;j<24;j++) {
+                results[i][j] = true;
+                results2[i][j]=true;
+        }
         destroyDB();
         DataServer.init();
         eventBuilder eb = new eventBuilder();
 
-        Event testEvent3, testEvent4, testEvent5, new_event, testEvent6;
+        Event testEvent3, testEvent4;
 
         eb.setName("testEvent3");
         eb.setsDay(LocalDate.parse("2017-12-05"));
         eb.seteDay(LocalDate.parse("2017-12-05"));
         eb.setsTime(LocalTime.parse("01:00"));
         eb.seteTime(LocalTime.parse("06:00"));
-        testEvent3=eb.createEvent();
+        DataServer.saveEvent(eb.createEvent());
 
-        eb.setsTime(LocalTime.parse("12:00"));
-        eb.seteTime(LocalTime.parse("18:00"));
         eb.setName("testEvent4");
-        testEvent4=eb.createEvent();
-
-        eb.setName("testEvent5");
-        eb.setsDay(LocalDate.parse("2017-12-04"));
-        eb.setsDay(LocalDate.parse("2017-12-04"));
-        eb.setsTime(LocalTime.parse("01:00"));
-        eb.seteTime(LocalTime.parse("06:00"));
-        testEvent5=eb.createEvent();
-
         eb.setsTime(LocalTime.parse("12:00"));
         eb.seteTime(LocalTime.parse("18:00"));
-        eb.setName("testEvent6");
-        testEvent6=eb.createEvent();
+        DataServer.saveEvent(eb.createEvent());
 
-        LocalDate current_day=LocalDate.parse("2017-12-04");
+        LocalDate current_day=LocalDate.parse("2017-12-05");
         LocalTime current_time=LocalTime.parse("08:00");
-        int currHour=current_time.getHour();
-        DataServer.saveEvent(testEvent3);
-        DataServer.saveEvent(testEvent4);
-        DataServer.saveEvent(testEvent5);
-        DataServer.saveEvent(testEvent6);
 
-        boolean[][] results=new boolean[7][24];
         results=eliminate_by_conflicts(results, current_day, current_time);
 
-        for(int i=0;i<24;i++) {
-            if ((i <= 6 && i >= 1) || (i <= 18 && i >= 12)) {
-                System.out.printf("Checking off limits indexes, [0][%d] and [1][%d]", i);
-                assertEquals(false, results[0][i]);
-                assertEquals(false, results[1][i]);
-            } else {
-                System.out.printf("Checking acceptable indexes, [0][%d] and [1][%d]", i);
-                assertEquals(true, results[0][i]);
-                assertEquals(true, results[1][i]);
-            }
-        }
-        for(int i=0;i<currHour+2;i++){
-            System.out.printf("Checking time that has already passed+2 hours, [0][%d] and [1][%d]",i);
-            assertEquals(false, results[0][i]);
-            assertEquals(false, results[1][i]);
-        }
+        assertEquals(false,results[0][0]);
+        assertEquals(false,results[0][1]);
+        assertEquals(false,results[0][2]);
+        assertEquals(false,results[0][3]);
+        assertEquals(false,results[0][4]);
+        assertEquals(false,results[0][5]);
+        assertEquals(false,results[0][6]);
+        assertEquals(false,results[0][7]);
+        assertEquals(false,results[0][8]);
+        assertEquals(false,results[0][9]);
+        assertEquals(false,results[0][10]);
+        assertEquals(true,results[0][11]);
+        assertEquals(false,results[0][12]);
+        assertEquals(false,results[0][13]);
+        assertEquals(false,results[0][14]);
+        assertEquals(false,results[0][15]);
+        assertEquals(false,results[0][16]);
+        assertEquals(false,results[0][17]);
+        assertEquals(false,results[0][18]);
+        assertEquals(true,results[0][19]);
+        assertEquals(true,results[0][20]);
+        assertEquals(true,results[0][21]);
+        assertEquals(true,results[0][22]);
+        assertEquals(true,results[0][23]);
+        for(int i=1;i<7;i++)
+            for(int j=0;j<24;j++)
+            assertEquals(true,results[i][j]);
+
+        eb.setName("testEvent5");
+        eb.setsDay(LocalDate.parse("2017-12-11"));
+        eb.setsDay(LocalDate.parse("2017-12-11"));
+        eb.setsTime(LocalTime.parse("01:30"));
+        eb.seteTime(LocalTime.parse("03:00"));
+        DataServer.saveEvent(eb.createEvent());
+
+        eb.setsTime(LocalTime.parse("07:00"));
+        eb.seteTime(LocalTime.parse("08:30"));
+        eb.setName("testEvent6");
+        DataServer.saveEvent(eb.createEvent());
+
+        eb.setsTime(LocalTime.parse("13:30"));
+        eb.seteTime(LocalTime.parse("15:30"));
+        eb.setName("testEvent7");
+        DataServer.saveEvent(eb.createEvent());
+
+
+        current_day=LocalDate.parse("2017-12-05");
+        current_time=LocalTime.parse("01:00");
+        results2=eliminate_by_conflicts(results2, current_day, current_time);
+
+        assertEquals(false,results2[0][0]);
+        assertEquals(false,results2[0][1]);
+        assertEquals(false,results2[0][2]);
+        assertEquals(false,results2[0][3]);
+        assertEquals(false,results2[0][5]);
+        assertEquals(false,results2[0][6]);
+        assertEquals(true,results2[0][7]);
+        assertEquals(true,results2[0][8]);
+        assertEquals(true,results2[0][9]);
+        assertEquals(true,results2[0][10]);
+        assertEquals(true,results2[0][11]);
+        assertEquals(false,results2[0][12]);
+        assertEquals(false,results2[0][13]);
+        assertEquals(false,results2[0][14]);
+        assertEquals(false,results2[0][15]);
+        assertEquals(false,results2[0][16]);
+        assertEquals(false,results2[0][17]);
+        assertEquals(false,results2[0][18]);
+        assertEquals(true,results2[0][19]);
+        assertEquals(true,results2[0][20]);
+        assertEquals(true,results2[0][21]);
+        assertEquals(true,results2[0][22]);
+        assertEquals(true,results2[0][23]);
+
+        for(int i=1;i<6;i++)
+            for(int j=0;j<24;j++)
+                assertEquals(true,results2[i][j]);
+        assertEquals(true,results2[6][0]);
+        assertEquals(false,results2[6][1]);
+        assertEquals(false,results2[6][2]);
+        assertEquals(false,results2[6][3]);
+        assertEquals(true,results2[6][4]);
+        assertEquals(true,results2[6][5]);
+        assertEquals(true,results2[6][6]);
+        assertEquals(false,results2[6][7]);
+        assertEquals(false,results2[6][8]);
+        assertEquals(true,results2[6][9]);
+        assertEquals(true,results2[6][10]);
+        assertEquals(true,results2[6][11]);
+        assertEquals(true,results2[6][12]);
+        assertEquals(false,results2[6][13]);
+        assertEquals(false,results2[6][14]);
+        assertEquals(false,results2[6][15]);
+        assertEquals(true,results2[6][16]);
+        assertEquals(true,results2[6][17]);
+        assertEquals(true,results2[6][18]);
+        assertEquals(true,results2[6][19]);
+        assertEquals(true,results2[6][20]);
+        assertEquals(true,results2[6][21]);
+        assertEquals(true,results2[6][22]);
+        assertEquals(true,results2[6][23]);
     }
 
+//    @Test
+    public void test_eliminate_by_length(){
+        LocalDate current_day=LocalDate.parse("2017-12-05");
+        LocalTime current_time=LocalTime.parse("08:00");
+        boolean[][] results = new boolean[7][24];
+        for(int i=0;i<7;i++)
+            for(int j=0;j<24; j++)
+                results[i][j]=false;
+        //increasingly larger windows
+
+        /*
+            Possible fittings
+            1 hour @ 0,2,3,5,6,7,9,10,11,12,14,15,16,17,18,19
+            2 hour @ 2,5,6,9,10,11,14,15,16,17
+            3 hour @ 5,9,10,14,15,16
+            4 hour @ 9,14
+            5 hour @ 14
+        */
+        results=setResultshelper(results);
+        results=eliminate_by_length(results,current_day, current_time, 1);
+        assertEquals(true, results[0][0]);
+        assertEquals(false, results[0][1]);
+        assertEquals(true, results[0][2]);
+        assertEquals(true, results[0][3]);
+        assertEquals(false, results[0][4]);
+        assertEquals(true, results[0][5]);
+        assertEquals(true, results[0][6]);
+        assertEquals(true, results[0][7]);
+        assertEquals(false, results[0][8]);
+        assertEquals(true, results[0][9]);
+        assertEquals(true, results[0][10]);
+        assertEquals(true, results[0][11]);
+        assertEquals(true, results[0][12]);
+        assertEquals(false, results[0][13]);
+        assertEquals(true, results[0][14]);
+        assertEquals(true, results[0][15]);
+        assertEquals(true, results[0][16]);
+        assertEquals(true, results[0][17]);
+        assertEquals(true, results[0][18]);
+        assertEquals(true, results[0][19]);
+        assertEquals(false, results[0][20]);
+        assertEquals(false, results[0][21]);
+        assertEquals(false, results[0][22]);
+        assertEquals(false, results[0][23]);
+
+        //        2 hour @ 2,5,6,9,10,11,14,15,16,17
+        results=setResultshelper(results);
+        results=eliminate_by_length(results,current_day, current_time, 2);
+        assertEquals(false, results[0][0]);
+        assertEquals(false, results[0][1]);
+        assertEquals(true, results[0][2]);
+        assertEquals(false, results[0][3]);
+        assertEquals(false, results[0][4]);
+        assertEquals(true, results[0][5]);
+        assertEquals(true, results[0][6]);
+        assertEquals(false, results[0][7]);
+        assertEquals(false, results[0][8]);
+        assertEquals(true, results[0][9]);
+        assertEquals(true, results[0][10]);
+        assertEquals(true, results[0][11]);
+        assertEquals(false, results[0][12]);
+        assertEquals(false, results[0][13]);
+        assertEquals(true, results[0][14]);
+        assertEquals(true, results[0][15]);
+        assertEquals(true, results[0][16]);
+        assertEquals(true, results[0][17]);
+        assertEquals(false, results[0][18]);
+        assertEquals(false, results[0][19]);
+        assertEquals(false, results[0][20]);
+        assertEquals(false, results[0][21]);
+        assertEquals(false, results[0][22]);
+        assertEquals(false, results[0][23]);
+
+        //        3 hour @ 5,9,10,14,15,16
+
+        results=setResultshelper(results);
+        results=eliminate_by_length(results,current_day, current_time, 3);
+        assertEquals(false, results[0][0]);
+        assertEquals(false, results[0][1]);
+        assertEquals(false, results[0][2]);
+        assertEquals(false, results[0][3]);
+        assertEquals(false, results[0][4]);
+        assertEquals(true, results[0][5]);
+        assertEquals(false, results[0][6]);
+        assertEquals(false, results[0][7]);
+        assertEquals(false, results[0][8]);
+        assertEquals(true, results[0][9]);
+        assertEquals(true, results[0][10]);
+        assertEquals(false, results[0][11]);
+        assertEquals(false, results[0][12]);
+        assertEquals(false, results[0][13]);
+        assertEquals(true, results[0][14]);
+        assertEquals(true, results[0][15]);
+        assertEquals(true, results[0][16]);
+        assertEquals(false, results[0][17]);
+        assertEquals(false, results[0][18]);
+        assertEquals(false, results[0][19]);
+        assertEquals(false, results[0][20]);
+        assertEquals(false, results[0][21]);
+        assertEquals(false, results[0][22]);
+        assertEquals(true, results[0][23]);
+
+        //        4 hour @ 9,14
+        results=setResultshelper(results);
+        results=eliminate_by_length(results,current_day, current_time, 4);
+        assertEquals(false, results[0][0]);
+        assertEquals(false, results[0][1]);
+        assertEquals(false, results[0][2]);
+        assertEquals(false, results[0][3]);
+        assertEquals(false, results[0][4]);
+        assertEquals(false, results[0][5]);
+        assertEquals(false, results[0][6]);
+        assertEquals(false, results[0][7]);
+        assertEquals(false, results[0][8]);
+        assertEquals(true, results[0][9]);
+        assertEquals(false, results[0][10]);
+        assertEquals(false, results[0][11]);
+        assertEquals(false, results[0][12]);
+        assertEquals(false, results[0][13]);
+        assertEquals(true, results[0][14]);
+        assertEquals(false, results[0][15]);
+        assertEquals(false, results[0][16]);
+        assertEquals(false, results[0][17]);
+        assertEquals(false, results[0][18]);
+        assertEquals(false, results[0][19]);
+        assertEquals(false, results[0][20]);
+        assertEquals(false, results[0][21]);
+        assertEquals(false, results[0][22]);
+        assertEquals(false, results[0][23]);
+
+        //        5 hour @ 14
+        results=setResultshelper(results);
+        results=eliminate_by_length(results,current_day, current_time, 5);
+        assertEquals(false, results[0][0]);
+        assertEquals(false, results[0][1]);
+        assertEquals(false, results[0][2]);
+        assertEquals(false, results[0][3]);
+        assertEquals(false, results[0][4]);
+        assertEquals(false, results[0][5]);
+        assertEquals(false, results[0][6]);
+        assertEquals(false, results[0][7]);
+        assertEquals(false, results[0][8]);
+        assertEquals(false, results[0][9]);
+        assertEquals(false, results[0][10]);
+        assertEquals(false, results[0][11]);
+        assertEquals(false, results[0][12]);
+        assertEquals(false, results[0][13]);
+        assertEquals(true, results[0][14]);
+        assertEquals(false, results[0][15]);
+        assertEquals(false, results[0][16]);
+        assertEquals(false, results[0][17]);
+        assertEquals(false, results[0][18]);
+        assertEquals(false, results[0][19]);
+        assertEquals(false, results[0][20]);
+        assertEquals(false, results[0][21]);
+        assertEquals(false, results[0][22]);
+        assertEquals(false, results[0][23]);
+    }
+
+    private boolean[][] setResultshelper(boolean[][] results){
+        results[0][0]= true;
+        results[0][1]= false;
+        results[0][2]= true;
+        results[0][3]= true;
+        results[0][4]= false;
+        results[0][5]= true;
+        results[0][6]= true;
+        results[0][7]= true;
+        results[0][8]= false;
+        results[0][9]= true;
+        results[0][10]=true;
+        results[0][11]=true;
+        results[0][12]=true;
+        results[0][13]=false;
+        results[0][14]=true;
+        results[0][15]=true;
+        results[0][16]=true;
+        results[0][17]=true;
+        results[0][18]=true;
+        results[0][19]=false;
+        results[0][20]=false;
+        results[0][21]=false;
+        results[0][22]=false;
+        results[0][23]=false;
+        return results;
+    }
+
+    //final phase of searching algorithm, the array returned will have slots set to true if that slot
+    //will fit the event the user wants to create
+    private boolean[][] eliminate_by_length(boolean[][] results, LocalDate today, LocalTime currTime, int eLength){
+
+        return results;
+    }
     private boolean[][] eliminate_by_eType(boolean[][] results, int type){
         userPrefs prefs= DataServer.getPrefs();
         if(prefs==null || type==3 || type==0)
@@ -198,37 +462,43 @@ public class search_controllerTest {
     private boolean[][] eliminate_by_conflicts(boolean [][] results, LocalDate today, LocalTime currTime){
         Event[] events=DataServer.getAllEvent();
         int window_start, window_end, currYear, eLength, eOffset;
-
+        int eYear, eDay, esHour,eeHour;
+        int dbg_cnt=0;
         window_start=today.getDayOfYear();
-        window_end=today.getDayOfYear()+7;
+        window_end=today.getDayOfYear()+6;
         currYear=today.getYear();
 
         //eliminate hours from today that have passed, as well as the next 2 hours to give a buffer
-        for(int i=0;i<currTime.getHour()+2;i++)
-            results[0][i]=false;
+        for(int i=0;i<currTime.getHour()+3;i++) {
+            results[0][i] = false;
+            dbg_cnt++;
+        }
 
+        //handle one day at a time
         for(int i=0;i<Array.getLength(events);i++){
-            if(events[i].getsDay().getYear()==currYear){
-                //if it's in the desired window, examine more closely
-                if(events[i].getsDay().getDayOfYear()>=window_start && events[i].getsDay().getDayOfYear()<window_end){
-                    eLength=events[i].geteTime().getHour()-events[i].getsTime().getHour();//truncate minutes and compute length
+            eYear=events[i].getsDay().getYear();
+            if(eYear==currYear){//check year matches
+                eDay=events[i].getsDay().getDayOfYear();
+                if(eDay>=window_start && eDay<=window_end){//check its in our window
+                    esHour=events[i].getsTime().getHour();
+                    eeHour=events[i].geteTime().getHour();
+                    eLength=eeHour-esHour;
+                    if(eLength<1) eLength=1;
+                    eOffset=eDay-window_start;
 
-                    //in cases where event does not start on the hour, add additional hour to avoid deeper analysis
-                    if(events[i].getsTime().getMinute()!=0 || events[i].geteTime().getMinute()!=0) {
-                        System.out.println("DBG incrementing to compensate for partial hours");
-                        eLength++;
-                    }
-                    //for events that are less then 1 hour long, block the entire hour
-                    if(eLength<1) {
-                        System.out.println("DBG eLength<1, setting equal to 1");
-                        eLength = 1;
-                    }
-                    eOffset=window_end-events[i].getsDay().getDayOfYear();
-                    for(int j=eLength+events[i].getsTime().getHour(); j>events[i].getsTime().getHour();j--)
+                    for(int j=esHour+eLength;j>=esHour;j--)
                         results[eOffset][j]=false;
+
                 }
             }
         }
+
+        for( int i=0;i<7;i++) {
+            System.out.println("Day " + i);
+            for (int j = 0; j < 24; j++)
+                System.out.printf("results[%d][%d]=%S\n",i,j,results[i][j]);
+        }
+        System.out.println("dbg_cnt="+dbg_cnt);
         return results;
     }
     //testing method only
@@ -236,7 +506,6 @@ public class search_controllerTest {
         String home = System.getProperty("user.home");
         String target_DB=home+"/cal_app/calDB.db";
         File f = new File(target_DB);
-        boolean flag =f.delete();
-//        System.out.println("DB deleted: " + flag);
+        f.delete();
     }
 }

@@ -444,7 +444,6 @@ public class main_controller extends universal_controller{
                     max_time=LocalTime.parse("23:59");
                     break;
             }
-//            System.out.printf("currMonth=%d, currYear=%d, selected_day_row=%d, selected_day_col=%d\n",currMonth,currYear, selected_day_row, selected_day_col);
             int target_day=gridCordsToDayActual(currMonth,currYear, selected_day_row, selected_day_col);
             String monthString, dayString;
             LocalDate target_date;
@@ -457,18 +456,11 @@ public class main_controller extends universal_controller{
                 dayString="0"+Integer.toString(target_day);
             else
                 dayString=Integer.toString(target_day);
-//            System.out.println("DBG target_day="+Integer.toString(target_day));
-//            System.out.println("DBG dayString="+dayString);
-//            System.out.println("DBG monthString="+monthString);
-//            System.out.printf("DBG deleting events on %d-%S-%S in range %S-%S\n",currYear,monthString,dayString,min_time.toString(),max_time.toString());
             target_date=LocalDate.parse(Integer.toString(currYear)+"-"+monthString+"-"+dayString);
             System.out.println("target_date="+target_date.toString());
             DataServer.deleteEventRange(target_date, min_time, max_time);
             Thread.sleep(100);
             updateIndicators();
-//            Event[] events = DataServer.getAllEvent();
-//            for(int i=0; i<Array.getLength(events);i++)
-//                System.out.println("event " + i + "=" + events[i].getName());
         }
     }
 
@@ -496,7 +488,6 @@ public class main_controller extends universal_controller{
     }
     private int gridCordsToDayActual(int month, int year, int row, int col){
         int dayActual=-1;
-        int numDays=getNumDays(month, year);
         String firstDay=getFirstDay(month,year);
         int offset=day_to_offset(firstDay);
         dayActual=(row)*7; //multiply by 7 for 7 days per row/week
@@ -516,5 +507,6 @@ public class main_controller extends universal_controller{
             eTime=events[i].geteTime().toString();
             DataServer.deleteEvent(sTime,eTime,sDay,eDay);
         }
+        updateIndicators();
     }
 }

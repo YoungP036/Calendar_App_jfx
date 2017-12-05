@@ -8,6 +8,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class search_controller extends universal_controller{
@@ -38,6 +39,7 @@ public class search_controller extends universal_controller{
         if(all_CHK.isSelected())
             type=3;
         search_results=eliminate_by_eType(search_results, type);
+        search_results=eliminate_by_conflicts(search_results,LocalDate.now(), LocalTime.now());
         System.out.println("TODO Search opening for " + length + " minute Event");
     }
 
@@ -50,7 +52,7 @@ public class search_controller extends universal_controller{
             int wStart=prefs.getwStart_time().getHour();
             int wEnd=prefs.getwEnd_time().getHour();
 
-            //modify results for a work event type search
+            //CASE 1: Opening needed for WORK event, only consider working hours
             if(type==1){
                 for(int i = 0; i< Array.getLength(work_days); i++){
                     //if its not a work day, eliminate that whole day
@@ -67,13 +69,13 @@ public class search_controller extends universal_controller{
                     }
                 }
             }
-            //modify results for a personal event type search
+            //CASE 2: Opening needed for PERSONAL event, exclude working hours
             else if(type==2){
                 for(int i = 0; i< Array.getLength(work_days); i++){
-                    //if its not a work day, eliminate that whole day
-                    if(work_days[i]==true)
+                    //if its not a work day, keep the whole day
+                    if(work_days[i]==false)
                         for(int j=0;j<24;j++)
-                            results[i][j]=false;
+                            results[i][j]=true;
                     else{
                         for(int j=0;j<wStart;j++)
                             results[i][j]=true;
@@ -88,4 +90,42 @@ public class search_controller extends universal_controller{
         return results;
     }
 
+    /* Iterate through events
+    1. if its the same year, continue
+    2. if the event occurs within the 7 day window from [today,today+7], continue
+    3. get length of event, and the offset mapping the events start day onto our window interval
+    4. set eLength indexes in results to false at the correct offset
+ */
+    private boolean[][] eliminate_by_conflicts(boolean [][] results, LocalDate today, LocalTime currTime){
+        Event[] events=DataServer.getAllEvent();
+        int window_start, window_end, currYear, eLength, eOffset;
+        int eYear, eDay, esHour,eeHour;
+        window_start=today.getDayOfYear();
+        window_end=today.getDayOfYear()+6;
+        currYear=today.getYear();
+
+        //eliminate hours from today that have passed, as well as the next 2 hours to give a buffer
+        for(int i=0;i<currTime.getHour()+3;i++)
+            results[0][i] = false;
+
+
+        //handle one day at a time
+        for(int i=0;i<Array.getLength(events);i++){
+            eYear=events[i].getsDay().getYear();
+            if(eYear==currYear){//check year matches
+                eDay=events[i].getsDay().getDayOfYear();
+                if(eDay>=window_start && eDay<=window_end){//check its in our window
+                    esHour=events[i].getsTime().getHour();
+                    eeHour=events[i].geteTime().getHour();
+                    eLength=eeHour-esHour;
+                    if(eLength<1) eLength=1;
+                    eOffset=eDay-window_start;
+
+                    for(int j=esHour+eLength;j>=esHour;j--)
+                        results[eOffset][j]=false;
+                }
+            }
+        }
+        return results;
+    }
 }

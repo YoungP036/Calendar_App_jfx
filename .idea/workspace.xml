@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Testing/search_controllerTest.java" afterPath="$PROJECT_DIR$/src/Testing/search_controllerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" afterPath="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frontend/controllers/search_controller.java" afterPath="$PROJECT_DIR$/src/frontend/controllers/search_controller.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,10 +75,33 @@
           </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="585">
-              <caret line="39" column="223" lean-forward="false" selection-start-line="39" selection-start-column="217" selection-end-line="39" selection-end-column="223" />
+              <caret line="39" column="223" lean-forward="false" selection-start-line="39" selection-start-column="223" selection-end-line="39" selection-end-column="223" />
               <folding>
-                <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="109530:109642" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="109530:109672" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="109530:109699" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="109530:109723" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="109530:109744" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="109530:109762" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="109928:111425" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="109956:110280" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="110305:110444" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="110464:111407" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="110635:110740" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="110657:110719" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="111073:111187" ph="..." />
+                <marker date="1512505810529" expanded="true" signature="111098:111166" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_controller.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="466" column="31" lean-forward="true" selection-start-line="466" selection-start-column="31" selection-end-line="466" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,44 +109,26 @@
       <file leaf-file-name="search_controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frontend/controllers/search_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+            <state relative-caret-position="527">
+              <caret line="63" column="39" lean-forward="false" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_controllerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="search_controllerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Testing/search_controllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="141" column="5" lean-forward="true" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+            <state relative-caret-position="519">
+              <caret line="461" column="30" lean-forward="false" selection-start-line="461" selection-start-column="30" selection-end-line="461" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#setup#0;class#search_controllerTest#0" expanded="false" />
                 <element signature="method#eliminate_by_type_test#0;class#search_controllerTest#0" expanded="false" />
+                <element signature="method#test_eliminate_by_conflict#0;class#search_controllerTest#0" expanded="false" />
+                <element signature="method#setResultshelper#0;class#search_controllerTest#0" expanded="false" />
                 <element signature="method#eliminate_by_eType#0;class#search_controllerTest#0" expanded="false" />
-                <element signature="method#destroyDB#0;class#search_controllerTest#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataServerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="81" column="28" lean-forward="false" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Backend/Event.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -128,60 +136,18 @@
       <file leaf-file-name="DataServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#init#0;class#DataServer#0" expanded="false" />
-                <element signature="method#savePrefs#0;class#DataServer#0" expanded="false" />
-                <element signature="method#connect#0;class#DataServer#0" expanded="false" />
-                <element signature="method#check_and_make_table#0;class#DataServer#0" expanded="false" />
-                <element signature="method#check_and_make_DB#0;class#DataServer#0" expanded="false" />
-                <element signature="method#check_and_make_dir#0;class#DataServer#0" expanded="false" />
-                <marker date="1512399262170" expanded="true" signature="2490:2564" ph="DELETE FROM " />
-                <marker date="1512399262170" expanded="true" signature="3145:3219" ph="SELECT id, n... " />
-                <marker date="1512399262170" expanded="true" signature="3249:3276" ph="SELECT COUNT... events" />
-                <marker date="1512399262170" expanded="true" signature="5132:5255" ph="INSERT INTO prefs... " />
-                <marker date="1512399262170" expanded="true" signature="6273:6386" ph="SELECT id, w... prefs" />
-                <marker date="1512399262170" expanded="true" signature="7813:7901" ph="INSERT INTO events... " />
-                <marker date="1512399262170" expanded="true" signature="9092:9516" ph="CREATE TABLE... IF" />
-                <marker date="1512399262170" expanded="true" signature="9802:10330" ph="CREATE TABLE... IF" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="eventBuilderTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Testing/eventBuilderTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userPrefsAndBuilderTests.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Testing/userPrefsAndBuilderTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2880">
-              <caret line="218" column="37" lean-forward="false" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
-              <folding>
-                <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
-                <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
-                <element signature="method#monthForwardBTN#0;class#main_controller#0" expanded="false" />
-                <element signature="method#setMonthYearLabels#0;class#main_controller#0" expanded="false" />
-                <element signature="method#setCalendarCellLabels#0;class#main_controller#0" expanded="false" />
+                <marker date="1512505810529" expanded="true" signature="2490:2564" ph="DELETE FROM " />
+                <marker date="1512505810529" expanded="true" signature="3145:3219" ph="SELECT id, n... " />
+                <marker date="1512505810529" expanded="true" signature="3249:3276" ph="SELECT COUNT... events" />
+                <marker date="1512505810529" expanded="true" signature="5132:5255" ph="INSERT INTO prefs... " />
+                <marker date="1512505810529" expanded="true" signature="6273:6386" ph="SELECT id, w... prefs" />
+                <marker date="1512505810529" expanded="true" signature="7813:7901" ph="INSERT INTO events... " />
+                <marker date="1512505810529" expanded="true" signature="9092:9516" ph="CREATE TABLE... IF" />
+                <marker date="1512505810529" expanded="true" signature="9802:10330" ph="CREATE TABLE... IF" />
               </folding>
             </state>
           </provider>
@@ -201,10 +167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>;</find>
-      <find>dlabel_10</find>
-      <find>currYear</find>
-      <find>prev_month</find>
       <find>424</find>
       <find>check_and_make_dir</find>
       <find>export</find>
@@ -229,8 +191,12 @@
       <find>setStyle</find>
       <find>getPrefs</find>
       <find>destroyDB</find>
-      <find>results</find>
       <find>saveEvent</find>
+      <find>System.</find>
+      <find>void Init</find>
+      <find>init</find>
+      <find>System.out.print</find>
+      <find>results</find>
     </findStrings>
     <replaceStrings>
       <replace>eventBuilder</replace>
@@ -285,7 +251,6 @@
         <option value="$PROJECT_DIR$/src/Backend/userPrefsTest.java" />
         <option value="$PROJECT_DIR$/src/Testing/userPrefsTest.java" />
         <option value="$PROJECT_DIR$/src/Backend/prefsBuilder.java" />
-        <option value="$PROJECT_DIR$/src/Backend/userPrefs.java" />
         <option value="$PROJECT_DIR$/src/Testing/userPrefsAndFactoryTests.java" />
         <option value="$PROJECT_DIR$/src/frontend/screens/edit_screen.fxml" />
         <option value="$PROJECT_DIR$/src/frontend/controllers/edit_controller.java" />
@@ -297,14 +262,15 @@
         <option value="$PROJECT_DIR$/src/Testing/main_controllerTest.java" />
         <option value="$PROJECT_DIR$/src/Testing/controllerTests.java" />
         <option value="$PROJECT_DIR$/src/frontend/screens/main_screen.fxml" />
-        <option value="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
         <option value="$PROJECT_DIR$/src/frontend/controllers/add_controller.java" />
         <option value="$PROJECT_DIR$/src/Testing/add_controllerTest.java" />
         <option value="$PROJECT_DIR$/src/Backend/DataServer.java" />
         <option value="$PROJECT_DIR$/src/Testing/userPrefsAndBuilderTests.java" />
-        <option value="$PROJECT_DIR$/src/frontend/controllers/search_controller.java" />
         <option value="$PROJECT_DIR$/src/Testing/DataServerTest.java" />
+        <option value="$PROJECT_DIR$/src/Backend/userPrefs.java" />
+        <option value="$PROJECT_DIR$/src/frontend/controllers/search_controller.java" />
         <option value="$PROJECT_DIR$/src/Testing/search_controllerTest.java" />
+        <option value="$PROJECT_DIR$/src/frontend/controllers/main_controller.java" />
       </list>
     </option>
   </component>
@@ -315,10 +281,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-1" />
-    <option name="width" value="1600" />
-    <option name="height" value="450" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="1280" />
+    <option name="width" value="1281" />
+    <option name="height" value="1413" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -474,9 +440,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -525,7 +492,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -838,10 +804,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.search_controllerTest.test_eliminate_by_conflict" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.search_controllerTest.eliminate_by_type_test" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.search_controllerTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.Testing in Calendar_App" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Testing in Calendar_App" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.search_controllerTest.test_eliminate_by_conflict" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.search_controllerTest.eliminate_by_type_test" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.search_controllerTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.DataServerTest" />
       </list>
     </recent_temporary>
@@ -903,62 +869,62 @@
       <workItem from="1512402984635" duration="2705000" />
       <workItem from="1512405723871" duration="110000" />
       <workItem from="1512415696795" duration="5196000" />
+      <workItem from="1512505840386" duration="8933000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="search_controllerTest - 2017.12.05 at 01h 10m 17s.xml">
-      <configuration name="search_controllerTest" configurationId="JUnit" />
+    <history-entry file="Testing_in_Calendar_App - 2017.12.05 at 18h 24m 02s.xml">
+      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="search_controllerTest - 2017.12.05 at 01h 11m 20s.xml">
-      <configuration name="search_controllerTest" configurationId="JUnit" />
+    <history-entry file="Testing_in_Calendar_App - 2017.12.05 at 18h 25m 15s.xml">
+      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="search_controllerTest_eliminate_by_type_test - 2017.12.05 at 01h 11m 40s.xml">
-      <configuration name="search_controllerTest.eliminate_by_type_test" configurationId="JUnit" />
+    <history-entry file="Testing_in_Calendar_App - 2017.12.05 at 18h 27m 23s.xml">
+      <configuration name="Testing in Calendar_App" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="search_controllerTest_eliminate_by_type_test - 2017.12.05 at 01h 12m 43s.xml">
-      <configuration name="search_controllerTest.eliminate_by_type_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="search_controllerTest_eliminate_by_type_test - 2017.12.05 at 01h 13m 03s.xml">
-      <configuration name="search_controllerTest.eliminate_by_type_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="search_controllerTest_eliminate_by_type_test - 2017.12.05 at 01h 14m 36s.xml">
-      <configuration name="search_controllerTest.eliminate_by_type_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="search_controllerTest_eliminate_by_type_test - 2017.12.05 at 01h 17m 52s.xml">
-      <configuration name="search_controllerTest.eliminate_by_type_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="search_controllerTest_eliminate_by_type_test - 2017.12.05 at 01h 18m 05s.xml">
-      <configuration name="search_controllerTest.eliminate_by_type_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 01h 18m 51s.xml">
+    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 17h 27m 55s.xml">
       <configuration name="search_controllerTest.test_eliminate_by_conflict" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 01h 19m 28s.xml">
+    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 17h 29m 41s.xml">
+      <configuration name="search_controllerTest.test_eliminate_by_conflict" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 17h 30m 58s.xml">
+      <configuration name="search_controllerTest.test_eliminate_by_conflict" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 17h 32m 05s.xml">
+      <configuration name="search_controllerTest.test_eliminate_by_conflict" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 17h 33m 17s.xml">
+      <configuration name="search_controllerTest.test_eliminate_by_conflict" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 17h 33m 24s.xml">
+      <configuration name="search_controllerTest.test_eliminate_by_conflict" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="search_controllerTest_test_eliminate_by_conflict - 2017.12.05 at 18h 23m 52s.xml">
       <configuration name="search_controllerTest.test_eliminate_by_conflict" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130517000" />
+    <option name="totallyTimeSpent" value="139450000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1600" height="900" extended-state="6" />
-    <editor active="true" />
+    <frame x="1280" y="0" width="1281" height="1413" extended-state="4" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32330826" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32317072" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3358396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.33536586" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1" y="637" width="1279" height="776" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.171875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34401876" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -998,17 +964,43 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java</url>
-          <line>16</line>
+          <line>20</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Backend/DataServer.java</url>
-          <line>214</line>
+          <line>202</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Backend/userPrefs.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Backend/prefsBuilder.java</url>
+          <line>16</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Backend/prefsBuilder.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Testing/search_controllerTest.java</url>
+          <line>407</line>
+          <properties class="Testing.search_controllerTest" method="eliminate_by_eType">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1025,7 +1017,20 @@
         <state relative-caret-position="585">
           <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
           <folding>
-            <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109672" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109699" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109723" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109744" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109762" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109928:111425" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109956:110280" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110305:110444" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110464:111407" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110635:110740" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110657:110719" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111073:111187" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111098:111166" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1059,7 +1064,20 @@
         <state relative-caret-position="585">
           <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
           <folding>
-            <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109672" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109699" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109723" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109744" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109762" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109928:111425" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109956:110280" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110305:110444" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110464:111407" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110635:110740" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110657:110719" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111073:111187" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111098:111166" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1086,7 +1104,20 @@
         <state relative-caret-position="585">
           <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
           <folding>
-            <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109672" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109699" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109723" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109744" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109762" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109928:111425" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109956:110280" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110305:110444" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110464:111407" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110635:110740" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110657:110719" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111073:111187" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111098:111166" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1113,7 +1144,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109672" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109699" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109723" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109744" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109762" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109928:111425" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109956:110280" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110305:110444" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110464:111407" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110635:110740" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110657:110719" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111073:111187" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111098:111166" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1133,7 +1177,20 @@
         <state relative-caret-position="105">
           <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding>
-            <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109672" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109699" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109723" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109744" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109762" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109928:111425" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109956:110280" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110305:110444" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110464:111407" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110635:110740" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110657:110719" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111073:111187" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111098:111166" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1153,7 +1210,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109672" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109699" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109723" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109744" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109762" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109928:111425" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109956:110280" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110305:110444" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110464:111407" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110635:110740" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110657:110719" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111073:111187" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111098:111166" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1217,13 +1287,6 @@
     <entry file="file://$PROJECT_DIR$/src/Backend/concreteEventBuilderTest.java" />
     <entry file="file://$PROJECT_DIR$/src/Backend/concreteEventBuilder.java" />
     <entry file="file://$PROJECT_DIR$/src/Backend/prefsBuilderTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/Backend/eventBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/EventTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -1254,20 +1317,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Backend/userPrefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Backend/prefsBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1303,13 +1352,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/controllerTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="88" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/controllerTests.java" />
     <entry file="file://$PROJECT_DIR$/src/frontend/controllers/universal_controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -1325,33 +1368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="223" lean-forward="false" selection-start-line="39" selection-start-column="217" selection-end-line="39" selection-end-column="223" />
-          <folding>
-            <marker date="1512362842962" expanded="true" signature="109603:109642" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="218" column="37" lean-forward="false" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
-          <folding>
-            <element signature="method#exportEvents#0;class#main_controller#0" expanded="false" />
-            <element signature="method#monthBackBTN#0;class#main_controller#0" expanded="false" />
-            <element signature="method#monthForwardBTN#0;class#main_controller#0" expanded="false" />
-            <element signature="method#setMonthYearLabels#0;class#main_controller#0" expanded="false" />
-            <element signature="method#setCalendarCellLabels#0;class#main_controller#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1382,64 +1398,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/userPrefsAndBuilderTests.java">
+    <entry file="file://$PROJECT_DIR$/src/Testing/userPrefsAndBuilderTests.java" />
+    <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        <state relative-caret-position="572">
+          <caret line="221" column="26" lean-forward="false" selection-start-line="221" selection-start-column="26" selection-end-line="221" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/search_controller.java">
+    <entry file="file://$PROJECT_DIR$/src/Backend/userPrefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+        <state relative-caret-position="225">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Backend/eventBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Backend/prefsBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+          <folding>
+            <element signature="e#244#245#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#316#317#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Backend/DataServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#init#0;class#DataServer#0" expanded="false" />
-            <element signature="method#savePrefs#0;class#DataServer#0" expanded="false" />
-            <element signature="method#connect#0;class#DataServer#0" expanded="false" />
-            <element signature="method#check_and_make_table#0;class#DataServer#0" expanded="false" />
-            <element signature="method#check_and_make_DB#0;class#DataServer#0" expanded="false" />
-            <element signature="method#check_and_make_dir#0;class#DataServer#0" expanded="false" />
-            <marker date="1512399262170" expanded="true" signature="2490:2564" ph="DELETE FROM " />
-            <marker date="1512399262170" expanded="true" signature="3145:3219" ph="SELECT id, n... " />
-            <marker date="1512399262170" expanded="true" signature="3249:3276" ph="SELECT COUNT... events" />
-            <marker date="1512399262170" expanded="true" signature="5132:5255" ph="INSERT INTO prefs... " />
-            <marker date="1512399262170" expanded="true" signature="6273:6386" ph="SELECT id, w... prefs" />
-            <marker date="1512399262170" expanded="true" signature="7813:7901" ph="INSERT INTO events... " />
-            <marker date="1512399262170" expanded="true" signature="9092:9516" ph="CREATE TABLE... IF" />
-            <marker date="1512399262170" expanded="true" signature="9802:10330" ph="CREATE TABLE... IF" />
+            <marker date="1512505810529" expanded="true" signature="2490:2564" ph="DELETE FROM " />
+            <marker date="1512505810529" expanded="true" signature="3145:3219" ph="SELECT id, n... " />
+            <marker date="1512505810529" expanded="true" signature="3249:3276" ph="SELECT COUNT... events" />
+            <marker date="1512505810529" expanded="true" signature="5132:5255" ph="INSERT INTO prefs... " />
+            <marker date="1512505810529" expanded="true" signature="6273:6386" ph="SELECT id, w... prefs" />
+            <marker date="1512505810529" expanded="true" signature="7813:7901" ph="INSERT INTO events... " />
+            <marker date="1512505810529" expanded="true" signature="9092:9516" ph="CREATE TABLE... IF" />
+            <marker date="1512505810529" expanded="true" signature="9802:10330" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/DataServerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/search_controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="81" column="28" lean-forward="false" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="28" />
+        <state relative-caret-position="527">
+          <caret line="63" column="39" lean-forward="false" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/search_controllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="141" column="5" lean-forward="true" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+        <state relative-caret-position="519">
+          <caret line="461" column="30" lean-forward="false" selection-start-line="461" selection-start-column="30" selection-end-line="461" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setup#0;class#search_controllerTest#0" expanded="false" />
             <element signature="method#eliminate_by_type_test#0;class#search_controllerTest#0" expanded="false" />
+            <element signature="method#test_eliminate_by_conflict#0;class#search_controllerTest#0" expanded="false" />
+            <element signature="method#setResultshelper#0;class#search_controllerTest#0" expanded="false" />
             <element signature="method#eliminate_by_eType#0;class#search_controllerTest#0" expanded="false" />
-            <element signature="method#destroyDB#0;class#search_controllerTest#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/screens/main_screen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="223" lean-forward="false" selection-start-line="39" selection-start-column="223" selection-end-line="39" selection-end-column="223" />
+          <folding>
+            <marker date="1512505810529" expanded="true" signature="109530:109642" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109672" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109699" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109723" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109744" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109530:109762" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109928:111425" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="109956:110280" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110305:110444" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110464:111407" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110635:110740" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="110657:110719" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111073:111187" ph="..." />
+            <marker date="1512505810529" expanded="true" signature="111098:111166" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frontend/controllers/main_controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="466" column="31" lean-forward="true" selection-start-line="466" selection-start-column="31" selection-end-line="466" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
