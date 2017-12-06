@@ -25,6 +25,7 @@
           <Menu mnemonicParsing="false" text="Events">
             <items>
                   <MenuItem fx:id="mAdd_BTN" mnemonicParsing="false" onAction="#open_create" text="Add Event" />
+                  <MenuItem fx:id="edit_BTN" mnemonicParsing="false" onAction="#edit_event" text="Edit Event" />
                   <MenuItem fx:id="mDelete_BTN" mnemonicParsing="false" onAction="#delete_event" text="Delete Event" />
                   <MenuItem fx:id="mSearch_BTN" mnemonicParsing="false" onAction="#open_search" text="Search Opening" />
                   <MenuItem fx:id="delete_all_BTN" mnemonicParsing="false" onAction="#delete_all_events" text="Delete All Events" />
@@ -57,14 +58,35 @@
             <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label text="Sunday" GridPane.halignment="CENTER" />
-            <Label text="Monday" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label text="Tuesday" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <Label text="Wendesday" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-            <Label text="Thursday" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-            <Label text="Friday" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
-            <Label text="Saturday" GridPane.columnIndex="6" GridPane.halignment="CENTER" />
-            <GridPane fx:id="cell_00" prefWidth="86.0" GridPane.rowIndex="1">
+            <Label text="Sunday" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="Purisa Bold" size="16.0" />
+               </font></Label>
+            <Label text="Monday" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                <font>
+                    <Font name="Purisa Bold" size="16.0" />
+                </font></Label>
+            <Label text="Tuesday" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                <font>
+                    <Font name="Purisa Bold" size="13.0" />
+                </font></Label>
+             <Label text="Wendesday" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                 <font>
+                     <Font name="Purisa Bold" size="13.0" />
+                 </font></Label>
+             <Label text="Thursday" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                 <font>
+                     <Font name="Purisa Bold" size="13.0" />
+                 </font></Label>
+             <Label text="Friday" GridPane.columnIndex="5" GridPane.halignment="CENTER">
+                 <font>
+                     <Font name="Purisa Bold" size="13.0" />
+                 </font></Label>
+             <Label text="Saturday" GridPane.columnIndex="6" GridPane.halignment="CENTER">
+                 <font>
+                     <Font name="Purisa Bold" size="13.0" />
+                 </font></Label>
+             <GridPane fx:id="cell_00" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="54.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="26.0" />
@@ -77,7 +99,7 @@
                      <GridPane.margin>
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin></Label>
-                  <GridPane fx:id="egrid_00" prefHeight="82.0" prefWidth="29.0" scaleY="0.9" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_00" scaleY="0.9" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -88,15 +110,15 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Pane fx:id="indicator_40" maxHeight="31.0" minHeight="10.0" onMouseClicked="#selected_event" prefHeight="31.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_20" maxHeight="15.0" minHeight="7.0" onMouseClicked="#selected_event" prefHeight="7.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_30" maxHeight="27.0" minHeight="10.0" onMouseClicked="#selected_event" prefHeight="16.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-                        <Pane fx:id="indicator_10" maxHeight="29.0" minHeight="10.0" onMouseClicked="#selected_event" prefHeight="29.0" prefWidth="29.0" style="-fx-background-color: #000000;" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_40" onMouseClicked="#selected_event" style="-fx-background-color: #000000;" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_20" onMouseClicked="#selected_event" style="-fx-background-color: #000000;" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_30" onMouseClicked="#selected_event" style="-fx-background-color: #000000;" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                        <Pane fx:id="indicator_10" onMouseClicked="#selected_event" style="-fx-background-color: #000000;" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
                      </children>
                   </GridPane>
                </children>
             </GridPane>
-            <GridPane fx:id="cell_01" prefHeight="18.0" prefWidth="85.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane fx:id="cell_01" prefWidth="85.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="54.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="26.0" />
@@ -110,7 +132,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_001" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_001" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -143,7 +165,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_002" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_002" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -176,7 +198,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_003" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_003" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -209,7 +231,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_004" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_004" style="-fx-border-width: 3; -fx-border-color: #00ff00;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -242,7 +264,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_005" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_005" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -275,7 +297,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_006" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_006" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -308,7 +330,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_007" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_007" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -341,7 +363,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_008" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_008" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -374,7 +396,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_009" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_009" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -407,7 +429,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0010" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0010" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -440,7 +462,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0011" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0011" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -473,7 +495,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0012" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0012" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -506,7 +528,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0013" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0013" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -539,7 +561,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0014" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0014" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -572,7 +594,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0015" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0015" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -605,7 +627,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0016" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0016" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -638,7 +660,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0017" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0017" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -671,7 +693,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0018" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0018" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -704,7 +726,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0019" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0019" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -737,7 +759,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0020" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0020" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -770,7 +792,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0021" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0021" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -803,7 +825,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0022" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0022" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -836,7 +858,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0023" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0023" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -869,7 +891,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0024" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0024" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -902,7 +924,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0025" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0025" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -935,7 +957,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0026" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0026" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -968,7 +990,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0027" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0027" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1001,7 +1023,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0028" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0028" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1034,7 +1056,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0029" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0029" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1067,7 +1089,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0030" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0030" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1100,7 +1122,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0031" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0031" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1133,7 +1155,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0032" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0032" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1166,7 +1188,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0033" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0033" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1199,7 +1221,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0034" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0034" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1232,7 +1254,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0035" prefHeight="37.0" prefWidth="29.0" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0035" prefHeight="37.0" prefWidth="29.0" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1265,7 +1287,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0036" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0036" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1298,7 +1320,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0037" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0037" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1331,7 +1353,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0038" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0038" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1364,7 +1386,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0039" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0039" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1397,7 +1419,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0040" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0040" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1430,7 +1452,7 @@
                         <Insets left="10.0" top="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="egrid_0041" GridPane.columnIndex="1">
+                  <GridPane fx:id="egrid_0041" style="-fx-border-color: #00ff00; -fx-border-width: 3;" GridPane.columnIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -1451,7 +1473,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <GridPane alignment="CENTER" layoutX="-1.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="603.0" style="-fx-background-color: #008800;">
+      <GridPane alignment="CENTER" layoutX="-4.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="603.0" style="-fx-background-color: #008800;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints />
@@ -1467,16 +1489,18 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="month_LBL" alignment="CENTER" style="-fx-font-weight: bold; -fx-font-size: 16;" text="Month" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Label fx:id="month_LBL" alignment="CENTER" text="Month" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
+                  <Font name="Purisa Bold" size="24.0" />
+               </font></Label>
             <Button fx:id="prev_month_BTN" mnemonicParsing="false" onAction="#monthBackBTN" style="-fx-background-color: #00ffaa;" text="&lt;" GridPane.rowIndex="1" />
-            <Label fx:id="year_LBL" layoutX="-50.0" style="-fx-font-weight: bold; -fx-font-size: 16;" text="2017" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Label fx:id="year_LBL" layoutX="-50.0" prefHeight="48.0" prefWidth="26.0" style=": 16;" text="2017" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <padding>
                   <Insets left="-80.0" />
                </padding>
+               <font>
+                  <Font name="Purisa Bold" size="24.0" />
+               </font>
             </Label>
             <Button fx:id="next_month_BTN" mnemonicParsing="false" onAction="#monthForwardBTN" style="-fx-background-color: #00ffaa;" text="&gt;" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
          </children>

@@ -162,6 +162,71 @@ public class main_controller extends universal_controller{
         setCalendarCellLabels(now.getMonth().getValue()-1,now.getYear());
         reset_indicators();
         updateIndicators();
+        selected_day_row=-1;
+        selected_day_col=-1;
+        selected_indicator=-1;
+    }
+
+    @FXML private void edit_event(){
+        Event[] events;
+        Event target_event=null;
+        LocalDate target_day;
+        int row,col,ind,day,sHour,eHour;
+        row=selected_day_row;
+        col=selected_day_col;
+        ind=selected_indicator;
+
+        if(row==-1 || col==-1 || ind==-1)
+            invalid_input_dialogue("Select one of the 4 indicators\nin a day cell before attempting edit");
+
+        if(!indicators[row][col][ind].getStyle().toString().contains("-fx-background-color: #000000")){
+            invalid_input_dialogue("Select an event before attempting to edit");
+            return;
+        }
+        System.out.printf("indicator %d @ [%d][%d]\n",ind,row,col);
+        System.out.println(indicators[row][col][ind].getStyle().toString());
+
+        day=gridCordsToDayActual(currMonth,currYear,row,col);
+        if(day>0 && day<10)
+            target_day=LocalDate.parse(Integer.toString(currYear)+"-"+Integer.toString(currMonth+1)+"-0"+Integer.toString(day));
+        else
+            target_day=LocalDate.parse(Integer.toString(currYear)+"-"+Integer.toString(currMonth+1)+"-"+Integer.toString(day));
+
+        events=DataServer.getAllEvent();
+        for(int i=0;i<Array.getLength(events);i++) {
+            if (events[i].getsDay().compareTo(target_day)==0){
+                sHour=events[i].getsTime().getHour();
+                eHour=events[i].geteTime().getHour();
+                if(ind==0){
+                    if(sHour>=0 && sHour<=6) {
+                        target_event = events[i];
+                        break;
+                    }
+                }
+                else if(ind==1){
+                    if(sHour>6&&sHour<=12){
+                        target_event = events[i];
+                        break;
+                    }
+                }
+                else if(ind==2){
+                    if(sHour>12&&sHour<=18){
+                        target_event = events[i];
+                        break;
+                    }
+                }
+                else if(ind==3){
+                    if(sHour>186&&sHour<24){
+                        target_event = events[i];
+                        break;
+                    }
+                }
+            }
+        }
+        //TODO EVENT FOUND, NOW HOW TO GET IT TO THE ADD/EDIT SCREEN?
+        try {
+            System.out.printf("Target event: %S on %S at %S\n", target_event.getName(), target_event.getsDay().toString(), target_event.getsTime().toString());
+        }catch(Exception e){System.out.println("No valid event detected\n");}
     }
     @FXML private static void reset_indicators(){
         for(int i=0;i<6;i++)
@@ -438,7 +503,11 @@ public class main_controller extends universal_controller{
                 monthString="0"+Integer.toString(currMonth+1);
             else
                 monthString=Integer.toString(currMonth+1);
-            if(target_day<10)
+            if(target_day<=0) {
+                invalid_input_dialogue("Please select a valid day");
+                return;
+            }
+            else if(target_day<10 && target_day>0)
                 dayString="0"+Integer.toString(target_day);
             else
                 dayString=Integer.toString(target_day);
