@@ -5,6 +5,7 @@ import Backend.Event;
 import Backend.userPrefs;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import java.lang.reflect.Array;
@@ -12,7 +13,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class search_controller extends universal_controller{
-    @FXML private TextField length_TXT;
+    @FXML private TextField length_TXT, name_TXT, loc_TXT;
+    @FXML private ListView eList_LST;
     @FXML private CheckBox work_CHK, personal_CHK, all_CHK;
 //    private boolean[][] search_results = new boolean[7][24];
     @FXML
@@ -29,20 +31,45 @@ public class search_controller extends universal_controller{
     @FXML
     private void search(){
         boolean[][] search_results= new boolean[7][24];
+        eList_LST.getItems().clear();
+
+
         int type=0;
         int length= Integer.parseInt(length_TXT.getText());
 
         if(work_CHK.isSelected())
             type=1;
-        if(personal_CHK.isSelected())
+        else if(personal_CHK.isSelected())
             type=2;
-        if(all_CHK.isSelected())
+        else
             type=3;
-        search_results=eliminate_by_eType(search_results, type);
-        search_results=eliminate_by_conflicts(search_results,LocalDate.now(), LocalTime.now());
+
+        search_results=master_search(search_results, length, type, LocalDate.now(), LocalTime.now());
+
+        String entry;
+        LocalDate day;
+        LocalDate currDay = LocalDate.now();
+        for(int i=0;i<7;i++)
+            for(int j=0;j<24;j++){
+                if(search_results[i][j]==true) {
+                    day = currDay.plusDays(i);
+                    entry = day.toString() + " at " + j + ":00";
+                    eList_LST.getItems().add(entry);
+                }
+            }
         System.out.println("TODO Search opening for " + length + " minute Event");
     }
 
+    private boolean[][] master_search(boolean[][] results, int eLength,int type, LocalDate today, LocalTime currTime){
+        for(int i=0;i<7;i++)
+            for(int j=0;j<24;j++)
+                results[i][j]=true;
+
+        results=eliminate_by_eType(results, type);
+        results=eliminate_by_conflicts(results, today, currTime);
+        results=eliminate_by_length(results, eLength);
+        return results;
+    }
     private boolean[][] eliminate_by_eType(boolean[][] results, int type){
         userPrefs prefs= DataServer.getPrefs();
         if(prefs==null || type==3 || type==0)
@@ -134,7 +161,7 @@ Alg
     1. create parallel int array
     2. each index holds the number of hours from that index that are open
  */
-    private boolean[][] eliminate_by_length(boolean[][] results, LocalDate today, LocalTime currTime, int eLength) {
+    private boolean[][] eliminate_by_length(boolean[][] results, int eLength) {
 //        for(int i=0;i<7;i++)
 //            for(int j=0;j<24;j++)
 //                System.out.printf("[%d][%d]=%S\n",i,j,results[i][j]);
@@ -168,7 +195,7 @@ Alg
 
         for(int i=0;i<7;i++)
             for(int j=0;j<24;j++){
-                System.out.printf("DBG openings[%d][%d]=%d\n",i,j,openings[i][j]);
+//                System.out.printf("DBG openings[%d][%d]=%d\n",i,j,openings[i][j]);
                 if(openings[i][j]>=eLength)
                     results[i][j]=true;
                 else

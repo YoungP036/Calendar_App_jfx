@@ -442,13 +442,13 @@ Alg
 
         for(int i=0;i<7;i++)
             for(int j=0;j<24;j++){
-            System.out.printf("DBG openings[%d][%d]=%d\n",i,j,openings[i][j]);
+//            System.out.printf("DBG openings[%d][%d]=%d\n",i,j,openings[i][j]);
             if(openings[i][j]>=eLength)
                 results[i][j]=true;
             else
                 results[i][j]=false;
             }
-
+//                System.out.printf("[%d][%d]=%S\n",i,j,results[i][j]);
         return results;
     }
     private boolean[][] eliminate_by_eType(boolean[][] results, int type){
