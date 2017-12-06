@@ -8,6 +8,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -212,14 +213,14 @@ public class search_controllerTest {
         assertEquals(true,results2[6][23]);
     }
 
-//    @Test
+    @Test
     public void test_eliminate_by_length(){
         LocalDate current_day=LocalDate.parse("2017-12-05");
         LocalTime current_time=LocalTime.parse("08:00");
         boolean[][] results = new boolean[7][24];
         for(int i=0;i<7;i++)
             for(int j=0;j<24; j++)
-                results[i][j]=false;
+                results[i][j]=true;
         //increasingly larger windows
 
         /*
@@ -251,7 +252,7 @@ public class search_controllerTest {
         assertEquals(true, results[0][16]);
         assertEquals(true, results[0][17]);
         assertEquals(true, results[0][18]);
-        assertEquals(true, results[0][19]);
+        assertEquals(false, results[0][19]);
         assertEquals(false, results[0][20]);
         assertEquals(false, results[0][21]);
         assertEquals(false, results[0][22]);
@@ -312,7 +313,7 @@ public class search_controllerTest {
         assertEquals(false, results[0][20]);
         assertEquals(false, results[0][21]);
         assertEquals(false, results[0][22]);
-        assertEquals(true, results[0][23]);
+        assertEquals(false, results[0][23]);
 
         //        4 hour @ 9,14
         results=setResultshelper(results);
@@ -332,7 +333,7 @@ public class search_controllerTest {
         assertEquals(false, results[0][12]);
         assertEquals(false, results[0][13]);
         assertEquals(true, results[0][14]);
-        assertEquals(false, results[0][15]);
+        assertEquals(true, results[0][15]);
         assertEquals(false, results[0][16]);
         assertEquals(false, results[0][17]);
         assertEquals(false, results[0][18]);
@@ -359,7 +360,7 @@ public class search_controllerTest {
         assertEquals(false, results[0][11]);
         assertEquals(false, results[0][12]);
         assertEquals(false, results[0][13]);
-        assertEquals(true, results[0][14]);
+        assertEquals(true,  results[0][14]);
         assertEquals(false, results[0][15]);
         assertEquals(false, results[0][16]);
         assertEquals(false, results[0][17]);
@@ -396,12 +397,57 @@ public class search_controllerTest {
         results[0][21]=false;
         results[0][22]=false;
         results[0][23]=false;
+        for(int i=1;i<7;i++)
+            for(int j=0;j<24; j++)
+                results[i][j]=true;
         return results;
     }
 
-    //final phase of searching algorithm, the array returned will have slots set to true if that slot
-    //will fit the event the user wants to create
-    private boolean[][] eliminate_by_length(boolean[][] results, LocalDate today, LocalTime currTime, int eLength){
+/*
+Alg
+    1. create parallel int array
+    2. each index holds the number of hours from that index that are open
+ */
+    private boolean[][] eliminate_by_length(boolean[][] results, LocalDate today, LocalTime currTime, int eLength) {
+//        for(int i=0;i<7;i++)
+//            for(int j=0;j<24;j++)
+//                System.out.printf("[%d][%d]=%S\n",i,j,results[i][j]);
+        int[][] openings = new int[7][24];
+        int len=0;
+        boolean flag;
+//                =true;
+        int k;
+        for(int i=0;i<7;i++) {
+            for (int j = 0; j < 24; j++) {
+//                System.out.printf("[%d][%d]\n",i,j);
+                flag=true;
+                len=0;
+                if (results[i][j] == true) {
+                    k=j;
+                    //look ahead until a false index is found
+                    while(k<24 && flag) {
+                        if(results[i][k]==true){
+                            len++;
+                            k++;
+                        }
+                        else
+                            flag=false;
+                    }
+                    openings[i][j]=len;
+                }
+                else
+                    openings[i][j]=0;
+            }
+        }
+
+        for(int i=0;i<7;i++)
+            for(int j=0;j<24;j++){
+            System.out.printf("DBG openings[%d][%d]=%d\n",i,j,openings[i][j]);
+            if(openings[i][j]>=eLength)
+                results[i][j]=true;
+            else
+                results[i][j]=false;
+            }
 
         return results;
     }

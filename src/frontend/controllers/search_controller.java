@@ -128,4 +128,54 @@ public class search_controller extends universal_controller{
         }
         return results;
     }
+
+    /*
+Alg
+    1. create parallel int array
+    2. each index holds the number of hours from that index that are open
+ */
+    private boolean[][] eliminate_by_length(boolean[][] results, LocalDate today, LocalTime currTime, int eLength) {
+//        for(int i=0;i<7;i++)
+//            for(int j=0;j<24;j++)
+//                System.out.printf("[%d][%d]=%S\n",i,j,results[i][j]);
+        int[][] openings = new int[7][24];
+        int len=0;
+        boolean flag;
+//                =true;
+        int k;
+        for(int i=0;i<7;i++) {
+            for (int j = 0; j < 24; j++) {
+//                System.out.printf("[%d][%d]\n",i,j);
+                flag=true;
+                len=0;
+                if (results[i][j] == true) {
+                    k=j;
+                    //look ahead until a false index is found
+                    while(k<24 && flag) {
+                        if(results[i][k]==true){
+                            len++;
+                            k++;
+                        }
+                        else
+                            flag=false;
+                    }
+                    openings[i][j]=len;
+                }
+                else
+                    openings[i][j]=0;
+            }
+        }
+
+        for(int i=0;i<7;i++)
+            for(int j=0;j<24;j++){
+                System.out.printf("DBG openings[%d][%d]=%d\n",i,j,openings[i][j]);
+                if(openings[i][j]>=eLength)
+                    results[i][j]=true;
+                else
+                    results[i][j]=false;
+            }
+
+        return results;
+    }
+
 }
