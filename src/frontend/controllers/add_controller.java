@@ -37,13 +37,13 @@ public class add_controller extends universal_controller{
     private void validate_sTime(){
         String time=sTime_TXT.getText();
         if(!validate_time(time))
-            invalid_input_dialogue();
+            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
     }
     @FXML
     private void validate_eTime(){
         String time=eTime_TXT.getText();
         if(!validate_time(time))
-            invalid_input_dialogue();
+            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
     }
     @FXML
     private void confirm_changes(){

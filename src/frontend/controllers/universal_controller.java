@@ -29,6 +29,12 @@ public class universal_controller {
     }
 
     @FXML
+    protected static boolean validate_hours(String str){
+        Pattern num_pattern=Pattern.compile("[12]?[1-9]");
+        Matcher m = num_pattern.matcher(str);
+        return m.matches();
+    }
+    @FXML
     protected static boolean validate_time(String time){
         boolean flag=false;
         Pattern time_pattern = Pattern.compile("([01]?[0-9]|2[0-3]):[0-5][0-9]");
@@ -40,11 +46,11 @@ public class universal_controller {
         return Integer.parseInt(minutes)>0;
     }
     @FXML
-    protected void invalid_input_dialogue(){
+    protected void invalid_input_dialogue(String str){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Invalid Input");
         alert.setHeaderText("Input error");
-        alert.setContentText("-Event times should be HH:MM on a 24 hour clock\n- Search lengths should be in minutes and greater then 0");
+        alert.setContentText(str);
         alert.showAndWait();
     }
 

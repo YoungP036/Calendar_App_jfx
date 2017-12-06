@@ -22,7 +22,7 @@ public class pref_controller extends universal_controller{
         boolean[] wdays = new boolean[7];
 
         if(!validate_time(workStart_TXT.getText())||!validate_time(workEnd_TXT.getText()))
-            invalid_input_dialogue();
+            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
         else {
 
             pb.setStart(LocalTime.parse(workStart_TXT.getText()));
@@ -49,7 +49,7 @@ public class pref_controller extends universal_controller{
             System.out.println("Input VALID");
         }
         else
-            invalid_input_dialogue();
+            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
     }
     @FXML
     private void validate_work_eTime(){
@@ -59,6 +59,6 @@ public class pref_controller extends universal_controller{
             System.out.println("Input VALID");
         }
         else
-            invalid_input_dialogue();
+            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
     }
 }
