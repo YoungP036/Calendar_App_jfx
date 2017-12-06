@@ -2,32 +2,67 @@ package frontend.controllers;
 
 import Backend.DataServer;
 import Backend.Event;
+import Backend.eventBuilder;
 import Backend.userPrefs;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.lang.reflect.Array;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class search_controller extends universal_controller {
-    @FXML
-    private TextField length_TXT, name_TXT, loc_TXT;
-    @FXML
-    private ListView eList_LST;
-    @FXML
-    private CheckBox work_CHK, personal_CHK, all_CHK;
+import static frontend.controllers.main_controller.updateIndicators;
 
-    //    private boolean[][] search_results = new boolean[7][24];
+public class search_controller extends universal_controller {
+    @FXML private TextField length_TXT, name_TXT, loc_TXT;
+    @FXML private Label loc_LBL, name_LBL;
+    @FXML private ListView eList_LST;
+    @FXML private CheckBox work_CHK, personal_CHK, all_CHK;
+    @FXML private Button add_BTN;
+
     @FXML
     private void validate() {
         String mins = length_TXT.getText();
-        if (validate_minutes(mins)) {
-            System.out.println("Input VALID");
-        } else
+        if (!validate_minutes(mins))
             invalid_input_dialogue("Search lengths should in hours and greater then 0");
+    }
+
+    @FXML
+    private void add_from_listview(MouseEvent e){
+        LocalTime start, end;
+        LocalDate day;
+        int hour;
+        String list_item=eList_LST.getSelectionModel().getSelectedItem().toString();
+        start=LocalTime.parse(list_item.toString().substring(14,19));
+        day=LocalDate.parse(list_item.toString().substring(0,10));
+
+        //get start time, compute end time by adding new event length
+        end=LocalTime.parse(list_item.toString().substring(14,19));
+        hour=end.getHour();
+        hour+=Integer.parseInt(length_TXT.getText());
+
+        try{
+            end=LocalTime.parse(Integer.toString(hour)+list_item.toString().substring(16,19));
+        }catch(DateTimeException err){
+            System.out.printf("Event is too long, get some sleep instead\n");
+        }
+
+        System.out.printf("Start time=%S\t End time=%S\n",start.toString(), end.toString());
+        eventBuilder eb= new eventBuilder();
+        eb.setName(name_TXT.getText());
+        eb.setLoc(loc_TXT.getText());
+        eb.setsDay(day);
+        eb.seteDay(day);
+        eb.setsTime(start);
+        eb.seteTime(end);
+        DataServer.saveEvent(eb.createEvent());
+        updateIndicators();
+
+        Stage stage = (Stage) add_BTN.getScene().getWindow();
+        stage.close();
     }
 
     //does not take into account sleep, sleep is for the weak
@@ -37,7 +72,7 @@ public class search_controller extends universal_controller {
         eList_LST.getItems().clear();
 
 
-        int type = 0;
+        int type;
         int length;
         if (validate_hours(length_TXT.getText()))
             length = Integer.parseInt(length_TXT.getText());
@@ -52,7 +87,6 @@ public class search_controller extends universal_controller {
         else
             type = 3;
 
-        System.out.println("DBG type=" + type);
         search_results = master_search(search_results, length, type, LocalDate.now(), LocalTime.now());
 
         if (search_results == null)
@@ -65,11 +99,18 @@ public class search_controller extends universal_controller {
             for (int j = 0; j < 24; j++) {
                 if (search_results[i][j] == true) {
                     day = currDay.plusDays(i);
-                    entry = day.toString() + " at " + j + ":00";
+                    if(j<10)
+                        entry=day.toString()+ " at 0"+j+":00";
+                    else
+                        entry = day.toString() + " at " + j + ":00";
                     eList_LST.getItems().add(entry);
                 }
             }
-        System.out.println("TODO Search opening for " + length + " minute Event");
+        loc_LBL.setVisible(true);
+        name_LBL.setVisible(true);
+        loc_TXT.setVisible(true);
+        name_TXT.setVisible(true);
+        add_BTN.setVisible(true);
     }
 
     private boolean[][] master_search(boolean[][] results, int eLength, int type, LocalDate today, LocalTime currTime) {
@@ -77,21 +118,8 @@ public class search_controller extends universal_controller {
             for (int j = 0; j < 24; j++)
                 results[i][j] = true;
 
-        for (int i = 0; i < 24; i++) {
-            System.out.printf("initial : [2][i]=%S\n", results[2][i]);
-        }
-
-        for (int i = 0; i < 24; i++) {
-            System.out.printf("initial : [3][i]=%S\n", results[3][i]);
-        }
         results = eliminate_by_eType(results, type, today);
-        for (int i = 0; i < 24; i++) {
-            System.out.printf("post elim_eType: [2][i]=%S\n", results[2][i]);
-        }
 
-        for (int i = 0; i < 24; i++) {
-            System.out.printf("post elim_eType: [3][i]=%S\n", results[3][i]);
-        }
         if (results != null)
             results = eliminate_by_conflicts(results, today, currTime);
         else {
@@ -107,16 +135,25 @@ public class search_controller extends universal_controller {
         int wStart, wEnd;
         boolean temp;
         boolean[] work_days;
-        //no work needed
-        if (prefs == null || type == 3 || type == 0)
-            return results;
-            //do the work
-        else {
-            work_days = prefs.getWorkdays();
-            int dayOfWeek = today.getDayOfWeek().getValue();
+        int dayOfWeek = today.getDayOfWeek().getValue();
 
-            //slide work_days according to current day of week, we want it to be parallel with the window we're interested in
-            //so if wednesday is our window start, and its a workday, then work_day[0]=true
+        //no work needed
+        if (prefs == null || type == 3)
+            return results;
+        //do the work
+        else {
+            //if prefs arent set, return results as is so search may continue for the jobless bum
+            try {
+                work_days = prefs.getWorkdays();
+                wStart = prefs.getwStart_time().getHour();
+                wEnd = prefs.getwEnd_time().getHour();
+
+            } catch (Exception e) {
+                System.out.println("User has not set preferences, continueing search\n");
+                return results;
+            }
+
+            //slide work_days array until it is parallel with our [today, today+7] window size
             for (int i = 0; i < dayOfWeek; i++) {
                 temp = work_days[0];
                 for (int j = 0; j < 7; j++)
@@ -126,14 +163,6 @@ public class search_controller extends universal_controller {
                         work_days[j] = work_days[j + 1];
             }
 
-            try {
-                wStart = prefs.getwStart_time().getHour();
-                wEnd = prefs.getwEnd_time().getHour();
-
-            } catch (Exception e) {
-                System.out.println("DBG prefs doesnt exist\n");
-                return null;
-            }
             //CASE 1: Opening needed for WORK event, only consider working hours
             if (type == 1) {
                 for (int i = 0; i < Array.getLength(work_days); i++) {

@@ -3,30 +3,19 @@ package frontend.controllers;
 import Backend.DataServer;
 import Backend.Event;
 import frontend.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-
-import javax.annotation.Resources;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
-import java.net.URL;
-import java.text.DateFormat;
 import java.text.DateFormatSymbols;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.Month;
-import java.util.Calendar;
-import java.util.Date;
 
 public class main_controller extends universal_controller{
 
@@ -90,7 +79,6 @@ public class main_controller extends universal_controller{
     @FXML private Pane  indicator_140, indicator_240, indicator_340, indicator_440;
     @FXML private Pane  indicator_141, indicator_241, indicator_341, indicator_441;
 
-//    @FXML private Button prev_month_BTN, next_month_BTN;
     private static Pane[][][] indicators;
     private static Label[] day_labels;
     private int selected_day_row;
@@ -253,7 +241,6 @@ public class main_controller extends universal_controller{
                 indicators[row][day][indicator].setStyle(style);
             }
         }
-        System.out.println("DBG indicators updated");
     }
     @FXML private void selected_event(MouseEvent e){
         Node source  = (Node)e.getSource();
@@ -275,40 +262,43 @@ public class main_controller extends universal_controller{
         selected_day_col=parent_col;
         selected_day_row=parent_row-1;//for some reason rows are starting at 1, everything else is starting at 0
 
-        System.out.printf("DBG Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
+//        System.out.printf("DBG Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
 
-        //deselect anything that was previously selected
-        String prev_style=indicators[prev_day_row][prev_day_col][prev_ind].getStyle().toString();
-        prev_style=prev_style.replaceAll("-fx-border-color: #[0-9a-f]+","-fx-border-color: #00cc00");
-        indicators[prev_day_row][prev_day_col][prev_ind].setStyle(prev_style);
+        String prev_style;
+        //safely deselect anything that was previously selected
+        if(prev_day_row!=-1 && prev_day_col!=-1 && prev_ind !=-1) {
+            prev_style = indicators[prev_day_row][prev_day_col][prev_ind].getStyle().toString();
+            prev_style = prev_style.replaceAll("-fx-border-color: #[0-9a-f]+", "-fx-border-color: #00cc00");
+            indicators[prev_day_row][prev_day_col][prev_ind].setStyle(prev_style);
+        }
 
         //handle case where cell clicked is identical to last cell clicked, 2 sub cases, even number clicks and odd number clicks
-        if(prev_day_row==selected_day_row&& prev_day_col==selected_day_col&&prev_ind==selected_indicator)
-            //TODO if border is green its a select, leave globals
-            //else its a deselect, set globals to OOB
+        if(prev_day_row==selected_day_row&& prev_day_col==selected_day_col&&prev_ind==selected_indicator) {
+            selected_day_row = -1;
+            selected_day_col=-1;
+            selected_indicator=-1;
             return;
+        }
         //normal case where clicked cell is different from last clicked cell
         else{
             prev_style=indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().toString();
-            System.out.println("prev style: " + prev_style);
             prev_style=prev_style.replaceAll("-fx-border-color: #[0-9a-f]+", "-fx-border-color: #6600ff");
-            System.out.println("new style: " + prev_style);
             indicators[selected_day_row][selected_day_col][selected_indicator].setStyle(prev_style);
         }
     }
 
     @FXML
     private void exportEvents(){
-        String name,desc,loc,sTime,eTime,sDay,eDay,type;
+        String desc,loc;
+        int count=0;
         Event[] events = DataServer.getAllEvent();
         String home = System.getProperty("user.home");
-        String str="";
+        String str;
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(home+"/cal_app/events.txt"));
             for (int i = 0; i < Array.getLength(events); i++) {
                 str="";
-                System.out.println("iter " + Integer.toString(i));
                 str = str+events[i].getName();
                 desc = events[i].getDesc();
                 if(desc.compareTo("")!=0)
@@ -324,13 +314,15 @@ public class main_controller extends universal_controller{
                 else
                     str = str+",personal";
                 str="("+str+")\n";
+                count++;
                 writer.write(str);
             }
             writer.close();
-        }
-            catch(IOException e){
+            System.out.printf("Number events exported : %d\n",count);
+        }catch(IOException e){
                 System.out.println("Export Events error: "+e.getMessage());
-            }
+        }
+
     }
 
     @FXML
@@ -372,10 +364,8 @@ public class main_controller extends universal_controller{
 
     private static void setCalendarCellLabels(int month, int year){
         String firstDayStr = getFirstDay(month,year);
-        System.out.println(firstDayStr);
         int firstDay=-1;
         int numDays=getNumDays(month,year);
-//        System.out.println("DBG NumDays="+numDays);
         switch(firstDayStr) {
             case "Sunday":
                 firstDay = 0;
@@ -400,10 +390,6 @@ public class main_controller extends universal_controller{
                 break;
         }
 
-        if(firstDay==-1){
-            System.out.println("DBG firstDay error\n");
-            return;
-        }
         int currDay=1;
         for(int i=0;i<firstDay;i++)
             day_labels[i].setText("");
@@ -457,7 +443,6 @@ public class main_controller extends universal_controller{
             else
                 dayString=Integer.toString(target_day);
             target_date=LocalDate.parse(Integer.toString(currYear)+"-"+monthString+"-"+dayString);
-            System.out.println("target_date="+target_date.toString());
             DataServer.deleteEventRange(target_date, min_time, max_time);
             Thread.sleep(100);
             updateIndicators();
@@ -482,12 +467,11 @@ public class main_controller extends universal_controller{
             case "Saturday":
                 return 6;
             default:
-                System.out.println("Day to offset returned -1");
                 return -1;
         }
     }
     private int gridCordsToDayActual(int month, int year, int row, int col){
-        int dayActual=-1;
+        int dayActual;
         String firstDay=getFirstDay(month,year);
         int offset=day_to_offset(firstDay);
         dayActual=(row)*7; //multiply by 7 for 7 days per row/week

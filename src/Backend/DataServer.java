@@ -6,11 +6,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.lang.reflect.Array;
 
-/*REFACTOR TODOS FOR IF ALL USER STORIES COMPLETE
-    1. review all method parameters that are strings, chances are they should be LocalDate, or LocalTime
-        - lots of pointless toString()ing going on
-
-*/
 public class DataServer {
     public static int init() {
         //check for and create DB if needed
@@ -19,7 +14,6 @@ public class DataServer {
             System.out.println("DB init failure");
             return -1;
         }
-
         //check for and create table if needed
         if (check_and_make_table() != 0) {
             System.out.println("Table init failed\n");
@@ -38,19 +32,17 @@ public class DataServer {
                 //00:00-06:00 must be inclusive on both ends, special case
                 if (time_range_start.compareTo(LocalTime.parse("00:00")) == 0) {
                     if (events[i].getsTime().compareTo(time_range_start) >= 0 && events[i].getsTime().compareTo(time_range_end) <= 0) {
-                        System.out.println("DBG deleting event: " + events[i].getName());
                         count++;
                         deleteEvent(events[i].getsTime().toString(), events[i].geteTime().toString(), events[i].getsDay().toString(), events[i].geteDay().toString());
                     }
                 } else {
                     if (events[i].getsTime().compareTo(time_range_start) > 0 && events[i].getsTime().compareTo(time_range_end) <= 0) {
-                        System.out.println("DBG deleting event: " + events[i].getName());
                         count++;
                         deleteEvent(events[i].getsTime().toString(), events[i].geteTime().toString(), events[i].getsDay().toString(), events[i].geteDay().toString());
                     }
                 }
         }
-        System.out.println("DBG Deleted event count: " + count);
+        System.out.printf("Events deleted: %d\n",count);
     }
 
 
@@ -63,7 +55,6 @@ public class DataServer {
             stmt.setString(3, sDay);
             stmt.setString(4, eDay);
             stmt.executeUpdate();
-            System.out.println("Event deleted");
         } catch (SQLException e) {
             System.out.println("Delete event error:" + e.getMessage());
         }
@@ -86,7 +77,6 @@ public class DataServer {
         } catch (SQLException e) {
             System.out.println("Row Count error: " + e.getMessage());
         }
-        System.out.println("DBG currentEventCount=" + count);
         events = new Event[count];
 
         //get events actual
@@ -113,6 +103,7 @@ public class DataServer {
         } catch (SQLException e) {
             System.out.println("error getting all events: " + e.getMessage());
         }
+        System.out.printf("Current event count: %d\n", Array.getLength(events));
         return events;
     }
 
@@ -126,8 +117,6 @@ public class DataServer {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, sTime);
             pstmt.setString(2, eTime);
-            for (int i = 0; i < 7; i++)
-                System.out.println(i + ": " + workdays[i]);
             pstmt.setBoolean(3, workdays[0]);
             pstmt.setBoolean(4, workdays[1]);
             pstmt.setBoolean(5, workdays[2]);
@@ -140,9 +129,9 @@ public class DataServer {
         } catch (SQLException e) {
             System.out.println("add prefs error " + e.getMessage());
             return -1;
-        }//end catch
+        }
         return 0;
-    }//end method
+    }
 
     public static userPrefs getPrefs() {
         userPrefs prefs = null;
@@ -175,13 +164,6 @@ public class DataServer {
 
     }
 
-//    private static boolean getBoolState(String str){
-//        if(str.compareTo("true")==0)
-//            return true;
-//        else
-//            return false;
-//    }
-
     public static int saveEvent(Event ev) {
         if(hasConflict(ev))
             return 0;
@@ -204,6 +186,7 @@ public class DataServer {
             pstmt.setString(7, ev.geteDay().toString());
             pstmt.setInt(8, eType);
             pstmt.executeUpdate();
+            System.out.printf("Saved event: %S\n", ev.getName());
         } catch (SQLException e) {
             System.out.println("Save event error: " + e.getMessage());
             return -1;
@@ -272,11 +255,11 @@ public class DataServer {
         if (!target_db.exists()) {
             try (Connection conn = connect()) {
                 if (conn != null) {
-                    DatabaseMetaData meta = conn.getMetaData();
+                    return 0;
                 } else
                     return -1;
             } catch (SQLException e) {
-                System.out.println(e.getMessage());
+                System.out.println("check and make DB error: " + e.getMessage());
                 return -1;
             }
         }
@@ -288,19 +271,13 @@ public class DataServer {
         File target_dir = new File(home + "/cal_app");
 
         //create DB directory if needed
-        boolean flag;
         if (!target_dir.exists()) {
-            flag = false;
             try {
                 target_dir.mkdir();
-                flag = true;
-            } catch (SecurityException se) {
-                System.out.println("Insufficient privs to create database directory");
+            } catch (SecurityException e) {
+                System.out.println("check and make directory error: " + e.getMessage());
             }
         }
-
-
-        System.out.println("Home dir: " + System.getProperty("user.home"));
     }
 
     private static boolean hasConflict(Event e) {
@@ -310,15 +287,15 @@ public class DataServer {
             //if theyre on the same day, investigate further
             if (e.getsDay().compareTo(events[i].getsDay()) == 0 && flag==false) {
                 if ( (e.getsTime().compareTo(events[i].getsTime()) >= 0 )&& (e.getsTime().compareTo(events[i].geteTime()) <= 0)) {
-                    System.out.println(e.getName() + " sTime conflicts with " + events[i].getName());
+                    System.out.println("Event \"" + e.getName() + "\" start time overlaps with \"" + events[i].getName() + "\" and will not be added");
                     flag= true;
                 }
                 if ((e.geteTime().compareTo(events[i].getsTime()) >= 0) && (e.geteTime().compareTo(events[i].geteTime()) <= 0)){
-                    System.out.println(e.getName() + " eTime conflicts with " + events[i].getName());
+                    System.out.println("New Event \"" + e.getName() + "\" end time overlaps with event \"" + events[i].getName()+ "\" and will not be added");
                     flag= true;
                 }
-            }//end same day if
-        }//end for
+            }
+        }
         return flag;
-    }//end has conflict
-}//end class
+    }
+}

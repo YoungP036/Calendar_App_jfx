@@ -30,7 +30,7 @@ public class universal_controller {
 
     @FXML
     protected static boolean validate_hours(String str){
-        Pattern num_pattern=Pattern.compile("[12]?[1-9]");
+        Pattern num_pattern=Pattern.compile("[12]?[0-9]");
         Matcher m = num_pattern.matcher(str);
         return m.matches();
     }
