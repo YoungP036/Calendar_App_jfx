@@ -6,6 +6,7 @@ import frontend.Main;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -16,6 +17,8 @@ import java.lang.reflect.Array;
 import java.text.DateFormatSymbols;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+import static frontend.controllers.add_controller.setName_TXT;
 
 public class main_controller extends universal_controller{
 
@@ -79,6 +82,8 @@ public class main_controller extends universal_controller{
     @FXML private Pane  indicator_140, indicator_240, indicator_340, indicator_440;
     @FXML private Pane  indicator_141, indicator_241, indicator_341, indicator_441;
 
+//ADD SCREEN CONTROLS
+    @FXML private TextField sTime_TXT;
     private static Pane[][][] indicators;
     private static Label[] day_labels;
     private int selected_day_row;
@@ -196,7 +201,6 @@ public class main_controller extends universal_controller{
         for(int i=0;i<Array.getLength(events);i++) {
             if (events[i].getsDay().compareTo(target_day)==0){
                 sHour=events[i].getsTime().getHour();
-                eHour=events[i].geteTime().getHour();
                 if(ind==0){
                     if(sHour>=0 && sHour<=6) {
                         target_event = events[i];
@@ -223,7 +227,22 @@ public class main_controller extends universal_controller{
                 }
             }
         }
-        //TODO EVENT FOUND, NOW HOW TO GET IT TO THE ADD/EDIT SCREEN?
+//        String str;
+//        System.out.println("eName="+target_event.getName());
+//        setName_TXT(target_event.getName());
+//        add_controller.setLoc_TXT(target_event.getLoc());
+//        add_controller.setsTime_TXT(target_event.getsTime().toString());
+//        add_controller.seteTime_TXT(target_event.geteTime().toString());
+//        add_controller.setDesc_TXT(target_event.getDesc());
+//        add_controller.setStart_DATE(target_event.getsDay().toString());
+//        add_controller.setEnd_DATE(target_event.geteDay().toString());
+//        if(target_event.isWorkType())
+//            add_controller.setType_CHECK(true);
+//        else
+//            add_controller.setType_CHECK(false);
+
+        //TODO COMMUNICATE WITHOUT BREAKING DESIGN CONSTRAINTS
+        open_create();
         try {
             System.out.printf("Target event: %S on %S at %S\n", target_event.getName(), target_event.getsDay().toString(), target_event.getsTime().toString());
         }catch(Exception e){System.out.println("No valid event detected\n");}
@@ -465,8 +484,7 @@ public class main_controller extends universal_controller{
     }
 
 
-    @FXML private void open_pref(){
-        new_window(Main.screenList.get(1));
+    @FXML private void open_pref(){ new_window(Main.screenList.get(1));
     }
     @FXML private void open_create(){new_window(Main.screenList.get(2)); }
     @FXML private void open_search(){new_window(Main.screenList.get(3));}

@@ -12,23 +12,29 @@ import static Backend.DataServer.saveEvent;
 import static frontend.controllers.main_controller.updateIndicators;
 
 public class add_controller extends universal_controller{
-    @FXML private TextField name_TXT, loc_TXT, sTime_TXT, eTime_TXT;
-    @FXML private TextArea desc_TXT;
-    @FXML private DatePicker start_DATE, end_DATE;
-    @FXML private Button confirm_BTN;
-    @FXML private CheckBox type_CHECK;
 
-    @FXML
-    public void initialize(){
-        name_TXT.setText("");
-        loc_TXT.setText("");
-        desc_TXT.setText("");
-        sTime_TXT.setText("");
-        eTime_TXT.setText("");
-        sTime_TXT.setPromptText("HH:MM");
-        eTime_TXT.setPromptText("HH:MM");
-        type_CHECK.selectedProperty().setValue(false);
-    }
+
+    @FXML private static TextField name_TXT, loc_TXT, sTime_TXT, eTime_TXT;
+    @FXML private static TextArea desc_TXT;
+    @FXML private static DatePicker start_DATE, end_DATE;
+    @FXML private Button confirm_BTN;
+    @FXML private static CheckBox type_CHECK;
+
+//    @FXML
+//    public void initialize(){
+////        setName_TXT("");
+////        setLoc_TXT("");
+////        setDesc_TXT("");
+////        setsTime_TXT("");
+//        name_TXT.setText("");
+//        loc_TXT.setText("");
+//        desc_TXT.setText("");
+//        sTime_TXT.setText("");
+//        eTime_TXT.setText("");
+//        sTime_TXT.setPromptText("HH:MM");
+//        eTime_TXT.setPromptText("HH:MM");
+//        type_CHECK.selectedProperty().setValue(false);
+//    }
     @FXML
     private void validate_sTime(){
         String time=sTime_TXT.getText();
@@ -66,5 +72,15 @@ public class add_controller extends universal_controller{
         }
     }
 
+    @FXML protected static void setName_TXT(String str) {
+        name_TXT.setText(str);
+    }
+    @FXML protected static void setLoc_TXT(String str) {loc_TXT.setText(str);}
+    @FXML protected static void setsTime_TXT(String str) {sTime_TXT.setText(str);}
+    @FXML protected static void seteTime_TXT(String str) {eTime_TXT.setText(str);}
+    @FXML protected static void setDesc_TXT(String str) {desc_TXT.setText(str);}
+//    @FXML protected static void setStart_DATE(String str) {start_DATE.setText(str);}
+//    @FXML protected static void setEnd_DATE(String str) {end_DATE.setText(str);}
+    @FXML protected static void setType_CHECK(boolean flag) {type_CHECK.setSelected(flag);}
 
 }
