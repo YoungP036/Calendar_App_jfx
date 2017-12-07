@@ -227,19 +227,7 @@ public class main_controller extends universal_controller{
                 }
             }
         }
-//        String str;
-//        System.out.println("eName="+target_event.getName());
-//        setName_TXT(target_event.getName());
-//        add_controller.setLoc_TXT(target_event.getLoc());
-//        add_controller.setsTime_TXT(target_event.getsTime().toString());
-//        add_controller.seteTime_TXT(target_event.geteTime().toString());
-//        add_controller.setDesc_TXT(target_event.getDesc());
-//        add_controller.setStart_DATE(target_event.getsDay().toString());
-//        add_controller.setEnd_DATE(target_event.geteDay().toString());
-//        if(target_event.isWorkType())
-//            add_controller.setType_CHECK(true);
-//        else
-//            add_controller.setType_CHECK(false);
+
 
         //TODO COMMUNICATE WITHOUT BREAKING DESIGN CONSTRAINTS
         open_create();
