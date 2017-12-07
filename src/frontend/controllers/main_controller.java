@@ -18,7 +18,6 @@ import java.text.DateFormatSymbols;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import static frontend.controllers.add_controller.setName_TXT;
 
 public class main_controller extends universal_controller{
 
@@ -181,9 +180,10 @@ public class main_controller extends universal_controller{
         col=selected_day_col;
         ind=selected_indicator;
 
-        if(row==-1 || col==-1 || ind==-1)
+        if(row==-1 || col==-1 || ind==-1) {
             invalid_input_dialogue("Select one of the 4 indicators\nin a day cell before attempting edit");
-
+            return;
+        }
         if(!indicators[row][col][ind].getStyle().toString().contains("-fx-background-color: #000000")){
             invalid_input_dialogue("Select an event before attempting to edit");
             return;
