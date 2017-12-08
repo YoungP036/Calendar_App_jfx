@@ -24,7 +24,6 @@ public class pref_controller extends universal_controller{
         if(!validate_time(workStart_TXT.getText())||!validate_time(workEnd_TXT.getText()))
             invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
         else {
-
             pb.setStart(LocalTime.parse(workStart_TXT.getText()));
             pb.setEnd(LocalTime.parse(workEnd_TXT.getText()));
             wdays[0] = sun_CHK.isSelected();
@@ -44,21 +43,14 @@ public class pref_controller extends universal_controller{
 
     @FXML
     private void validate_work_sTime(){
-        String time = workStart_TXT.getText();
-        if(validate_time(time)){
-            System.out.println("Input VALID");
-        }
-        else
+        if(!validate_time(workStart_TXT.getText()));
             invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
     }
     @FXML
     private void validate_work_eTime(){
         String time = workEnd_TXT.getText();
 
-        if(validate_time(time)){
-            System.out.println("Input VALID");
-        }
-        else
+        if(validate_time(workEnd_TXT.getText()))
             invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
     }
 }

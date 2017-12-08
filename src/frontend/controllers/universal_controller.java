@@ -6,7 +6,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,7 +35,6 @@ public class universal_controller {
     }
     @FXML
     protected static boolean validate_time(String time){
-        boolean flag=false;
         Pattern time_pattern = Pattern.compile("([01]?[0-9]|2[0-3]):[0-5][0-9]");
         Matcher m = time_pattern.matcher(time);
         return m.matches();
@@ -48,7 +46,7 @@ public class universal_controller {
     @FXML
     protected void invalid_input_dialogue(String str){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Invalid Input");
+        alert.setTitle("ERROR");
         alert.setHeaderText("Input error");
         alert.setContentText(str);
         alert.showAndWait();
@@ -78,7 +76,8 @@ public class universal_controller {
         cal.set(Calendar.DAY_OF_MONTH,1);
         return cal.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
-    @FXML
+
+    @FXML //get day of week for first day in month
     protected static String getFirstDay(int month, int year){
 
         Calendar cal = Calendar.getInstance();
@@ -91,4 +90,6 @@ public class universal_controller {
 
         return sdf.format(firstDayofMonth);
     }
+
+
 }

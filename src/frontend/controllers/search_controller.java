@@ -65,15 +65,14 @@ public class search_controller extends universal_controller {
         stage.close();
     }
 
-    //does not take into account sleep, sleep is for the weak
-    @FXML
+
+    //activated via search button on search screen, will populate a list with valid openings
+    @FXML //will exclude work/personal hours depending on the case, does not take into account sleep
     private void search() {
         boolean[][] search_results = new boolean[7][24];
         eList_LST.getItems().clear();
+        int type, length;
 
-
-        int type;
-        int length;
         if (validate_hours(length_TXT.getText()))
             length = Integer.parseInt(length_TXT.getText());
         else {
@@ -137,7 +136,7 @@ public class search_controller extends universal_controller {
         boolean[] work_days;
         int dayOfWeek = today.getDayOfWeek().getValue();
 
-        //no work needed
+        //no work needed with respect to work schedule, return
         if (prefs == null || type == 3)
             return results;
         //do the work
@@ -201,7 +200,7 @@ public class search_controller extends universal_controller {
         return results;
     }
 
-    /* Iterate through events
+    /*
     1. if its the same year, continue
     2. if the event occurs within the 7 day window from [today,today+7], continue
     3. get length of event, and the offset mapping the events start day onto our window interval
@@ -209,12 +208,8 @@ public class search_controller extends universal_controller {
  */
     private boolean[][] eliminate_by_conflicts(boolean[][] results, LocalDate today, LocalTime currTime) {
         Event[] events = DataServer.getAllEvent();
-        System.out.printf("DBG currDay=%S\tcurrTime=%S\n", today.toString(), currTime.toString());
-        for (int i = 0; i < Array.getLength(events); i++) {
-            System.out.printf("Event: %S on %S from %S to %S\n", events[i].getName(), events[i].getsDay().toString(), events[i].getsTime().toString(), events[i].geteTime().toString());
-        }
-        int window_start, window_end, currYear, eLength, eOffset;
-        int eYear, eDay, esHour, eeHour;
+        int window_start, window_end, currYear, eLength, eOffset, eYear, eDay, esHour, eeHour;
+
         window_start = today.getDayOfYear();
         window_end = today.getDayOfYear() + 6;
         currYear = today.getYear();
@@ -222,7 +217,6 @@ public class search_controller extends universal_controller {
         //eliminate hours from today that have passed, as well as the next 2 hours to give a buffer
         for (int i = 0; i < currTime.getHour() + 3; i++)
             results[0][i] = false;
-
 
         //handle one day at a time
         for (int i = 0; i < Array.getLength(events); i++) {
@@ -248,12 +242,15 @@ public class search_controller extends universal_controller {
 Alg
     1. create parallel int array
     2. each index holds the number of hours from that index that are open
+    3. compare values in parallel array to desired length and set results accordingly
  */
     private boolean[][] eliminate_by_length(boolean[][] results, int eLength) {
         int[][] openings = new int[7][24];
         int len = 0;
         boolean flag;
         int k;
+
+        //use results to create parallel array where each index holds max length appointment it could satisfy
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 24; j++) {
                 flag = true;
@@ -274,6 +271,9 @@ Alg
             }
         }
 
+        //now that each index in openings contains the length of the opening from that point
+        //all you have to do is compare that value to the length of the prospective appointment
+        //if its greater then or equal it satisfies user specifications
         for (int i = 0; i < 7; i++)
             for (int j = 0; j < 24; j++) {
                 if (openings[i][j] >= eLength)

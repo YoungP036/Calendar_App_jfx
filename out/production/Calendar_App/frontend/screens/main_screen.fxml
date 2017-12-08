@@ -24,8 +24,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Events">
             <items>
-                  <MenuItem fx:id="mAdd_BTN" mnemonicParsing="false" onAction="#open_create" text="Event Manager" />
-                  <MenuItem fx:id="edit_BTN" disable="true" mnemonicParsing="false" onAction="#edit_event" text="Edit Event" />
+                  <MenuItem fx:id="mAdd_BTN" mnemonicParsing="false" onAction="#open_event_manager" text="Event Manager" />
                   <MenuItem fx:id="mDelete_BTN" mnemonicParsing="false" onAction="#delete_event" text="Delete Event" />
                   <MenuItem fx:id="mSearch_BTN" mnemonicParsing="false" onAction="#open_search" text="Search Opening" />
                   <MenuItem fx:id="delete_all_BTN" mnemonicParsing="false" onAction="#delete_all_events" text="Delete All Events" />

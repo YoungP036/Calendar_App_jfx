@@ -26,62 +26,53 @@ public class event_manager_controller extends universal_controller{
     @FXML private  TextField name_TXT, loc_TXT, sTime_TXT, eTime_TXT;
     @FXML private  TextArea desc_TXT;
     @FXML private  DatePicker start_DATE, end_DATE;
-    @FXML private Button confirm_BTN;
     @FXML private  CheckBox type_CHECK;
     @FXML ListView events_LST;
-
-
-
     private Event selected_event;
 
-    @FXML
+    @FXML //this is called immedietly after running main, not when window is brought into focus
     private void initialize(){
-//        System.out.println("initializing manager scrn");
-//        Event ev=main_controller.getSelected_event();
-//        if(ev!=null){
-//            System.out.println("selected event: " + ev.getName());
-//            name_TXT.setText(ev.getName());
-//            loc_TXT.setText(ev.getLoc());
-//            sTime_TXT.setText(ev.getsTime().toString());
-//            eTime_TXT.setText(ev.geteTime().toString());
-//            desc_TXT.setText(ev.getDesc());
-//            type_CHECK.setSelected(ev.isWorkType());
-//            start_DATE.setValue(ev.getsDay());
-//            end_DATE.setValue(ev.geteDay());
-//        }
-//        else {
-//            System.out.println("selected event is null");
-//        }
         refresh_fields();
         refresh_list();
     }
 
-    @FXML
+    @FXML //refreshes entire screen
     private void refresh(){
         refresh_fields();
         refresh_list();
     }
-    @FXML
+
+    @FXML //refreshes input fields
+    private void refresh_fields(){
+        name_TXT.setText("");
+        loc_TXT.setText("");
+        sTime_TXT.setText("");
+        eTime_TXT.setText("");
+        desc_TXT.setText("");
+        type_CHECK.setSelected(false);
+        start_DATE.getEditor().setText("");
+        end_DATE.getEditor().setText("");
+    }
+
+    @FXML //refreshes listview
+    private void refresh_list(){
+        events_LST.getItems().clear();
+        Event[] events= DataServer.getAllEvent();
+        for(int i = 0; i< Array.getLength(events); i++){
+            events_LST.getItems().add(events[i].getName()+","+events[i].getsDay().toString()+","+events[i].getsTime().toString());
+        }
+    }
+
+    //TODO if find way to refresh event manager when it COMES INTO FOCUS, expand edit feature
+    //TODO automatically populate event manager with the event that was selected in main_screen
+    //TODO currently can get that info via selected_event field
+    @FXML //TODO need something akin to an onFocus event to prompt a refresh but apparantly that event doesnt exist
     private void check_selected(){
 //        Event ev = main_controller.getSelected_event();
 //        main_controller.setSelected_event(null);
     }
-    @FXML
-    private void set_alarm(){
-        if(selected_event!=null) {
-            LocalTime time = selected_event.getsTime();
-            LocalDate date = selected_event.getsDay();
-            System.out.println("DBG calling create_alarm(date,time)");
 
-            create_alarm(date, time);
-        }
-    }
-
-    @FXML
-    private void test_alarm(){
-        create_alarm(LocalDate.now(), LocalTime.now().plusMinutes(1));
-    }
-
+    //spins off a thread that will play an alert sound when the time is right
     public void create_alarm(LocalDate today, LocalTime time) {
         System.out.println("DBG in create alarm");
         Thread t = new Thread() {
@@ -100,6 +91,7 @@ public class event_manager_controller extends universal_controller{
         };
         t.start();
     }
+
     private static void PlaySound(File Sound){
         InputStream in;
         try{
@@ -111,30 +103,45 @@ public class event_manager_controller extends universal_controller{
             System.out.println("Alarm sound error: " + e.getMessage());
         }
     }
+
     @FXML
-    private void refresh_fields(){
-        name_TXT.setText("");
-        loc_TXT.setText("");
-        sTime_TXT.setText("");
-        eTime_TXT.setText("");
-        desc_TXT.setText("");
-        type_CHECK.setSelected(false);
-        start_DATE.getEditor().setText("");
-        end_DATE.getEditor().setText("");
-
-
+    private void validate_sTime(){
+        String time=sTime_TXT.getText();
+        if(!validate_time(time))
+            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
+    }
+    @FXML
+    private void validate_eTime(){
+        String time=eTime_TXT.getText();
+        if(!validate_time(time))
+            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
     }
 
-    @FXML
-    private void refresh_list(){
-        events_LST.getItems().clear();
-        Event[] events= DataServer.getAllEvent();
-        for(int i = 0; i< Array.getLength(events); i++){
-            events_LST.getItems().add(events[i].getName()+","+events[i].getsDay().toString()+","+events[i].getsTime().toString());
+    @FXML //activate via add new button, creates event using info from input fields
+    private void confirm_new(ActionEvent e){
+        System.out.println(e.getSource().toString());
+        try {
+            eventBuilder eb = new eventBuilder();
+            eb.setType(type_CHECK.isSelected());
+            eb.setDesc(desc_TXT.getText());
+            eb.setLoc(loc_TXT.getText());
+            eb.setName(name_TXT.getText());
+            eb.setsDay(LocalDate.parse(start_DATE.getValue().toString()));
+            eb.seteDay(LocalDate.parse(end_DATE.getValue().toString()));
+            eb.setsTime(LocalTime.parse(sTime_TXT.getText()));
+            eb.seteTime(LocalTime.parse(eTime_TXT.getText()));
+            Event ev = eb.createEvent();
+            saveEvent(ev);
+            updateIndicators();
+            refresh_list();
         }
+        catch(Exception err){
+            System.out.println("Invalid input: " + err.getMessage());
+        }
+
     }
 
-    @FXML
+    @FXML //activated via delete button, requires event selected from list, deletes that event
     private void confirm_delete(){
         if(selected_event!=null){
             DataServer.deleteEvent(selected_event.getsTime().toString(), selected_event.geteTime().toString(),
@@ -145,7 +152,8 @@ public class event_manager_controller extends universal_controller{
             updateIndicators();
         }
     }
-    @FXML
+
+    @FXML //activated via edit old button, requires an event to be selected, deletes old event and creates new using input field info
     private void confirm_edits(){
         if(selected_event!=null) {
             //delete old event
@@ -168,7 +176,7 @@ public class event_manager_controller extends universal_controller{
         }
     }
 
-    @FXML
+    @FXML //activated on events listview click, gets reference to selected event at instance level
     private void select_event(){
         Event[] events=DataServer.getAllEvent();
         String name;
@@ -201,40 +209,19 @@ public class event_manager_controller extends universal_controller{
 
     }
 
-    @FXML
-    private void validate_sTime(){
-        String time=sTime_TXT.getText();
-        if(!validate_time(time))
-            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
-    }
-    @FXML
-    private void validate_eTime(){
-        String time=eTime_TXT.getText();
-        if(!validate_time(time))
-            invalid_input_dialogue("Event times should be HH:MM on a 24 hour clock");
-    }
-    @FXML
-//    private void confirm_changes(MouseEvent e){
-    private void confirm_new(ActionEvent e){
-        System.out.println(e.getSource().toString());
-        try {
-            eventBuilder eb = new eventBuilder();
-            eb.setType(type_CHECK.isSelected());
-            eb.setDesc(desc_TXT.getText());
-            eb.setLoc(loc_TXT.getText());
-            eb.setName(name_TXT.getText());
-            eb.setsDay(LocalDate.parse(start_DATE.getValue().toString()));
-            eb.seteDay(LocalDate.parse(end_DATE.getValue().toString()));
-            eb.setsTime(LocalTime.parse(sTime_TXT.getText()));
-            eb.seteTime(LocalTime.parse(eTime_TXT.getText()));
-            Event ev = eb.createEvent();
-            saveEvent(ev);
-            updateIndicators();
-            refresh_list();
-        }
-        catch(Exception err){
-            System.out.println("Invalid input: " + err.getMessage());
-        }
+    @FXML //activated via set alarm button, requires an event to be selected from right hand side list, alarm dies on program exit
+    private void set_alarm(){
+        if(selected_event!=null) {
+            LocalTime time = selected_event.getsTime();
+            LocalDate date = selected_event.getsDay();
+            System.out.println("DBG calling create_alarm(date,time)");
 
+            create_alarm(date, time);
+        }
+    }
+
+    @FXML //activated via test alarm button, will facilitate demonstration
+    private void test_alarm(){
+        create_alarm(LocalDate.now(), LocalTime.now().plusMinutes(1));
     }
 }

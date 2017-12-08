@@ -22,21 +22,22 @@ import java.time.LocalTime;
 public class main_controller extends universal_controller{
 
     private static int currMonth,currYear;
-    private int selected_day_row;
-    private int selected_day_col;
-    private int selected_indicator;
+    private int selected_day_row, selected_day_col, selected_indicator;
     private static Event selected_event;
+    private static Pane[][][] indicators;
+    private static Label[] day_labels;
 
     @FXML private Label month_LBL, year_LBL;
     @FXML private GridPane days_pane;
-    //one day label per calendar cell
+//one day label per calendar cell
     @FXML private Label dlabel_00, dlabel_01, dlabel_02, dlabel_03, dlabel_04, dlabel_05, dlabel_06;
     @FXML private Label dlabel_07, dlabel_08, dlabel_09, dlabel_010, dlabel_011, dlabel_012, dlabel_013;
     @FXML private Label dlabel_014, dlabel_015, dlabel_016, dlabel_017, dlabel_018, dlabel_019, dlabel_020;
     @FXML private Label dlabel_021, dlabel_022, dlabel_023, dlabel_024, dlabel_025, dlabel_026, dlabel_027;
     @FXML private Label dlabel_028, dlabel_029, dlabel_030, dlabel_031, dlabel_032, dlabel_033, dlabel_034;
     @FXML private Label dlabel_035, dlabel_036, dlabel_037, dlabel_038, dlabel_039, dlabel_040, dlabel_041;
-    //6 indicators per calendar cell
+
+//4 indicators per calendar cell/day
 //row 1
     @FXML private Pane  indicator_10, indicator_20, indicator_30, indicator_40;
     @FXML private Pane  indicator_11, indicator_21, indicator_31, indicator_41;
@@ -86,12 +87,7 @@ public class main_controller extends universal_controller{
     @FXML private Pane  indicator_140, indicator_240, indicator_340, indicator_440;
     @FXML private Pane  indicator_141, indicator_241, indicator_341, indicator_441;
 
-    private static Pane[][][] indicators;
-    private static Label[] day_labels;
-
-
-
-    @FXML
+  @FXML
     private void initialize(){
         indicators = new Pane[6][7][4];
         day_labels = new Label[42];
@@ -155,25 +151,26 @@ public class main_controller extends universal_controller{
         indicators[5][5][0]=indicator_140; indicators[5][5][1]=indicator_240; indicators[5][5][2]=indicator_340; indicators[5][5][3]=indicator_440;
         indicators[5][6][0]=indicator_141; indicators[5][6][1]=indicator_241; indicators[5][6][2]=indicator_341; indicators[5][6][3]=indicator_441;
 
-       //get and set current date to set  month, year, and day labels
         DataServer.init();
-        LocalDate now = LocalDate.now();
-        String year = Integer.toString(now.getYear());
-        currYear=now.getYear();
-        String monthStr= now.getMonth().toString();
-        currMonth=now.getMonth().getValue()-1;
-        month_LBL.setText(monthStr);
-        year_LBL.setText(year);
-        setCalendarCellLabels(now.getMonth().getValue()-1,now.getYear());
-        reset_indicators();
-        updateIndicators();
+
+//set fields
+        currYear=LocalDate.now().getYear();
+        currMonth=LocalDate.now().getMonth().getValue()-1;
         selected_day_row=-1;
         selected_day_col=-1;
         selected_indicator=-1;
+
+//set controls
+        month_LBL.setText(LocalDate.now().getMonth().toString());
+        year_LBL.setText(Integer.toString(currYear));
+        setCalendarCellLabels(currMonth,currYear);
+        reset_indicators();
+        updateIndicators();
     }
 
-
-    @FXML private static void reset_indicators(){
+    @FXML
+    //resets indicators to default status
+    private static void reset_indicators(){
         for(int i=0;i<6;i++)
             for(int j=0;j<7;j++)
                 for(int k=0;k<4;k++)
@@ -182,8 +179,8 @@ public class main_controller extends universal_controller{
     }
 
 
-
-    @FXML protected static void updateIndicators(){
+    @FXML //updates indicator colors based on current events
+    protected static void updateIndicators(){
         reset_indicators();
         Event[] events = DataServer.getAllEvent();
         int indicator=-1;
@@ -253,7 +250,8 @@ public class main_controller extends universal_controller{
         }
     }
 
-    @FXML private void selected_event(MouseEvent e) {
+    @FXML //handles selection of an indicator in a day cell, changes relevant fields and colors based on select/deselect
+    private void selected_event(MouseEvent e) {
         Node source = (Node) e.getSource();
         Node parent = source.getParent().getParent();
         int prev_day_col, prev_day_row, prev_ind;
@@ -339,45 +337,7 @@ public class main_controller extends universal_controller{
         }
     }
 
-    @FXML
-    private void exportEvents(){
-        String desc,loc;
-        int count=0;
-        Event[] events = DataServer.getAllEvent();
-        String home = System.getProperty("user.home");
-        String str;
-
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(home+"/cal_app/events.txt"));
-            for (int i = 0; i < Array.getLength(events); i++) {
-                str="";
-                str = str+events[i].getName();
-                desc = events[i].getDesc();
-                if(desc.compareTo("")!=0)
-                    str=str+","+desc;
-                loc = events[i].getLoc();
-                if(loc.compareTo("")!=0)
-                    str=str+","+loc;
-
-                str=str+","+events[i].getsTime().toString()+","+events[i].geteTime().toString()+","+events[i].getsDay().toString()+","+events[i].geteDay().toString();
-
-                if (events[i].isWorkType())
-                    str= str+",work";
-                else
-                    str = str+",personal";
-                str="("+str+")\n";
-                count++;
-                writer.write(str);
-            }
-            writer.close();
-            System.out.printf("Number events exported : %d\n",count);
-        }catch(IOException e){
-                System.out.println("Export Events error: "+e.getMessage());
-        }
-
-    }
-
-    @FXML
+    @FXML //tied to month back button, resets all necessary labels for a new month view
     private void monthBackBTN(){
         if(currMonth==0){
             currMonth=11;
@@ -390,7 +350,7 @@ public class main_controller extends universal_controller{
        updateIndicators();
     }
 
-    @FXML
+    @FXML //tied to month forward button, resets all necessary labels for a new month view
     private void monthForwardBTN(){
         if(currMonth==11){
             currMonth=0;
@@ -404,7 +364,7 @@ public class main_controller extends universal_controller{
         updateIndicators();
     }
 
-    @FXML
+    @FXML//sets the month/year labels in the header
     private static void setMonthYearLabels(Label month_LBL, Label year_LBL){
         DateFormatSymbols dfs = new DateFormatSymbols();
         String[] months=dfs.getMonths();
@@ -414,6 +374,7 @@ public class main_controller extends universal_controller{
         year_LBL.setText(Integer.toString(currYear));
     }
 
+    @FXML //sets the number labels in each calendar cell based on month/year being viewed
     private static void setCalendarCellLabels(int month, int year){
         String firstDayStr = getFirstDay(month,year);
         int firstDay=-1;
@@ -451,15 +412,60 @@ public class main_controller extends universal_controller{
             day_labels[i].setText("");
     }
 
-
-    @FXML private void open_pref(){ new_window(Main.screenList.get(1));
-    }
-    @FXML private void open_create(){new_window(Main.screenList.get(2)); }
+    //brings new screen into focus
+    @FXML private void open_pref(){new_window(Main.screenList.get(1));}
+    @FXML private void open_event_manager(){new_window(Main.screenList.get(2));}
     @FXML private void open_search(){new_window(Main.screenList.get(3));}
 
+    //given a row/col cordinate, use currMonth/currYear to compute actual day of month
+    private int day_to_offset(String day){
+        switch(day){
+            case "Sunday":
+                return 0;
+            case "Monday":
+                return 1;
+            case "Tuesday":
+                return 2;
+            case "Wednesday":
+                return 3;
+            case "Thursday":
+                return 4;
+            case "Friday":
+                return 5;
+            case "Saturday":
+                return 6;
+            default:
+                return -1;
+        }
+    }
 
+    //returns the day of month based on row/col from calendar grid pane
+    private int gridCordsToDayActual(int month, int year, int row, int col){
+        int dayActual;
+        String firstDay=getFirstDay(month,year);
+        int offset=day_to_offset(firstDay);
+        dayActual=(row)*7; //multiply by 7 for 7 days per row/week
+        dayActual+=col;//add day/col of week
+        dayActual-=offset-1; //compensate for blank spaces in row 1 assosciated with where 1st week of month starts
+        return dayActual;
+    }
 
-    @FXML private void delete_event() throws InterruptedException {
+    @FXML //activated via menu button, deletes all events in database
+    private void delete_all_events(){
+        Event[] events=DataServer.getAllEvent();
+        String sDay, eDay, sTime, eTime;
+        for(int i=0;i<Array.getLength(events);i++) {
+            sDay=events[i].getsDay().toString();
+            eDay=events[i].geteDay().toString();
+            sTime=events[i].getsTime().toString();
+            eTime=events[i].geteTime().toString();
+            DataServer.deleteEvent(sTime,eTime,sDay,eDay);
+        }
+        updateIndicators();
+    }
+
+    @FXML //activate via menu button, requires that an event indicator be selected, then deletes 1st event in that indicators range
+    private void delete_event() throws InterruptedException {
         if (selected_day_col != -1 && selected_day_row != -1 && selected_indicator != -1) {
             LocalTime min_time=null;
             LocalTime max_time=null;
@@ -504,49 +510,42 @@ public class main_controller extends universal_controller{
         }
     }
 
-    //given a row/col cordinate, use currMonth/currYear to compute actual day of month
-    private int day_to_offset(String day){
-        switch(day){
-            case "Sunday":
-                return 0;
-            case "Monday":
-                return 1;
-            case "Tuesday":
-                return 2;
-            case "Wednesday":
-                return 3;
-            case "Thursday":
-                return 4;
-            case "Friday":
-                return 5;
-            case "Saturday":
-                return 6;
-            default:
-                return -1;
-        }
-    }
-    private int gridCordsToDayActual(int month, int year, int row, int col){
-        int dayActual;
-        String firstDay=getFirstDay(month,year);
-        int offset=day_to_offset(firstDay);
-        dayActual=(row)*7; //multiply by 7 for 7 days per row/week
-        dayActual+=col;//add day/col of week
-        dayActual-=offset-1; //compensate for blank spaces in row 1 assosciated with where 1st week of month starts
-        return dayActual;
-    }
+    @FXML //activate via menu button, exports all events into a CSV like file in $HOME/cal_app
+    private void exportEvents(){
+        String desc,loc;
+        int count=0;
+        Event[] events = DataServer.getAllEvent();
+        String home = System.getProperty("user.home");
+        String str;
 
-    @FXML
-    private void delete_all_events(){
-        Event[] events=DataServer.getAllEvent();
-        String sDay, eDay, sTime, eTime;
-        for(int i=0;i<Array.getLength(events);i++) {
-            sDay=events[i].getsDay().toString();
-            eDay=events[i].geteDay().toString();
-            sTime=events[i].getsTime().toString();
-            eTime=events[i].geteTime().toString();
-            DataServer.deleteEvent(sTime,eTime,sDay,eDay);
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(home+"/cal_app/events.txt"));
+            for (int i = 0; i < Array.getLength(events); i++) {
+                str="";
+                str = str+events[i].getName();
+                desc = events[i].getDesc();
+                if(desc.compareTo("")!=0)
+                    str=str+","+desc;
+                loc = events[i].getLoc();
+                if(loc.compareTo("")!=0)
+                    str=str+","+loc;
+
+                str=str+","+events[i].getsTime().toString()+","+events[i].geteTime().toString()+","+events[i].getsDay().toString()+","+events[i].geteDay().toString();
+
+                if (events[i].isWorkType())
+                    str= str+",work";
+                else
+                    str = str+",personal";
+                str="("+str+")\n";
+                count++;
+                writer.write(str);
+            }
+            writer.close();
+            System.out.printf("Number events exported : %d\n",count);
+        }catch(IOException e){
+            System.out.println("Export Events error: "+e.getMessage());
         }
-        updateIndicators();
+
     }
 //    public static Event getSelected_event() {
 //        return selected_event;
