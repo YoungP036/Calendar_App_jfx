@@ -22,6 +22,11 @@ import java.time.LocalTime;
 public class main_controller extends universal_controller{
 
     private static int currMonth,currYear;
+    private int selected_day_row;
+    private int selected_day_col;
+    private int selected_indicator;
+    private static Event selected_event;
+
     @FXML private Label month_LBL, year_LBL;
     @FXML private GridPane days_pane;
     //one day label per calendar cell
@@ -81,13 +86,9 @@ public class main_controller extends universal_controller{
     @FXML private Pane  indicator_140, indicator_240, indicator_340, indicator_440;
     @FXML private Pane  indicator_141, indicator_241, indicator_341, indicator_441;
 
-//ADD SCREEN CONTROLS
-    @FXML private TextField sTime_TXT;
     private static Pane[][][] indicators;
     private static Label[] day_labels;
-    private int selected_day_row;
-    private int selected_day_col;
-    private int selected_indicator;
+
 
 
     @FXML
@@ -172,68 +173,67 @@ public class main_controller extends universal_controller{
     }
 
     @FXML private void edit_event(){
-        Event[] events;
-        Event target_event=null;
-        LocalDate target_day;
-        int row,col,ind,day,sHour,eHour;
-        row=selected_day_row;
-        col=selected_day_col;
-        ind=selected_indicator;
-
-        if(row==-1 || col==-1 || ind==-1) {
-            invalid_input_dialogue("Select one of the 4 indicators\nin a day cell before attempting edit");
-            return;
-        }
-        if(!indicators[row][col][ind].getStyle().toString().contains("-fx-background-color: #000000")){
-            invalid_input_dialogue("Select an event before attempting to edit");
-            return;
-        }
-        System.out.printf("indicator %d @ [%d][%d]\n",ind,row,col);
-        System.out.println(indicators[row][col][ind].getStyle().toString());
-
-        day=gridCordsToDayActual(currMonth,currYear,row,col);
-        if(day>0 && day<10)
-            target_day=LocalDate.parse(Integer.toString(currYear)+"-"+Integer.toString(currMonth+1)+"-0"+Integer.toString(day));
-        else
-            target_day=LocalDate.parse(Integer.toString(currYear)+"-"+Integer.toString(currMonth+1)+"-"+Integer.toString(day));
-
-        events=DataServer.getAllEvent();
-        for(int i=0;i<Array.getLength(events);i++) {
-            if (events[i].getsDay().compareTo(target_day)==0){
-                sHour=events[i].getsTime().getHour();
-                if(ind==0){
-                    if(sHour>=0 && sHour<=6) {
-                        target_event = events[i];
-                        break;
-                    }
-                }
-                else if(ind==1){
-                    if(sHour>6&&sHour<=12){
-                        target_event = events[i];
-                        break;
-                    }
-                }
-                else if(ind==2){
-                    if(sHour>12&&sHour<=18){
-                        target_event = events[i];
-                        break;
-                    }
-                }
-                else if(ind==3){
-                    if(sHour>186&&sHour<24){
-                        target_event = events[i];
-                        break;
-                    }
-                }
-            }
-        }
-
-
-        //TODO COMMUNICATE WITHOUT BREAKING DESIGN CONSTRAINTS
-        open_create();
-        try {
-            System.out.printf("Target event: %S on %S at %S\n", target_event.getName(), target_event.getsDay().toString(), target_event.getsTime().toString());
-        }catch(Exception e){System.out.println("No valid event detected\n");}
+//        Event[] events;
+//        Event target_event=null;
+//        LocalDate target_day;
+//        int row,col,ind,day,sHour,eHour;
+//        row=selected_day_row;
+//        col=selected_day_col;
+//        ind=selected_indicator;
+//
+//        if(row==-1 || col==-1 || ind==-1) {
+//            invalid_input_dialogue("Select one of the 4 indicators\nin a day cell before attempting edit");
+//            return;
+//        }
+//        if(!indicators[row][col][ind].getStyle().toString().contains("-fx-background-color: #000000")){
+//            invalid_input_dialogue("Select an event before attempting to edit");
+//            return;
+//        }
+//        System.out.printf("indicator %d @ [%d][%d]\n",ind,row,col);
+//        System.out.println(indicators[row][col][ind].getStyle().toString());
+//
+//        day=gridCordsToDayActual(currMonth,currYear,row,col);
+//        if(day>0 && day<10)
+//            target_day=LocalDate.parse(Integer.toString(currYear)+"-"+Integer.toString(currMonth+1)+"-0"+Integer.toString(day));
+//        else
+//            target_day=LocalDate.parse(Integer.toString(currYear)+"-"+Integer.toString(currMonth+1)+"-"+Integer.toString(day));
+//
+//        events=DataServer.getAllEvent();
+//        for(int i=0;i<Array.getLength(events);i++) {
+//            if (events[i].getsDay().compareTo(target_day)==0){
+//                sHour=events[i].getsTime().getHour();
+//                if(ind==0){
+//                    if(sHour>=0 && sHour<=6) {
+//                        target_event = events[i];
+//                        break;
+//                    }
+//                }
+//                else if(ind==1){
+//                    if(sHour>6&&sHour<=12){
+//                        target_event = events[i];
+//                        break;
+//                    }
+//                }
+//                else if(ind==2){
+//                    if(sHour>12&&sHour<=18){
+//                        target_event = events[i];
+//                        break;
+//                    }
+//                }
+//                else if(ind==3){
+//                    if(sHour>186&&sHour<24){
+//                        target_event = events[i];
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//
+//
+//        open_create();
+//        try {
+//            System.out.printf("Target event: %S on %S at %S\n", target_event.getName(), target_event.getsDay().toString(), target_event.getsTime().toString());
+//        }catch(Exception e){System.out.println("No valid event detected\n");}
     }
     @FXML private static void reset_indicators(){
         for(int i=0;i<6;i++)
@@ -314,48 +314,90 @@ public class main_controller extends universal_controller{
             }
         }
     }
-    @FXML private void selected_event(MouseEvent e){
-        Node source  = (Node)e.getSource();
-        Node parent= source.getParent().getParent();
+
+    @FXML private void selected_event(MouseEvent e) {
+        Node source = (Node) e.getSource();
+        Node parent = source.getParent().getParent();
         int prev_day_col, prev_day_row, prev_ind;
         Integer child_row = days_pane.getRowIndex(source);
         Integer parent_row = days_pane.getRowIndex(parent);
         Integer parent_col = days_pane.getColumnIndex(parent);
-        if(parent_row==null)
-            parent_row=0;
-        if(parent_col==null)
-            parent_col=0;
-        if(child_row==null)
-            child_row=0;
-        prev_day_col=selected_day_col;
-        prev_day_row=selected_day_row;
-        prev_ind=selected_indicator;
-        selected_indicator=child_row;
-        selected_day_col=parent_col;
-        selected_day_row=parent_row-1;//for some reason rows are starting at 1, everything else is starting at 0
+        if (parent_row == null)
+            parent_row = 0;
+        if (parent_col == null)
+            parent_col = 0;
+        if (child_row == null)
+            child_row = 0;
+        prev_day_col = selected_day_col;
+        prev_day_row = selected_day_row;
+        prev_ind = selected_indicator;
+        selected_indicator = child_row;
+        selected_day_col = parent_col;
+        selected_day_row = parent_row - 1;//for some reason rows are starting at 1, everything else is starting at 0
 
 //        System.out.printf("DBG Mouse clicked indicator %d in cell [%d,%d]\n",child_row.intValue(),parent_row.intValue(),parent_col.intValue());
 
         String prev_style;
         //safely deselect anything that was previously selected
-        if(prev_day_row!=-1 && prev_day_col!=-1 && prev_ind !=-1) {
+        if (prev_day_row != -1 && prev_day_col != -1 && prev_ind != -1) {
             prev_style = indicators[prev_day_row][prev_day_col][prev_ind].getStyle().toString();
             prev_style = prev_style.replaceAll("-fx-border-color: #[0-9a-f]+", "-fx-border-color: #00cc00");
             indicators[prev_day_row][prev_day_col][prev_ind].setStyle(prev_style);
         }
 
         //handle case where cell clicked is identical to last cell clicked, 2 sub cases, even number clicks and odd number clicks
-        if(prev_day_row==selected_day_row&& prev_day_col==selected_day_col&&prev_ind==selected_indicator) {
+        if (prev_day_row == selected_day_row && prev_day_col == selected_day_col && prev_ind == selected_indicator) {
             selected_day_row = -1;
-            selected_day_col=-1;
-            selected_indicator=-1;
+            selected_day_col = -1;
+            selected_indicator = -1;
             return;
         }
         //normal case where clicked cell is different from last clicked cell
-        else{
-            prev_style=indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().toString();
-            prev_style=prev_style.replaceAll("-fx-border-color: #[0-9a-f]+", "-fx-border-color: #6600ff");
+        else {
+            prev_style = indicators[selected_day_row][selected_day_col][selected_indicator].getStyle().toString();
+            prev_style = prev_style.replaceAll("-fx-border-color: #[0-9a-f]+", "-fx-border-color: #6600ff");
             indicators[selected_day_row][selected_day_col][selected_indicator].setStyle(prev_style);
+        }
+
+        //Capture most likely event
+        Event[] events = DataServer.getAllEvent();
+        int target_day = gridCordsToDayActual(currMonth, currYear, selected_day_row, selected_day_col);
+        try{
+            LocalDate selectedDate = LocalDate.of(currYear, currMonth+1, target_day);
+            selected_event=null;
+            boolean found_flag=false;
+
+            if (target_day > 0)
+                for (int i = 0; i < Array.getLength(events) && !found_flag; i++) {
+                    if (events[i].getsDay().compareTo(selectedDate)==0) {
+                        int hour = events[i].getsTime().getHour();
+                        if (selected_indicator == 0) {
+                            if (hour <= 6) {
+                                selected_event = events[i];
+                                found_flag=true;
+                            }
+                        } else if (selected_indicator == 1) {
+                            if (hour > 6 && hour <= 12) {
+                                selected_event = events[i];
+                                found_flag=true;
+                            }
+                        } else if (selected_indicator == 2) {
+                            if (hour > 12 && hour <= 18) {
+                                selected_event = events[i];
+                                found_flag=true;
+                            }
+                        } else if (selected_indicator == 3) {
+                            if (hour > 18 && hour <= 24) {
+                                selected_event = events[i];
+                                found_flag=true;
+                            }
+                        }
+                    }
+                }
+        }
+        catch(Exception err){System.out.println("Null Date Selected");}
+        finally{
+            selected_event=null;
         }
     }
 
@@ -567,5 +609,11 @@ public class main_controller extends universal_controller{
             DataServer.deleteEvent(sTime,eTime,sDay,eDay);
         }
         updateIndicators();
+    }
+    public static Event getSelected_event() {
+        return selected_event;
+    }
+    public void setSelected_event(Event selected_event) {
+        this.selected_event = selected_event;
     }
 }

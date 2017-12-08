@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="298.0" prefWidth="884.0" style="-fx-background-color: #00cc00;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.event_manager_controller">
+<AnchorPane onMouseMoved="#check_selected" prefHeight="298.0" prefWidth="884.0" style="-fx-background-color: #00cc00;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.event_manager_controller">
    <children>
       <Label layoutX="58.0" layoutY="26.0" text="Name" textAlignment="RIGHT" />
       <Label layoutX="34.0" layoutY="58.0" text="Start Date" textAlignment="RIGHT" />
@@ -22,7 +22,10 @@
       <TextField fx:id="name_TXT" layoutX="108.0" layoutY="21.0" prefHeight="26.0" prefWidth="198.0" />
       <TextField fx:id="loc_TXT" layoutX="110.0" layoutY="122.0" prefHeight="26.0" prefWidth="458.0" />
       <TextArea fx:id="desc_TXT" layoutX="109.0" layoutY="156.0" prefHeight="44.0" prefWidth="458.0" style="-fx-background-color: #AAEE00;" />
-      <Button fx:id="confirm_BTN" layoutX="407.0" layoutY="230.0" mnemonicParsing="false" onAction="#confirm_new" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #AAFFAA;" text="Add" />
+      <Button fx:id="confirm_BTN" layoutX="410.0" layoutY="230.0" mnemonicParsing="false" onAction="#confirm_new" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #AAFFAA;" text="Add New">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
       <Button fx:id="cancel_BTN" layoutX="240.0" layoutY="230.0" mnemonicParsing="false" onAction="#return_to_main" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #AAFFAA;" text="Cancel" />
       <TextField fx:id="sTime_TXT" layoutX="394.0" layoutY="21.0" onAction="#validate_sTime" promptText="HH:MM" />
       <TextField fx:id="eTime_TXT" layoutX="394.0" layoutY="53.0" onAction="#validate_eTime" promptText="HH:MM" />
@@ -30,12 +33,21 @@
       <Label layoutX="321.0" layoutY="58.0" text="End Time:" />
       <CheckBox fx:id="type_CHECK" layoutX="343.0" layoutY="91.0" mnemonicParsing="false" text="Work Event" />
       <ListView fx:id="events_LST" layoutX="576.0" layoutY="18.0" onMouseClicked="#select_event" prefHeight="271.0" prefWidth="303.0" />
-      <Button fx:id="edit_BTN" layoutX="491.0" layoutY="230.0" mnemonicParsing="false" onAction="#confirm_edits" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #AAFFAA;" text="Edit" />
+      <Button fx:id="edit_BTN" layoutX="491.0" layoutY="230.0" mnemonicParsing="false" onAction="#confirm_edits" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #AAFFAA;" text="Edit Old">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
       <Button fx:id="delete_BTN" layoutX="324.0" layoutY="230.0" mnemonicParsing="false" onAction="#confirm_delete" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #AAFFAA;" text="Delete" />
-      <Button fx:id="alarm_BTN" layoutX="162.0" layoutY="230.0" mnemonicParsing="false" onAction="#set_alarm" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #AAFFAA;" text="Set Alarm">
+      <Button fx:id="alarm_BTN" layoutX="9.0" layoutY="261.0" mnemonicParsing="false" onAction="#set_alarm" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #AAFFAA;" text="Set Alarm">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
+      <Button fx:id="alarmTest_BTN" layoutX="9.0" layoutY="230.0" mnemonicParsing="false" onAction="#test_alarm" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #AAFFAA;" text="Test Alarm">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="refresh_BTN" layoutX="163.0" layoutY="230.0" mnemonicParsing="false" onAction="#refresh" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #AAFFAA;" text="Refresh" />
    </children>
 </AnchorPane>

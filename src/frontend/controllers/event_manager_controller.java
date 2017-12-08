@@ -7,6 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,27 +29,87 @@ public class event_manager_controller extends universal_controller{
     @FXML private Button confirm_BTN;
     @FXML private  CheckBox type_CHECK;
     @FXML ListView events_LST;
+
+
+
     private Event selected_event;
 
     @FXML
     private void initialize(){
-        refresh_list();
+//        System.out.println("initializing manager scrn");
+//        Event ev=main_controller.getSelected_event();
+//        if(ev!=null){
+//            System.out.println("selected event: " + ev.getName());
+//            name_TXT.setText(ev.getName());
+//            loc_TXT.setText(ev.getLoc());
+//            sTime_TXT.setText(ev.getsTime().toString());
+//            eTime_TXT.setText(ev.geteTime().toString());
+//            desc_TXT.setText(ev.getDesc());
+//            type_CHECK.setSelected(ev.isWorkType());
+//            start_DATE.setValue(ev.getsDay());
+//            end_DATE.setValue(ev.geteDay());
+//        }
+//        else {
+//            System.out.println("selected event is null");
+//        }
         refresh_fields();
+        refresh_list();
     }
 
+    @FXML
+    private void refresh(){
+        refresh_fields();
+        refresh_list();
+    }
+    @FXML
+    private void check_selected(){
+//        Event ev = main_controller.getSelected_event();
+//        main_controller.setSelected_event(null);
+    }
     @FXML
     private void set_alarm(){
         if(selected_event!=null) {
             LocalTime time = selected_event.getsTime();
             LocalDate date = selected_event.getsDay();
+            System.out.println("DBG calling create_alarm(date,time)");
+
             create_alarm(date, time);
         }
     }
 
     @FXML
-    private void create_alarm(LocalDate date, LocalTime time){
-        //TODO spin thread to play alarm @date&&time
-        ;
+    private void test_alarm(){
+        create_alarm(LocalDate.now(), LocalTime.now().plusMinutes(1));
+    }
+
+    public void create_alarm(LocalDate today, LocalTime time) {
+        System.out.println("DBG in create alarm");
+        Thread t = new Thread() {
+            public void run() {
+                File alarm_wav = new File("alarm.wav");
+                System.out.println("DBG alarm thread running\n");
+                while (true) {
+                    System.out.println("DBG spinning");
+                    if (LocalDate.now().compareTo(today) == 0 && LocalTime.now().compareTo(time) == 0) {
+                        System.out.println("Breaking");
+                        PlaySound(alarm_wav);
+                        break;
+                    }
+                }
+            }
+        };
+        t.start();
+    }
+    private static void PlaySound(File Sound){
+        InputStream in;
+        try{
+            in = new FileInputStream(Sound);
+            AudioStream audio = new AudioStream(in);
+            AudioPlayer.player.start(audio);
+            Thread.sleep(7500);
+        }catch(Exception e){
+            System.out.println("Alarm sound error: " + e.getMessage());
+        }
     }
     @FXML
     private void refresh_fields(){
@@ -76,6 +142,7 @@ public class event_manager_controller extends universal_controller{
             selected_event=null;
             refresh_fields();
             refresh_list();
+            updateIndicators();
         }
     }
     @FXML
@@ -163,13 +230,11 @@ public class event_manager_controller extends universal_controller{
             Event ev = eb.createEvent();
             saveEvent(ev);
             updateIndicators();
+            refresh_list();
         }
         catch(Exception err){
             System.out.println("Invalid input: " + err.getMessage());
         }
-        finally {
-            Stage stage = (Stage) confirm_BTN.getScene().getWindow();
-            stage.close();
-        }
+
     }
 }
