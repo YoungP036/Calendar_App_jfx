@@ -73,7 +73,7 @@ public class event_manager_controller extends universal_controller{
     }
 
     //spins off a thread that will play an alert sound when the time is right
-    public void create_alarm(LocalDate today, LocalTime time) {
+    private void create_alarm(LocalDate today, LocalTime time) {
         System.out.println("DBG in create alarm");
         Thread t = new Thread() {
             public void run() {
